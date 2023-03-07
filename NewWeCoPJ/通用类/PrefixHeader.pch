@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  NewWeCoPJ
+//
+//  Created by CBQ on 2023/2/1.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Header.h"
+#import "languageNew.h"
+// 分类
+#import "UIView+Frame.h"
+#import "NSString+Zero.h"
+#import "UIButton+type.h"
+#import "RedxRootNewViewController.h"
+#import "AAGlobalMacro.h"
+#import "ZJBLStoreShopTypeAlert.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "MJRefresh.h"
+#import "UIImageView+WebCache.h"
+#import <WebKit/WebKit.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
