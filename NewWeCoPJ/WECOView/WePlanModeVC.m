@@ -64,6 +64,16 @@
     
     [_conTable registerClass:[WePCSDJCell class] forCellReuseIdentifier:@"USSETCELL"];
     
+    MJRefreshNormalHeader *header2  = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
+
+        [self GetDataClick];
+
+    }];
+    header2.automaticallyChangeAlpha = YES;    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    header2.lastUpdatedTimeLabel.hidden = YES;    // 隐藏时间
+    header2.stateLabel.hidden = YES;
+    _conTable.mj_header = header2;
+    
     _viewAlert = [[USSetValueAlterView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight)];
     [self.view addSubview:_viewAlert];
     _viewAlert.hidden = YES;

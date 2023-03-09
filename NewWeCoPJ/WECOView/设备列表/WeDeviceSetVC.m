@@ -67,7 +67,7 @@
     [_conTable registerClass:[USSet1Cell class] forCellReuseIdentifier:@"USSETCELL"];
     
     
-    UIButton *deletebtn = [self goToInitButton:CGRectMake(30*NOW_SIZE, kScreenHeight-40*HEIGHT_SIZE-45*HEIGHT_SIZE, kScreenWidth-60*NOW_SIZE, 45*HEIGHT_SIZE) TypeNum:1 fontSize:14*HEIGHT_SIZE titleString:@"Delete" selImgString:@"" norImgString:@""];
+    UIButton *deletebtn = [self goToInitButton:CGRectMake(30*NOW_SIZE, kScreenHeight-40*HEIGHT_SIZE-45*HEIGHT_SIZE-TabbarHeight, kScreenWidth-60*NOW_SIZE, 45*HEIGHT_SIZE) TypeNum:1 fontSize:14*HEIGHT_SIZE titleString:@"Delete" selImgString:@"" norImgString:@""];
     deletebtn.backgroundColor = mainColor;
     deletebtn.layer.cornerRadius = 8*HEIGHT_SIZE;
     deletebtn.layer.masksToBounds = YES;

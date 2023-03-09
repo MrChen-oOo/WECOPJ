@@ -522,11 +522,11 @@
         [self showToastViewWithTitle:home_Stacountry];
         return;
     }
-    if(citytf.text.length == 0){
-        
-        [self showToastViewWithTitle:home_StaCity];
-        return;
-    }
+//    if(citytf.text.length == 0){
+//
+//        [self showToastViewWithTitle:home_StaCity];
+//        return;
+//    }
     if(addresstf.text.length == 0){
         
         [self showToastViewWithTitle:home_StaAddresst];

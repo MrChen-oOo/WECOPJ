@@ -52,6 +52,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkChanged:) name:ZYNetworkAccessibilityChangedNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createTipsView00) name:@"APPNetworkRestrictedNotif" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createTipsView11) name:@"APPNetworkRestrictedNotReachable" object:nil];
 
     
     
@@ -135,6 +136,12 @@
     [self createTipsView:@"1"];
 }
 
+- (void)createTipsView11{
+    
+    [self createTipsView:@"2"];
+
+}
+
 - (void)createTipsView:(NSString *)typestr{
     
     
@@ -148,24 +155,38 @@
     [KEYWINDOW addSubview:netShowView];
     self.netBGView = netShowView;
     
-    NSString *tipsStr = @"Network permission required, please go to setting and enable usage.";
+    NSString *tipsStr0 = @"Network permission required";
+    NSString *tipsStr1 = @"please go to setting and enable usage";
+
     if ([typestr isEqualToString:@"2"]) {
-        tipsStr = @"Network exception, please check the network";
+        tipsStr0 = @"Network exception";
+        tipsStr1 = @"Please check the network";
+
     }
-    CGSize strsize = [self getStringSize:21*HEIGHT_SIZE Wsize:netShowView.xmg_width-20*NOW_SIZE Hsize:200*HEIGHT_SIZE stringName:tipsStr];
-    UIView *whiView = [[UIView alloc]initWithFrame:CGRectMake(30*NOW_SIZE, (kScreenHeight-kNavBarHeight)/2-100*HEIGHT_SIZE, kScreenWidth-60*NOW_SIZE, strsize.height+40*HEIGHT_SIZE+45*HEIGHT_SIZE)];
+//    CGSize strsize = [self getStringSize:21*HEIGHT_SIZE Wsize:netShowView.xmg_width-20*NOW_SIZE Hsize:200*HEIGHT_SIZE stringName:tipsStr];
+    UIView *whiView = [[UIView alloc]initWithFrame:CGRectMake(30*NOW_SIZE, (kScreenHeight-kNavBarHeight)/2-100*HEIGHT_SIZE, kScreenWidth-60*NOW_SIZE, 100*HEIGHT_SIZE+45*HEIGHT_SIZE)];
     whiView.layer.cornerRadius = 15*HEIGHT_SIZE;
     whiView.layer.masksToBounds = YES;
     whiView.backgroundColor = WhiteColor;
     [netShowView addSubview:whiView];
     
-    UILabel *titLB = [[UILabel alloc]initWithFrame:CGRectMake(10*NOW_SIZE, 20*HEIGHT_SIZE, whiView.xmg_width-20*NOW_SIZE, strsize.height)];
-    titLB.text = tipsStr;
-    titLB.font = FontSize(21*HEIGHT_SIZE);
+    UILabel *titLB = [[UILabel alloc]initWithFrame:CGRectMake(10*NOW_SIZE, 10*HEIGHT_SIZE, whiView.xmg_width-20*NOW_SIZE, 40*HEIGHT_SIZE)];
+    titLB.text = tipsStr0;
+    titLB.font = FontSize(16*HEIGHT_SIZE);
     titLB.textColor = colorblack_51;
     titLB.numberOfLines = 0;
+    titLB.textAlignment = NSTextAlignmentCenter;
     titLB.adjustsFontSizeToFitWidth = YES;
     [whiView addSubview:titLB];
+    
+    UILabel *contLB = [[UILabel alloc]initWithFrame:CGRectMake(10*NOW_SIZE, CGRectGetMaxY(titLB.frame), whiView.xmg_width-20*NOW_SIZE, 40*HEIGHT_SIZE)];
+    contLB.text = tipsStr1;
+    contLB.font = FontSize(16*HEIGHT_SIZE);
+    contLB.textColor = colorblack_102;
+    contLB.numberOfLines = 0;
+    contLB.textAlignment = NSTextAlignmentCenter;
+    contLB.adjustsFontSizeToFitWidth = YES;
+    [whiView addSubview:contLB];
     
     NSArray *namarr = @[root_cancel,NewLocat_gotoSetWifi];
     
@@ -173,7 +194,7 @@
         namarr = @[root_cancel,root_OK];
     }
     for (int i = 0; i < namarr.count; i++) {
-        UIButton *onebtn = [[UIButton alloc]initWithFrame:CGRectMake(-1*NOW_SIZE+(whiView.xmg_width/2+1*NOW_SIZE)*i, CGRectGetMaxY(titLB.frame)+20*HEIGHT_SIZE, (whiView.xmg_width/2+1*NOW_SIZE), 45*HEIGHT_SIZE)];
+        UIButton *onebtn = [[UIButton alloc]initWithFrame:CGRectMake(-1*NOW_SIZE+(whiView.xmg_width/2+1*NOW_SIZE)*i, CGRectGetMaxY(contLB.frame)+10*HEIGHT_SIZE, (whiView.xmg_width/2+1*NOW_SIZE), 45*HEIGHT_SIZE)];
         [onebtn setTitle:namarr[i] forState:UIControlStateNormal];
         onebtn.layer.borderColor = backgroundNewColor.CGColor;
         onebtn.layer.borderWidth = 1*NOW_SIZE;

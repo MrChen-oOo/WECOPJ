@@ -663,6 +663,7 @@
 
 
                 [self.selectorPatnArray removeAllObjects];
+                self.isNowEditting = NO;
                 [self getAllDevicedata];
 
             }

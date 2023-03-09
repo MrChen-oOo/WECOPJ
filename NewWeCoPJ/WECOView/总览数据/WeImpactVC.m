@@ -44,6 +44,7 @@
 @property (nonatomic, strong) NSString *incomeUnit;
 @property (nonatomic, assign) CGFloat solarsetY;
 @property (nonatomic, strong) UILabel *nowtimeLB;
+@property (nonatomic, strong) NSString *isHaveData;
 
 
 @end
@@ -96,6 +97,16 @@
 //    WedateImg
     _bgscrollv = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kNavBarHeight)];
     [self.view addSubview:_bgscrollv];
+    
+    MJRefreshNormalHeader *header2  = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
+
+        [self getAllDevicedata];
+
+    }];
+    header2.automaticallyChangeAlpha = YES;    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    header2.lastUpdatedTimeLabel.hidden = YES;    // 隐藏时间
+    header2.stateLabel.hidden = YES;
+    _bgscrollv.mj_header = header2;
     
 //    UIView *bg1view = [self goToInitView:CGRectMake(0, 0, kScreenWidth, 40*HEIGHT_SIZE) backgroundColor:WhiteColor];
 //    [_bgscrollv addSubview:bg1view];
@@ -364,6 +375,12 @@
 }
 
 - (AAChartModel *)configureColumnChart:(NSArray *)dataArr{
+    NSNumber *wide = @1;
+    NSString *titstr = @"";
+    if (dataArr.count == 0 || [_isHaveData isEqualToString:@"0"]) {
+        wide = @0;
+        titstr = @"No chart data";
+    }
     
     chartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
@@ -715,7 +732,8 @@
 
     [RedxBaseRequest myHttpPost:urlstr parameters:pramdic Method:HEAD_URL success:^(id responseObject) {
         [self hideProgressView];
-     
+        [self.bgscrollv.mj_header endRefreshing];
+
         
         NSDictionary *datadic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
 
@@ -806,7 +824,11 @@
                     id enerarr = netDic[@"saveCosts"];
                     if([enerarr isKindOfClass:[NSArray class]]){
                         _Y_dataArr = [NSMutableArray arrayWithArray:enerarr];
+                        _isHaveData = @"1";
 
+                    }else{
+                        _isHaveData = @"0";
+                        [_Y_dataArr removeAllObjects];
                     }
                     
                     [self initAAChatView];
@@ -820,10 +842,14 @@
         
     } failure:^(NSError *error) {
         [self hideProgressView];
+        [self.bgscrollv.mj_header endRefreshing];
+
         if (error) {
             [self showToastViewWithTitle:linkTimeOut1];
 
         }
+        _isHaveData = @"0";
+        [_Y_dataArr removeAllObjects];
         [self initAAChatView];
     }];
 }

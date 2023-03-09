@@ -544,8 +544,12 @@ float Time=25.f;
 
                 
             }else if ([NetworkStatus isEqualToString:@"NotReachable"]){
-//                [[NSNotificationCenter defaultCenter]postNotificationName:@"APPNetworkRestrictedNotif" object:nil userInfo:@{}];
-                [self showAlertViewWithTitle:@"Network exception" message:@"please check the network" cancelButtonTitle:root_OK];
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"APPNetworkRestrictedNotReachable" object:nil userInfo:@{}];
+                
+//                [self showAlertViewWithTitle:@"Network exception" message:@"please check the network" cancelButtonTitle:root_OK];
+                
+                
+                
                 error = nil;
 
 

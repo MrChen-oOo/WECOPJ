@@ -61,6 +61,19 @@ static CGFloat DDPMAX_TABLEVIEW_HEIGHT(){
         [self.window addSubview:self.wrapperView];
         [self.titleButton mas_remakeConstraints:^(RedxMASConstraintMaker *make) {
             make.center.equalTo(self);
+            CGSize texsiz = [self getStringSize:16*HEIGHT_SIZE Wsize:(kScreenWidth-180*NOW_SIZE) Hsize:30*HEIGHT_SIZE stringName:self.titleButton.titleLabel.text];
+            if (texsiz.width < self.width){
+                self.titleButton.titleLabel.numberOfLines = 1;
+                self.titleButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+
+            }else{
+                self.titleButton.titleLabel.numberOfLines = 2;
+                self.titleButton.titleLabel.adjustsFontSizeToFitWidth = NO;
+
+
+            }
+            make.width.mas_equalTo(texsiz.width);
+            
         }];
         [self.arrowImageView mas_remakeConstraints:^(RedxMASConstraintMaker *make) {
             make.left.equalTo(self.titleButton.mas_right).offset(0);
@@ -113,7 +126,8 @@ static CGFloat DDPMAX_TABLEVIEW_HEIGHT(){
     cell.textLabel.font = [UIFont systemFontOfSize:13.f];
     cell.textLabel.textAlignment=NSTextAlignmentCenter;
     cell.textLabel.textColor = colorblack_102;
-      cell.textLabel.adjustsFontSizeToFitWidth=YES;
+    cell.textLabel.numberOfLines = 2;
+//    cell.textLabel.adjustsFontSizeToFitWidth=YES;
     return cell;
 }
 #pragma mark -- UITableViewDataDelegate --
@@ -125,6 +139,26 @@ static CGFloat DDPMAX_TABLEVIEW_HEIGHT(){
     {
         self.selectedAtIndex((int)indexPath.row);
     }
+    [self.titleButton mas_remakeConstraints:^(RedxMASConstraintMaker *make) {
+        make.center.equalTo(self);
+        CGSize texsiz = [self getStringSize:16*HEIGHT_SIZE Wsize:(kScreenWidth-180*NOW_SIZE) Hsize:30*HEIGHT_SIZE stringName:self.titleButton.titleLabel.text];
+        if (texsiz.width < self.width){
+            self.titleButton.titleLabel.numberOfLines = 1;
+            self.titleButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+
+        }else{
+            self.titleButton.titleLabel.numberOfLines = 2;
+            self.titleButton.titleLabel.adjustsFontSizeToFitWidth = NO;
+
+
+        }
+        make.width.mas_equalTo(texsiz.width);
+        
+    }];
+    [self.arrowImageView mas_remakeConstraints:^(RedxMASConstraintMaker *make) {
+        make.left.equalTo(self.titleButton.mas_right).offset(0);
+        make.centerY.equalTo(self.titleButton.mas_centerY);
+    }];
 }
 #pragma mark -- handle actions --
 - (void)handleTapOnTitleButton:(UIButton *)button
@@ -266,6 +300,8 @@ static CGFloat DDPMAX_TABLEVIEW_HEIGHT(){
         [_titleButton setTitle:[self.titles objectAtIndex:0] forState:UIControlStateNormal];
         [_titleButton addTarget:self action:@selector(handleTapOnTitleButton:) forControlEvents:UIControlEventTouchUpInside];
         [_titleButton.titleLabel setFont:self.textFont];
+        _titleButton.titleLabel.numberOfLines = 2;
+//        _titleButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         [_titleButton setTitleColor:self.textColor forState:UIControlStateNormal];
     }
     return _titleButton;
@@ -355,5 +391,10 @@ static CGFloat DDPMAX_TABLEVIEW_HEIGHT(){
         return;
     }
     _width = width;
+}
+-(CGSize)getStringSize:(float)fontSize Wsize:(float)Wsize Hsize:(float)Hsize stringName:(NSString*)stringName{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObject:[UIFont systemFontOfSize:fontSize] forKey:NSFontAttributeName];
+    CGSize size = [stringName boundingRectWithSize:CGSizeMake(Wsize, Hsize) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return size;
 }
 @end

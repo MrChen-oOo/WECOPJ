@@ -327,8 +327,7 @@
                 
             }
             
-            
-            
+//            _plantNameArr = [[NSMutableArray alloc]initWithArray:@[@"skandlaljdasjdjalhcfhaoidhisajdijsaidhiashiohfoahfijsaidjoiasjdasd",@"sahdohasdsaidas"]];
             _menuView = [[RedxKTDropdownMenuView alloc] initWithFrame:CGRectMake(kScreenWidth/2-100, 0,200, 44) titles:_plantNameArr];
             
             __weak typeof(self) weakSelf = self;
