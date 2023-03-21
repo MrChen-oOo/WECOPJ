@@ -44,7 +44,7 @@
     self.numTextFiled.text = numStr;
     self.paramStr = paramsStr;
     self.hiddenLabel.hidden = numStr.length == 0 ? NO : YES;
-    
+    self.titleLabel.text = titeleStr;
     if(isHave == YES) {
         if(indexPath.section == 1 && indexPath.row == 6) {
             self.unitLabel.text =  @"   ";
