@@ -42,10 +42,19 @@
     _PeakValueArray = [NSMutableArray array];
     _TimeValueArray = [NSMutableArray array];
     
-    _PeakValueArray = [NSMutableArray arrayWithArray:@[@[@"0.0kW",@"0.0kW",@"0.0kW",@"0.0kW"],@[@"0.0kW",@"0.0kW",@"0.0kW",@"0.0kW"]]];
-    _TimeValueArray = [NSMutableArray arrayWithArray:@[@[@"00:00-00:00",@"00:00-00:00",@"00:00-00:00",@"00:00-00:00"],@[@"00:00-00:00",@"00:00-00:00",@"00:00-00:00",@"00:00-00:00"]]];
-    _peekKeyArray = [NSMutableArray arrayWithArray:@[@[@"chargePower1",@"chargePower2",@"chargePower3",@"chargePower4"],@[@"dischargePower1",@"dischargePower2",@"dischargePower3",@"dischargePower4"]]];
-    _timeKeyArray = [NSMutableArray arrayWithArray:@[@[@"batteryChargingTime1",@"batteryChargingTime2",@"batteryChargingTime3",@"batteryChargingTime4"],@[@"batteryDischargingTime1",@"batteryDischargingTime2",@"batteryDischargingTime3",@"batteryDischargingTime4"]]];
+    if ([_maindevType isEqualToString:@"1"]) {//麦格瑞
+        _PeakValueArray = [NSMutableArray arrayWithArray:@[@[@"0",@"0",@"0"],@[@"0",@"0",@"0"]]];
+        _TimeValueArray = [NSMutableArray arrayWithArray:@[@[@"00:00-00:00",@"00:00-00:00",@"00:00-00:00"],@[@"00:00-00:00",@"00:00-00:00",@"00:00-00:00"]]];
+        _peekKeyArray = [NSMutableArray arrayWithArray:@[@[@"chargePower1",@"chargePower2",@"chargePower3"],@[@"dischargePower1",@"dischargePower2",@"dischargePower3"]]];
+        _timeKeyArray = [NSMutableArray arrayWithArray:@[@[@"batteryChargingTime1",@"batteryChargingTime2",@"batteryChargingTime3"],@[@"batteryDischargingTime1",@"batteryDischargingTime2",@"batteryDischargingTime3"]]];
+    }else{
+        _PeakValueArray = [NSMutableArray arrayWithArray:@[@[@"0.0",@"0.0",@"0.0",@"0.0"],@[@"0.0",@"0.0",@"0.0",@"0.0"]]];
+        _TimeValueArray = [NSMutableArray arrayWithArray:@[@[@"00:00-00:00",@"00:00-00:00",@"00:00-00:00",@"00:00-00:00"],@[@"00:00-00:00",@"00:00-00:00",@"00:00-00:00",@"00:00-00:00"]]];
+        _peekKeyArray = [NSMutableArray arrayWithArray:@[@[@"chargePower1",@"chargePower2",@"chargePower3",@"chargePower4"],@[@"dischargePower1",@"dischargePower2",@"dischargePower3",@"dischargePower4"]]];
+        _timeKeyArray = [NSMutableArray arrayWithArray:@[@[@"batteryChargingTime1",@"batteryChargingTime2",@"batteryChargingTime3",@"batteryChargingTime4"],@[@"batteryDischargingTime1",@"batteryDischargingTime2",@"batteryDischargingTime3",@"batteryDischargingTime4"]]];
+    }
+    
+    
 
     [self createSetUI];
     [self GetDataClick];
@@ -128,6 +137,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.peekSendBlock = ^(UILabel * _Nonnull peekVLB) {
+        
+        if ([self.maindevType isEqualToString:@"1"]) {
+            return;
+        }
         [self peekClick:peekVLB indexRow:indexPath.row section:indexPath.section];
     };
     cell.timeSendBlock = ^(UILabel * _Nonnull timeVLB) {
@@ -264,7 +277,8 @@
 //            }
             
             NSArray *onearr = _TimeValueArray[section];
-    
+            
+            NSArray *powerarr = _PeakValueArray[section];
             NSMutableArray *oldtimeArr = [[NSMutableArray alloc]init];
             
             
@@ -307,10 +321,30 @@
             // 2. 通过判断区间是否重合,来判断是否有重叠时间
             int starMin0 = [starArr[0] intValue]*60 + [starArr[1] intValue]; // 新加时间的开始时间
             int endMin0 = [starArr2[0] intValue]*60 + [starArr2[1] intValue]; // 新加时间的结束时间
+            NSString *powValu = powerarr[rowNumb];
+            NSString *removeDanweistr = [self removeDanwei:powValu danweiStr:@"kW"];
             
-            if (starMin0 == endMin0) {
-                [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
-                return ;
+            
+          
+            
+            if (starMin0 == endMin0 ) {
+                
+                if (endMin0 == 0) {
+                    
+
+                    if(![_maindevType isEqualToString:@"1"]){
+                        if ([removeDanweistr floatValue] != 0) {
+                            [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                            return;
+                        }
+                    }
+                    
+                }else{
+                    [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                    return ;
+                }
+                
+                
             }
             NSString *newTime = [NSString stringWithFormat:@"%@:%@-%@:%@", starArr[0],starArr[1], starArr2[0],starArr2[1]];
 
@@ -322,16 +356,20 @@
         //            return ;
         //        }
                 // 因为出现跨天的情况需要拆成两段时间才能判断  23:00-1:00  ->>  23:00-23:59 ,00:00-01:00
-                NSString *newTime1 = [NSString stringWithFormat:@"%@:%@-23:59",starArr[0],starArr[1]];
-                NSString *newTime2 = [NSString stringWithFormat:@"00:00-%@:%@",starArr2[0],starArr2[1]];
-                for (int i = 0; i < times.count; i++) {
-                    BOOL B1 = [self isOverlappingWithTime0:newTime1 Time1:times[i]];
-                    BOOL B2 = [self isOverlappingWithTime0:newTime2 Time1:times[i]];
-                    if (B1 || B2) {
-                        isBeing = YES;
-                        break;
-                    }
-                }
+//                NSString *newTime1 = [NSString stringWithFormat:@"%@:%@-23:59",starArr[0],starArr[1]];
+//                NSString *newTime2 = [NSString stringWithFormat:@"00:00-%@:%@",starArr2[0],starArr2[1]];
+//                for (int i = 0; i < times.count; i++) {
+//                    BOOL B1 = [self isOverlappingWithTime0:newTime1 Time1:times[i]];
+//                    BOOL B2 = [self isOverlappingWithTime0:newTime2 Time1:times[i]];
+//                    if (B1 || B2) {
+//                        isBeing = YES;
+//                        break;
+//                    }
+//                }
+                    [self showToastViewWithTitle:root_bunengdayu_jieshushijian];
+
+                    return;
+    
             }else{
                 for (int i = 0; i < times.count; i++) {
                     isBeing = [self isOverlappingWithTime0:newTime Time1:times[i]];
@@ -513,6 +551,34 @@
             for (int t = 0; t < peakoneArr.count; t++) {
                 NSString *onepeek = peakoneArr[t];
                 NSString *onetime = timeoneArr[t];
+                
+                if(![_maindevType isEqualToString:@"1"]){
+
+                NSArray *timearr = [onetime componentsSeparatedByString:@"-"];
+                if (timearr.count > 1) {
+                    NSArray *starArr = [timearr[0] componentsSeparatedByString:@":"];
+                    NSArray *starArr2 = [timearr[0] componentsSeparatedByString:@":"];
+                    int starMin0 = [starArr[0] intValue]*60 + [starArr[1] intValue];     int endMin0 = [starArr2[0] intValue]*60 + [starArr2[1] intValue]; //
+
+                    if (starMin0 == endMin0 && starMin0 == 0 ) {//时间为0
+                        if ([onepeek floatValue] != 0) {//功率为0
+                            [self showToastViewWithTitle:root_SmartHome_394];
+
+                            
+                            return;
+                        }
+                    }
+                    
+                    if (starMin0 != 0 || endMin0 != 0) {
+                        if ([onepeek floatValue] == 0) {
+                            [self showToastViewWithTitle:smartHome_inputPower];
+                            return;
+
+                        }
+                    }
+                }
+                }
+                
 
                 NSString *oneSend = [NSString stringWithFormat:@"%@-%@",onepeek,onetime];
                 [sendArr addObject:oneSend];
@@ -558,7 +624,7 @@
     
     [RedxBaseRequest myHttpPost:@"/v1/manager/getPlanningModeInfo" parameters:@{@"deviceSn":_devSN} Method:HEAD_URL success:^(id responseObject) {
         [self hideProgressView];
-
+        [_conTable.mj_header endRefreshing];
 
         NSDictionary *datadic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
 
@@ -574,8 +640,9 @@
                 if([obj isKindOfClass:[NSDictionary class]]){
                     
                     NSDictionary *objDic = (NSDictionary *)obj;
-                    _PeakValueArray = [NSMutableArray array];
                     _TimeValueArray = [NSMutableArray array];
+                    _PeakValueArray = [NSMutableArray array];
+                    
                     for (int i = 0; i < self.peekKeyArray.count; i ++) {
                         
                         NSArray *onekeyArr = self.peekKeyArray[i];
@@ -602,7 +669,6 @@
                             [peekVArr addObject:peekValue];
                             [timeVArr addObject:timeValue];
                         }
-                        
                         [_PeakValueArray addObject:peekVArr];
                         [_TimeValueArray addObject:timeVArr];
                     }
@@ -617,6 +683,8 @@
 
     } failure:^(NSError *error) {
         [self hideProgressView];
+        [_conTable.mj_header endRefreshing];
+
     }];
 }
 @end

@@ -110,6 +110,7 @@
             
             WePlanModeVC *planmodelVC = [[WePlanModeVC alloc]init];
             planmodelVC.devSN = _devSN;
+            planmodelVC.maindevType = _maindevType;
             [self.navigationController pushViewController:planmodelVC animated:YES];
             
         }

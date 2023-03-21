@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WePlanModeVC : RedxRootNewViewController
 @property (nonatomic, strong)NSString *devSN;
+@property (nonatomic, strong)NSString *maindevType;//0：PCS；1：逆变器
 
 @end
 

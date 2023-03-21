@@ -101,6 +101,14 @@
         cell = [[WePCSDJCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WePCSDJCellID"];
         
     }
+    
+    if (indexPath.row < 2) {
+        cell.leftNameLB.text = @"peak Price";
+    }else{
+        cell.leftNameLB.text = @"Off-Peak Price";
+
+    }
+    
     if(indexPath.row < self.PeakValueArray.count){
         NSString *peekstr = self.PeakValueArray[indexPath.row];
         if([peekstr containsString:_unitStr]){
@@ -226,6 +234,38 @@
             NSArray *starArr2 = (NSArray *)selectValue2;
             NSString *starstr2 = [starArr2 componentsJoinedByString:@":"];
             
+            
+            
+            
+            
+            // 2. 通过判断区间是否重合,来判断是否有重叠时间
+            int starMin0 = [starArr[0] intValue]*60 + [starArr[1] intValue]; // 新加时间的开始时间
+            int endMin0 = [starArr2[0] intValue]*60 + [starArr2[1] intValue]; // 新加时间的结束时间
+//            NSString *peekstr = self.PeakValueArray[rowNumb];
+            if (starMin0 == endMin0 && endMin0 != 0) {
+                
+//                if (endMin0 == 0) {
+//                    NSString *removeDanweistr = [self removeDanwei:peekstr danweiStr:_unitStr];
+//
+//                    if ([removeDanweistr floatValue] != 0) {
+//                        [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+//                        return;
+//                    }
+//                }else{
+                    [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                    return ;
+//                }
+                
+                
+            }
+            
+            if (endMin0 < starMin0) { // 结束时间小于开始时间代表是跨天的时间段
+                [self showToastViewWithTitle:root_bunengdayu_jieshushijian];
+
+                return;
+                
+
+            }
             
 //            [self timeisOverStarTimeH:[starArr[0] intValue] starTimeM:[starArr[1] intValue] EndTimeH:[starArr2[0] intValue] EndTimeM:[starArr2[1] intValue] :rowNumb];
 
@@ -359,6 +399,38 @@
             NSArray *peekarr = [onepeek componentsSeparatedByString:_unitStr];
             onepeek = peekarr.firstObject;
             NSString *onetime = _TimeValueArray[i];
+            
+            
+            NSArray *timearr = [onetime componentsSeparatedByString:@"-"];
+            if (timearr.count > 1) {
+                NSArray *starArr = [timearr[0] componentsSeparatedByString:@":"];
+                NSArray *starArr2 = [timearr[0] componentsSeparatedByString:@":"];
+                int starMin0 = [starArr[0] intValue]*60 + [starArr[1] intValue];     int endMin0 = [starArr2[0] intValue]*60 + [starArr2[1] intValue]; //
+
+                if (starMin0 == endMin0 && starMin0 == 0 ) {//时间为0
+                    if ([onepeek floatValue] != 0) {//功率为0
+                        [self showToastViewWithTitle:root_SmartHome_394];
+
+                        
+                        return;
+                    }
+                }
+                
+                if (starMin0 != 0 || endMin0 != 0) {
+                    if ([onepeek floatValue] == 0) {
+                        if (i == 0 || i == 1) {
+                            [self showToastViewWithTitle:@"Please input Peak Price"];
+
+                        }else{
+                            [self showToastViewWithTitle:@"Please input Off-peak Price"];
+
+                        }
+                        return;
+
+                    }
+                }
+            }
+            
 
             NSString *oneSend = [NSString stringWithFormat:@"%@-%@",onepeek,onetime];
             [sendArr addObject:oneSend];
@@ -433,7 +505,7 @@
                         NSString *timeValue = [NSString stringWithFormat:@"%@",objDic[timeoneKey]];
 
                         if(kStringIsEmpty(peekValue)){
-                            peekValue = @"--";
+                            peekValue = @"0";
                         }
                         if(kStringIsEmpty(timeValue)){
                             timeValue = @"--";

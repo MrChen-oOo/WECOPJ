@@ -35,19 +35,19 @@
     UIColor *V0Color=COLOR(157, 182, 248, 1);//COLOR(93,98,104,1);
     
   
-    if (_batValue<15) {
+    if (_batValue<1) {
         Count=0;
         V0Color=[UIColor redColor];
     }else{
-        if ((_batValue<26) && (_batValue>=15)) {
+        if ((_batValue<20) && (_batValue>=1)) {
             Count=1;
-        }else if ((_batValue<46) && (_batValue>=26)) {
+        }else if ((_batValue<40) && (_batValue>=20)) {
             Count=2;
-        }else if ((_batValue<66) && (_batValue>=46)) {
+        }else if ((_batValue<60) && (_batValue>=40)) {
             Count=3;
-        }else if ((_batValue<86) && (_batValue>=66)) {
+        }else if ((_batValue<80) && (_batValue>=60)) {
             Count=4;
-        }else if (_batValue>=86) {
+        }else if (_batValue>=80) {
             Count=5;
         }
         

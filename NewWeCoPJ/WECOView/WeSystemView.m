@@ -89,17 +89,21 @@
         spaceF = (self.xmg_width-leftSpace*2-(30*HEIGHT_SIZE+30*HEIGHT_SIZE)*2-140*HEIGHT_SIZE)/4;
     }
     
-    NSString *mainIMGName = @"PCSIcon";//类型0：PCS；1：逆变器
+    NSString *mainIMGName = @"pcsMainIcon";//类型0：PCS；1：逆变器
     
     NSString *mainDeviceType = [NSString stringWithFormat:@"%@",self.dataDic[@"mainDeviceType"]];
     
     if ([mainDeviceType isEqualToString:@"1"]) {
-        mainIMGName = @"XPIcon";
+        mainIMGName = @"MgrMainIcon";
     }
     
     CGSize offImgSize0 = IMAGE(@"leftUpOff").size;
-    CGSize MainIcon = IMAGE(mainIMGName).size;
+    CGSize mainIMGSize = IMAGE(mainIMGName).size;
     
+    CGFloat mainWide = mainIMGSize.height+20*HEIGHT_SIZE;
+    CGFloat mainheig = mainIMGSize.height+20*HEIGHT_SIZE;
+
+    CGSize MainIcon = CGSizeMake(mainWide, mainheig);
     
     CGFloat wide0 = self.xmg_width/2-MainIcon.width/2-15*HEIGHT_SIZE-20*HEIGHT_SIZE;
     CGFloat heig = offImgSize0.height*wide0/offImgSize0.width;
@@ -152,12 +156,17 @@
     
     
     
+    UIView *mainBgView = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(leftView.frame), CGRectGetMaxY(leftView.frame)+5*HEIGHT_SIZE-MainIcon.height/2, MainIcon.width, MainIcon.height)];
+    mainBgView.backgroundColor = COLOR(88, 130, 245, 1);
+    mainBgView.layer.cornerRadius = MainIcon.height/2;
+    mainBgView.layer.masksToBounds = YES;
     
+    [self addSubview:mainBgView];
     
-    UIImageView *mainIMGV = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(leftView.frame), CGRectGetMaxY(leftView.frame)+5*HEIGHT_SIZE-MainIcon.height/2, MainIcon.width, MainIcon.height)];
+    UIImageView *mainIMGV = [[UIImageView alloc]initWithFrame:CGRectMake((MainIcon.width - mainIMGSize.width)/2, (MainIcon.height - mainIMGSize.height)/2, mainIMGSize.width, mainIMGSize.height)];
     
     mainIMGV.image = IMAGE(mainIMGName);
-    [self addSubview:mainIMGV];
+    [mainBgView addSubview:mainIMGV];
     
     
     

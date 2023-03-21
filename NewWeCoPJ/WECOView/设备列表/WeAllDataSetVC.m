@@ -108,7 +108,7 @@
             ]];// @"SOC Dead Zone",
             _KeyArray = @[@"gridPower"];
             _KeyArray22 = @[@"gridPower"];
-            _danweiArr = @[@"kW"];
+            _danweiArr = @[@"%"];
 
 
         }

@@ -10,7 +10,6 @@
 #import "BDCMassageCell.h"
 #import "WeRightItemView.h"
 #import "WeDeviceSetVC.h"
-
 @interface WeDeviceDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, strong)UIButton *LeftBtn;
@@ -31,6 +30,11 @@
 @property (nonatomic, strong)UIScrollView *HVBRightScrollv;
 @property (nonatomic, assign)NSInteger PcsShowNumb;
 @property (nonatomic, assign)NSInteger MPPTShowNumb;
+@property (nonatomic, strong)NSArray *PCS1NamArr;
+@property (nonatomic, strong)NSArray *MPPTNamArr;
+@property (nonatomic, strong)UILabel *SecTitleLB;
+@property (nonatomic, strong)NSString *PCS1Title;
+@property (nonatomic, strong)NSString *Mppt1Title;
 
 @end
 
@@ -39,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Detail";
-    if([_deviceType isEqualToString:@"3"]){
+    if([_deviceType isEqualToString:@"3"] || [_deviceType isEqualToString:@"2"]){
         
         [self HVBOXFirstSet];
     }else{
@@ -143,19 +147,23 @@
     
     if([_deviceType isEqualToString:@"1"]){
         
-        _titleName = @[@"",@"PCS Data 1",@"PCS Data 2",@"PCS Data 3",@"PCS Data 4",@"MPPT Data 1",@"MPPT Data 2",@"MPPT Data 3",@"MPPT Data 4",@"Bat.Data"];
+        _PCS1NamArr = @[@"PCS Data 1",@"PCS Data 2",@"PCS Data 3",@"PCS Data 4"];
+        _MPPTNamArr = @[@"MPPT Data 1",@"MPPT Data 2",@"MPPT Data 3",@"MPPT Data 4"];
+        _PCS1Title = @"PCS Data 1";
+        _Mppt1Title = @"MPPT Data 1";
+        _titleName = @[@"",@"PCS Data 1",@"MPPT Data 1",@"Bat.Data"];
 
 //        ELE_Model,,@[ELE_FVersion]
         NSArray *nameArr3 = @[
         @[@[ELE_DevSN,ELE_Rated],@[@"Software Version",ELE_FVersion]],
+        @[@[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
         @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
         @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
-        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
-        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
+        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]]],
+        @[@[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
         @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
         @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
-        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
-        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
+        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]]],
         @[@[ELE_BatVoltage,ELE_BRunStatus],@[ELE_BSOC,ELE_BCurrent],@[ELE_BMCurrent,ELE_BSOH],@[ELE_BMVoltage,ELE_BMDCurrent],@[ELE_BMCellTemp,ELE_BMinCellTemp],@[ELE_BMCellVolt]]
         ];//ELE_BForbidC,,@[ELE_BForbidDisc]
         _leftNameArr = nameArr3;
@@ -163,17 +171,50 @@
         //@"deviceType",,@[@"firmwareVersion"]
         NSArray *KeyArr3 = @[@[@[@"deviceSn",@"ratedPower"],@[@"softwareVersion",@"firmwareVersion"]],
             
-            @[@[@"uPhaseVoltage1",@"uPhaseCurrent1"],@[@"vPhaseVoltage1",@"vPhaseCurrent1"],@[@"wPhaseVoltage1",@"wPhaseCurrent1"],@[@"activePower1",@"reactivePower1"],@[@"acFrequency1",@"workMode1"],@[@"deviceStatus1"]],
+            @[@[@[@"uPhaseVoltage1",@"uPhaseCurrent1"],@[@"vPhaseVoltage1",@"vPhaseCurrent1"],@[@"wPhaseVoltage1",@"wPhaseCurrent1"],@[@"activePower1",@"reactivePower1"],@[@"acFrequency1",@"workMode1"],@[@"deviceStatus1"]],
             @[@[@"uPhaseVoltage2",@"uPhaseCurrent2"],@[@"vPhaseVoltage2",@"vPhaseCurrent2"],@[@"wPhaseVoltage2",@"wPhaseCurrent2"],@[@"activePower2",@"reactivePower2"],@[@"acFrequency2",@"workMode2"],@[@"deviceStatus2"]],
             @[@[@"uPhaseVoltage3",@"uPhaseCurrent3"],@[@"vPhaseVoltage3",@"vPhaseCurrent3"],@[@"wPhaseVoltage3",@"wPhaseCurrent3"],@[@"activePower3",@"reactivePower3"],@[@"acFrequency3",@"workMode3"],@[@"deviceStatus3"]],
-            @[@[@"uPhaseVoltage4",@"uPhaseCurrent4"],@[@"vPhaseVoltage4",@"vPhaseCurrent4"],@[@"wPhaseVoltage4",@"wPhaseCurrent4"],@[@"activePower4",@"reactivePower4"],@[@"acFrequency4",@"workMode4"],@[@"deviceStatus4"]],
-        @[@[@"inputVoltage1",@"inputTemp1"],@[@"inputPower1",@"inputCurrent1"],@[@"dcRunState1",@"dcAccessType1"],@[@"dcFaultStatus1",@"highSideVoltage1"]],
+            @[@[@"uPhaseVoltage4",@"uPhaseCurrent4"],@[@"vPhaseVoltage4",@"vPhaseCurrent4"],@[@"wPhaseVoltage4",@"wPhaseCurrent4"],@[@"activePower4",@"reactivePower4"],@[@"acFrequency4",@"workMode4"],@[@"deviceStatus4"]]],
+        @[@[@[@"inputVoltage1",@"inputTemp1"],@[@"inputPower1",@"inputCurrent1"],@[@"dcRunState1",@"dcAccessType1"],@[@"dcFaultStatus1",@"highSideVoltage1"]],
          @[@[@"inputVoltage2",@"inputTemp2"],@[@"inputPower2",@"inputCurrent2"],@[@"dcRunState2",@"dcAccessType2"],@[@"dcFaultStatus2",@"highSideVoltage2"]],
          @[@[@"inputVoltage3",@"inputTemp3"],@[@"inputPower3",@"inputCurrent3"],@[@"dcRunState3",@"dcAccessType3"],@[@"dcFaultStatus3",@"highSideVoltage3"]],
-         @[@[@"inputVoltage4",@"inputTemp4"],@[@"inputPower4",@"inputCurrent4"],@[@"dcRunState4",@"dcAccessType4"],@[@"dcFaultStatus4",@"highSideVoltage4"]],
+         @[@[@"inputVoltage4",@"inputTemp4"],@[@"inputPower4",@"inputCurrent4"],@[@"dcRunState4",@"dcAccessType4"],@[@"dcFaultStatus4",@"highSideVoltage4"]]],
         @[@[@"voltage",@"runStatus"],@[@"soc",@"current"],@[@"maxChargeCurrent",@"soh"],@[@"maxCellVoltege",@"maxDischargeCurrent"],@[@"maxCellTemp",@"minCellTemp"],@[@"minCellVoltage"]]];//@"forbidCharge",,@[@"forbidDischarge"]
         
         _leftValueArr = KeyArr3;
+        
+        
+//        _titleName = @[@"",@"PCS Data 1",@"PCS Data 2",@"PCS Data 3",@"PCS Data 4",@"MPPT Data 1",@"MPPT Data 2",@"MPPT Data 3",@"MPPT Data 4",@"Bat.Data"];
+//
+////        ELE_Model,,@[ELE_FVersion]
+//        NSArray *nameArr3 = @[
+//        @[@[ELE_DevSN,ELE_Rated],@[@"Software Version",ELE_FVersion]],
+//        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
+//        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
+//        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
+//        @[@[ELE_UVoltage,ELE_UCurrent],@[ELE_VVoltage,ELE_VCurrent],@[ELE_WVoltage,ELE_WCurrent],@[ELE_ActiveP,ELE_Reactive],@[ELE_ACFrequency,ELE_OperatingM],@[ELE_DevStatu]],
+//        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
+//        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
+//        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
+//        @[@[@"Input Voltage",@"Input Temp."],@[@"Input Power",@"Input Current"],@[@"DC Run State",@"DC Access type"],@[@"DC Fault Status",@"High Side Voltage"]],
+//        @[@[ELE_BatVoltage,ELE_BRunStatus],@[ELE_BSOC,ELE_BCurrent],@[ELE_BMCurrent,ELE_BSOH],@[ELE_BMVoltage,ELE_BMDCurrent],@[ELE_BMCellTemp,ELE_BMinCellTemp],@[ELE_BMCellVolt]]
+//        ];//ELE_BForbidC,,@[ELE_BForbidDisc]
+//        _leftNameArr = nameArr3;
+//
+//        //@"deviceType",,@[@"firmwareVersion"]
+//        NSArray *KeyArr3 = @[@[@[@"deviceSn",@"ratedPower"],@[@"softwareVersion",@"firmwareVersion"]],
+//
+//            @[@[@"uPhaseVoltage1",@"uPhaseCurrent1"],@[@"vPhaseVoltage1",@"vPhaseCurrent1"],@[@"wPhaseVoltage1",@"wPhaseCurrent1"],@[@"activePower1",@"reactivePower1"],@[@"acFrequency1",@"workMode1"],@[@"deviceStatus1"]],
+//            @[@[@"uPhaseVoltage2",@"uPhaseCurrent2"],@[@"vPhaseVoltage2",@"vPhaseCurrent2"],@[@"wPhaseVoltage2",@"wPhaseCurrent2"],@[@"activePower2",@"reactivePower2"],@[@"acFrequency2",@"workMode2"],@[@"deviceStatus2"]],
+//            @[@[@"uPhaseVoltage3",@"uPhaseCurrent3"],@[@"vPhaseVoltage3",@"vPhaseCurrent3"],@[@"wPhaseVoltage3",@"wPhaseCurrent3"],@[@"activePower3",@"reactivePower3"],@[@"acFrequency3",@"workMode3"],@[@"deviceStatus3"]],
+//            @[@[@"uPhaseVoltage4",@"uPhaseCurrent4"],@[@"vPhaseVoltage4",@"vPhaseCurrent4"],@[@"wPhaseVoltage4",@"wPhaseCurrent4"],@[@"activePower4",@"reactivePower4"],@[@"acFrequency4",@"workMode4"],@[@"deviceStatus4"]],
+//        @[@[@"inputVoltage1",@"inputTemp1"],@[@"inputPower1",@"inputCurrent1"],@[@"dcRunState1",@"dcAccessType1"],@[@"dcFaultStatus1",@"highSideVoltage1"]],
+//         @[@[@"inputVoltage2",@"inputTemp2"],@[@"inputPower2",@"inputCurrent2"],@[@"dcRunState2",@"dcAccessType2"],@[@"dcFaultStatus2",@"highSideVoltage2"]],
+//         @[@[@"inputVoltage3",@"inputTemp3"],@[@"inputPower3",@"inputCurrent3"],@[@"dcRunState3",@"dcAccessType3"],@[@"dcFaultStatus3",@"highSideVoltage3"]],
+//         @[@[@"inputVoltage4",@"inputTemp4"],@[@"inputPower4",@"inputCurrent4"],@[@"dcRunState4",@"dcAccessType4"],@[@"dcFaultStatus4",@"highSideVoltage4"]],
+//        @[@[@"voltage",@"runStatus"],@[@"soc",@"current"],@[@"maxChargeCurrent",@"soh"],@[@"maxCellVoltege",@"maxDischargeCurrent"],@[@"maxCellTemp",@"minCellTemp"],@[@"minCellVoltage"]]];//@"forbidCharge",,@[@"forbidDischarge"]
+//
+//        _leftValueArr = KeyArr3;
     }
     if([_deviceType isEqualToString:@"4"]){//设备类型(1:PCS,2:XP,3:HVBOX,4:麦格瑞能逆变器)
         
@@ -208,6 +249,7 @@
     BDCTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:BDCTable];
 //    _BDCTablev = BDCTable;
+    
     [BDCTable registerClass:[BDCMassageCell class] forCellReuseIdentifier:@"BDCCELLID"];
     _devTablev = BDCTable;
     
@@ -282,6 +324,8 @@
 //    [downView addSubview:downBtn];
     
     [self createHVBOXUI];
+    
+    
 }
 
 //HVBOX界面
@@ -295,6 +339,14 @@
     _leftNameArr = nameArr;
     
     _leftValueArr = @[@[@[@"batteryMode",@"batterySn"],@[@"batteryId",@"bmsType"],@[@"fwVersion",@"actualProtocol"],@[@"totalVoltage",@"current"],@[@"maxVolt",@"minVolt"],@[@"maxTem",@"minTem"],@[@"chargeEnergy",@"dischargeEnergy"],@[@"batterySoc"]]];//@"dischargePower",
+    
+    if ([_deviceType isEqualToString:@"2"]) {
+        _titleName = @[@""];
+
+        _leftNameArr = @[@[@[Dev_Model,Dev_SN],@[Dev_ID,Dev_BMSType],@[Dev_FWVersion,Dev_Protocol],@[Dev_Voltage,Dev_Current],@[Dev_MVolt,Dev_MinVolt],@[Dev_MaxTem,Dev_MinTem],@[Dev_CEnergy,Dev_DCEnergy],@[@"System SOC"]]];//Dev_DischargeP,
+        
+        _leftValueArr = @[@[@[@"batteryMode",@"batterySn"],@[@"batteryId",@"bmsType"],@[@"fwVersion",@"actualProtocol"],@[@"totalVoltage",@"current"],@[@"maxVolt",@"minVolt"],@[@"maxTem",@"minTem"],@[@"chargeEnergy",@"dischargeEnergy"],@[@"batterySoc"]]];//@"dischargePower",
+    }
     
     UITableView *BDCTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeight-kNavBarHeight-70*HEIGHT_SIZE) style:UITableViewStyleGrouped];
     BDCTable.delegate = self;
@@ -383,6 +435,44 @@
         [oneview addSubview:linev];
     }
     
+    if ([_deviceType isEqualToString:@"3"]) {
+        [self HVBSubUI];
+    }
+    if ([_deviceType isEqualToString:@"2"]) {
+        [self XPBatVolUI];
+    }
+}
+
+- (void)XPBatVolUI{
+    
+    UILabel *titlb = [self goToInitLable:CGRectMake(10*NOW_SIZE, 70*HEIGHT_SIZE+25*HEIGHT_SIZE, kScreenWidth, 40*HEIGHT_SIZE) textName:@"Cell Vol/(V)" textColor:colorblack_102 fontFloat:14*HEIGHT_SIZE AlignmentType:1 isAdjust:YES];
+    [_HVBRightScrollv addSubview:titlb];
+    
+    CGFloat onelbWide = (kScreenWidth -6*10*NOW_SIZE)/5;
+    
+    NSArray *nameArr = @[@"1-4",@"5-8",@"9-12",@"13-16"];
+    
+    for (int i = 0; i < nameArr.count; i++) {
+        UIView *onevv = [self goToInitView:CGRectMake(0, (40*HEIGHT_SIZE+10*HEIGHT_SIZE)*i+CGRectGetMaxY(titlb.frame)+10*HEIGHT_SIZE, kScreenWidth, 40*HEIGHT_SIZE) backgroundColor:WhiteColor];
+        [_HVBRightScrollv addSubview:onevv];
+        
+        UILabel *namlb = [self goToInitLable:CGRectMake(10*NOW_SIZE, 0, onelbWide, 40*HEIGHT_SIZE) textName:nameArr[i] textColor:colorblack_102 fontFloat:13*HEIGHT_SIZE AlignmentType:3 isAdjust:YES];
+        [onevv addSubview:namlb];
+        
+        UIView*valuview = [self goToInitView:CGRectMake(CGRectGetMaxX(namlb.frame)+10*NOW_SIZE, 0, kScreenWidth-CGRectGetMaxX(namlb.frame)-20*NOW_SIZE, 40*HEIGHT_SIZE) backgroundColor:backgroundNewColor];
+        [onevv addSubview:valuview];
+        
+        for (int t = 0; t < 4; t++) {
+            UILabel *valulb = [self goToInitLable:CGRectMake((onelbWide+10*NOW_SIZE)*t, 0, onelbWide, 40*HEIGHT_SIZE) textName:@"0" textColor:colorBlack fontFloat:14*HEIGHT_SIZE AlignmentType:3 isAdjust:YES];
+            valulb.tag = 20000+t+100*i;
+            [valuview addSubview:valulb];
+        }
+    }
+    
+}
+
+- (void)HVBSubUI{
+    
     
     self.HVBSeleNumb = 0;
     NSArray *timarr = @[@"1-4",@"5-8",@"9-12",@"13-16"];
@@ -394,12 +484,12 @@
         [onebtn setTitleColor:colorblack_102 forState:UIControlStateNormal];
         [onebtn addTarget:self action:@selector(hbNumbClick:) forControlEvents:UIControlEventTouchUpInside];
         onebtn.tag = 1000+i;
-        [HVBGScrollv addSubview:onebtn];
+        [_HVBRightScrollv addSubview:onebtn];
         onebtn.selected = NO;
         
         UIView *onelinev = [self goToInitView:CGRectMake(onebtn.xmg_x+(wide-30*NOW_SIZE)/2, CGRectGetMaxY(onebtn.frame), 30*NOW_SIZE, 1*HEIGHT_SIZE) backgroundColor:COLOR(218, 75, 68, 1)];
         onelinev.tag = 1100+i;
-        [HVBGScrollv addSubview:onelinev];
+        [_HVBRightScrollv addSubview:onelinev];
         
         onelinev.hidden = YES;
         if(i == 0){
@@ -421,7 +511,7 @@
         oneview.layer.masksToBounds = YES;
         oneview.layer.borderColor = COLOR(226, 212, 210, 1).CGColor;
         oneview.layer.borderWidth = 1*HEIGHT_SIZE;
-        [HVBGScrollv addSubview:oneview];
+        [_HVBRightScrollv addSubview:oneview];
         
         
         UILabel *titlb = [self goToInitLable:CGRectMake(10*NOW_SIZE, 5*HEIGHT_SIZE, 60*NOW_SIZE, 30*HEIGHT_SIZE) textName:onearr[i] textColor:colorBlack fontFloat:14*HEIGHT_SIZE AlignmentType:1 isAdjust:YES];
@@ -468,10 +558,11 @@
         }
         
     }
-    HVBGScrollv.contentSize = CGSizeMake(kScreenWidth, 70*HEIGHT_SIZE*2+10*HEIGHT_SIZE+45*HEIGHT_SIZE+(130*HEIGHT_SIZE+10*HEIGHT_SIZE)*4+50*HEIGHT_SIZE);
+    _HVBRightScrollv.contentSize = CGSizeMake(kScreenWidth, 70*HEIGHT_SIZE*2+10*HEIGHT_SIZE+45*HEIGHT_SIZE+(130*HEIGHT_SIZE+10*HEIGHT_SIZE)*4+50*HEIGHT_SIZE);
 
     
 }
+
 - (void)hbNumbClick:(UIButton *)clickBtn{
     
     for (int i = 0; i < 4; i ++) {
@@ -543,9 +634,19 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    
+    
+    NSString *titistr = _titleName[section];
+    if(section == 1){
+        titistr = _PCS1Title;
+    }
+    if(section == 2){
+        titistr = _Mppt1Title;
+    }
     UIView *headv = [self goToInitView:CGRectMake(0, 0, kScreenWidth, 60*HEIGHT_SIZE) backgroundColor:WhiteColor];
-    UILabel *titlb = [self goToInitLable:CGRectMake(15*NOW_SIZE, 10*HEIGHT_SIZE, kScreenWidth - 30*NOW_SIZE, 40*HEIGHT_SIZE) textName:_titleName[section] textColor:colorblack_51 fontFloat:15*HEIGHT_SIZE AlignmentType:3 isAdjust:YES];
+    UILabel *titlb = [self goToInitLable:CGRectMake(15*NOW_SIZE, 10*HEIGHT_SIZE, kScreenWidth - 30*NOW_SIZE, 40*HEIGHT_SIZE) textName:titistr textColor:colorblack_51 fontFloat:15*HEIGHT_SIZE AlignmentType:3 isAdjust:YES];
     titlb.adjustsFontSizeToFitWidth = YES;
+    titlb.tag = 10000+section;
     [headv addSubview:titlb];
     
     UIView *linev = [self goToInitView:CGRectMake(20*NOW_SIZE, CGRectGetMaxY(titlb.frame), kScreenWidth-40*NOW_SIZE, 0.3*HEIGHT_SIZE) backgroundColor:backgroundNewColor];
@@ -556,6 +657,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   
+    if ([_deviceType isEqualToString:@"1"]) {
+        if(section == 1 || section == 2){
+            return 1;
+        }
+    }
+    
+    
     NSArray *rowArr = _leftNameArr[section];
     return rowArr.count;
 }
@@ -565,6 +673,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if ([_deviceType isEqualToString:@"1"]) {
+//        if(indexPath.section == 1 || indexPath.section == 2){
+//            NSArray *allArr = _leftNameArr[indexPath.section];
+//            if (allArr.count > 0) {
+//                NSArray *onearr = allArr[0];
+//
+//                return 80*HEIGHT_SIZE*onearr.count;
+//            }
+//        }
+        if(indexPath.section == 1){
+            
+            return 80*HEIGHT_SIZE*6;
+
+        }
+        if(indexPath.section == 2){
+            
+            return 80*HEIGHT_SIZE*4;
+
+        }
+        
+    }
+   
 
     return 80*HEIGHT_SIZE;
 }
@@ -574,10 +704,49 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     BDCMassageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BDCCELLID"];
+    
+    
     if (!cell) {
         cell = [[BDCMassageCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BDCCELLID"];
+    }else{
+
+        while ([cell.contentView.subviews lastObject] != nil) {
+            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
+        }
+        
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if ([_deviceType isEqualToString:@"1"]) {
+        if (indexPath.section == 1 || indexPath.section == 2) {
+            
+            cell.AllNameArr = _leftNameArr[indexPath.section];
+            cell.AllKeyArr = _leftValueArr[indexPath.section];
+            cell.AllValueDic = _XPDataDic;
+            [cell createCellUI];
+            
+            cell.ScrollOffSetBlock = ^(int xoffSet) {
+                UILabel *titlbb = [self.devTablev viewWithTag:10000+indexPath.section];
+                if (indexPath.section == 1) {
+                    
+                    
+                    if (xoffSet < self.PCS1NamArr.count) {
+                        titlbb.text = self.PCS1NamArr[xoffSet];
+                        _PCS1Title = self.PCS1NamArr[xoffSet];;
+                    }
+                }
+                if (indexPath.section == 2) {
+                    if (xoffSet < self.MPPTNamArr.count) {
+                        titlbb.text = self.MPPTNamArr[xoffSet];
+                        _Mppt1Title = self.MPPTNamArr[xoffSet];
+                    }
+                }
+                
+            };
+            
+            return cell;
+        }
+    }
     
 
     NSArray *dataNameArr = _leftNameArr[indexPath.section];
@@ -620,7 +789,7 @@
                     
 
                     self.XPDataDic = AlldataDic;
-                    if([_deviceType isEqualToString:@"3"]){//HvBox
+                    if([_deviceType isEqualToString:@"3"] || [_deviceType isEqualToString:@"2"]){//HvBox
                         
                         
                         [self HVBDataSet];
@@ -634,39 +803,49 @@
                             self.PcsShowNumb = [pcsnum intValue];
                             self.MPPTShowNumb = [mpptnum intValue];
                             
-                            NSMutableArray *mutitlearr = [[NSMutableArray alloc]init];
-                            NSMutableArray *muNamearr = [[NSMutableArray alloc]init];
-                            NSMutableArray *muKeyarr = [[NSMutableArray alloc]init];
+                            NSMutableArray *mutitlearr = [[NSMutableArray alloc]initWithArray:_titleName];
+                            NSMutableArray *muNamearr = [[NSMutableArray alloc]initWithArray:_leftNameArr];
+                            NSMutableArray *muKeyarr = [[NSMutableArray alloc]initWithArray:_leftValueArr];
 
-                            if (_titleName.count > 0) {
-                                [mutitlearr addObject:_titleName[0]];
-                                [muNamearr addObject:_leftNameArr[0]];
-                                [muKeyarr addObject:_leftValueArr[0]];
-                            }
+//                            if (_titleName.count > 0) {
+//                                [mutitlearr addObject:_titleName[0]];
+//                                [muNamearr addObject:_leftNameArr[0]];
+//                                [muKeyarr addObject:_leftValueArr[0]];
+//                            }
                             
 
                             //移除多余的PCS 1-4   mppt 5-8
+                            NSArray *pcsNamaar22 = _leftNameArr[1];
+                            NSArray *mpptNamaar22 = _leftNameArr[2];
+
+                            NSMutableArray *pcs1Arr = [[NSMutableArray alloc]init];
+                            NSMutableArray *mpptArr = [[NSMutableArray alloc]init];
+                    
+
                             for (int i = 0; i < self.PcsShowNumb; i++) {
-                                if (i+1 < _titleName.count) {
-                                    [mutitlearr addObject:_titleName[i+1]];
-                                    [muNamearr addObject:_leftNameArr[i+1]];
-                                    [muKeyarr addObject:_leftValueArr[i+1]];
+                                if (i < pcsNamaar22.count) {
+                                    [pcs1Arr addObject:pcsNamaar22[i]];
+
                                 }
                                 
                             }
                             
                             for (int t = 0; t < self.MPPTShowNumb; t++) {
-                                if (t+5 < _titleName.count) {
-                                    [mutitlearr addObject:_titleName[t+5]];
-                                    [muNamearr addObject:_leftNameArr[t+5]];
-                                    [muKeyarr addObject:_leftValueArr[t+5]];
+                                if (t < mpptNamaar22.count) {
+                                    [mpptArr addObject:mpptNamaar22[t]];
+
                                 }
                             }
-                            if (_titleName.count > 9) {
-                                [mutitlearr addObject:_titleName[9]];
-                                [muNamearr addObject:_leftNameArr[9]];
-                                [muKeyarr addObject:_leftValueArr[9]];
+                            if (muNamearr.count > 1) {
+                                [muNamearr replaceObjectAtIndex:1 withObject:pcs1Arr];
+
                             }
+                            if (muNamearr.count > 2) {
+                                [muNamearr replaceObjectAtIndex:2 withObject:mpptArr];
+
+                            }
+
+                            
                             _titleName = [NSArray arrayWithArray:mutitlearr];
                             _leftNameArr = [NSArray arrayWithArray:muNamearr];
                             _leftValueArr = [NSArray arrayWithArray:muKeyarr];
@@ -709,6 +888,33 @@
         
     }
 
+    if ([_deviceType isEqualToString:@"2"]) {
+        [self XPSubDataSet];
+    }
+    if ([_deviceType isEqualToString:@"3"]) {
+        [self HVBDataSubSet];
+    }
+    
+}
+
+//xp
+- (void)XPSubDataSet{
+    
+    for (int i = 0; i < 4; i ++) {
+        
+        for (int t = 0; t < 4; t++) {
+            UILabel *onelb = [self.view viewWithTag:20000+t+100*i];
+            NSString *keystr = [NSString stringWithFormat:@"batVol_%d",t+1+4*i];
+            NSString *onevalustr = [NSString stringWithFormat:@"%@",_XPDataDic[keystr]];
+            
+            onelb.text = onevalustr;
+        }
+    }
+}
+
+
+- (void)HVBDataSubSet{
+    
     
     NSArray *subarr = _HVBSubNumArr[_HVBSeleNumb];
     

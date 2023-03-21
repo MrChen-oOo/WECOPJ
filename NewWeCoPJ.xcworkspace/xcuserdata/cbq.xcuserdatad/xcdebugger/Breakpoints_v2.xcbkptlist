@@ -110,8 +110,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "580"
-            endingLineNumber = "580"
+            startingLineNumber = "584"
+            endingLineNumber = "584"
             landmarkName = "-configureAreaChart:"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,8 +154,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-createDownList"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,8 +170,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "457"
-            endingLineNumber = "457"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
             landmarkName = "-leftbtnclick"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,8 +186,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "-createDownList"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,8 +202,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
             landmarkName = "-GetDataClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,8 +218,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
             landmarkName = "-saveClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,8 +234,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "571"
-            endingLineNumber = "571"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
             landmarkName = "-funclick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,8 +378,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "611"
-            endingLineNumber = "611"
+            startingLineNumber = "780"
+            endingLineNumber = "780"
             landmarkName = "-getDevDetailNet"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,8 +394,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "-getDevDetailNet"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,8 +410,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "672"
-            endingLineNumber = "672"
+            startingLineNumber = "851"
+            endingLineNumber = "851"
             landmarkName = "-getDevDetailNet"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,24 +426,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
-            landmarkName = "-getDevDetailNet"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CBD9EC99-A42B-4294-AA3D-A501541F0AA3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "662"
-            endingLineNumber = "662"
+            startingLineNumber = "834"
+            endingLineNumber = "834"
             landmarkName = "-getDevDetailNet"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,8 +442,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "658"
-            endingLineNumber = "658"
+            startingLineNumber = "833"
+            endingLineNumber = "833"
             landmarkName = "-getDevDetailNet"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,8 +458,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "543"
-            endingLineNumber = "543"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
             landmarkName = "-saveClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -490,8 +474,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "556"
-            endingLineNumber = "556"
+            startingLineNumber = "622"
+            endingLineNumber = "622"
             landmarkName = "-GetDataClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -506,8 +490,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlantSettingVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "-GetDevSetData"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,8 +522,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "473"
+            endingLineNumber = "473"
             landmarkName = "-GetDataClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -548,14 +532,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D4C7C792-D14A-4A53-B4AF-A311E1711BEC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "-timeClick:indexRow:section:"
             landmarkType = "7">
          </BreakpointContent>
@@ -570,8 +554,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "-timeClick:indexRow:section:"
             landmarkType = "7">
          </BreakpointContent>
@@ -595,31 +579,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7CD10AE3-FF6D-44E8-936F-D84429F8ADEA"
+            uuid = "4416F34B-2948-4AF3-8CFD-600518C8933D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "578"
-            endingLineNumber = "578"
-            landmarkName = "-GetDataClick"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4416F34B-2948-4AF3-8CFD-600518C8933D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "527"
-            endingLineNumber = "527"
+            startingLineNumber = "593"
+            endingLineNumber = "593"
             landmarkName = "-saveClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -634,8 +602,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x6d88;&#x606f;/WeFultMessageVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "544"
-            endingLineNumber = "544"
+            startingLineNumber = "545"
+            endingLineNumber = "545"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -650,8 +618,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x6d88;&#x606f;/WeFultMessageVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "491"
-            endingLineNumber = "491"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -666,8 +634,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x6d88;&#x606f;/WeFultMessageVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -682,8 +650,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x6d88;&#x606f;/WeFultMessageVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "503"
-            endingLineNumber = "503"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -698,8 +666,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "513"
-            endingLineNumber = "513"
+            startingLineNumber = "523"
+            endingLineNumber = "523"
             landmarkName = "-rightBtnclick"
             landmarkType = "7">
          </BreakpointContent>
@@ -714,8 +682,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
+            startingLineNumber = "662"
+            endingLineNumber = "662"
             landmarkName = "-getOverdata"
             landmarkType = "7">
          </BreakpointContent>
@@ -730,8 +698,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "573"
-            endingLineNumber = "573"
+            startingLineNumber = "639"
+            endingLineNumber = "639"
             landmarkName = "-GetDataClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,8 +714,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
             landmarkName = "-GetDataClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -762,8 +730,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "-saveClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -906,8 +874,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
             landmarkName = "-saveClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -922,8 +890,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "-timeClick:indexRow:"
             landmarkType = "7">
          </BreakpointContent>
@@ -938,8 +906,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "-timeClick:indexRow:"
             landmarkType = "7">
          </BreakpointContent>
@@ -954,8 +922,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
             landmarkName = "-saveClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -970,8 +938,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WePeakSetVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-peekClick:indexRow:"
             landmarkType = "7">
          </BreakpointContent>
@@ -986,8 +954,8 @@
             filePath = "NewWeCoPJ/WECOView/WeSystemView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "-createSystemUI"
             landmarkType = "7">
          </BreakpointContent>
@@ -1002,8 +970,8 @@
             filePath = "NewWeCoPJ/WECOView/WeSystemView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "-createSystemUI"
             landmarkType = "7">
          </BreakpointContent>
@@ -1018,8 +986,8 @@
             filePath = "NewWeCoPJ/WECOView/WeSystemView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "-createSystemUI"
             landmarkType = "7">
          </BreakpointContent>
@@ -1210,8 +1178,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
             landmarkName = "-configureColumnChart:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1226,8 +1194,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "561"
-            endingLineNumber = "561"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
             landmarkName = "-configureAreaChart:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1242,8 +1210,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
+            startingLineNumber = "693"
+            endingLineNumber = "693"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1258,8 +1226,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "-timeClick:indexRow:section:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1274,8 +1242,8 @@
             filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
+            startingLineNumber = "523"
+            endingLineNumber = "523"
             landmarkName = "-isOverlappingWithTime0:Time1:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1290,8 +1258,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "731"
-            endingLineNumber = "731"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,8 +1274,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "739"
-            endingLineNumber = "739"
+            startingLineNumber = "743"
+            endingLineNumber = "743"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1322,8 +1290,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "757"
-            endingLineNumber = "757"
+            startingLineNumber = "765"
+            endingLineNumber = "765"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1370,8 +1338,8 @@
             filePath = "NewWeCoPJ/WECOView/&#x603b;&#x89c8;&#x6570;&#x636e;/WeOverDataVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "746"
-            endingLineNumber = "746"
+            startingLineNumber = "752"
+            endingLineNumber = "752"
             landmarkName = "-getAllDevicedata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1482,8 +1450,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "789"
-            endingLineNumber = "789"
+            startingLineNumber = "808"
+            endingLineNumber = "808"
             landmarkName = "-getOverdata"
             landmarkType = "7">
          </BreakpointContent>
@@ -1498,8 +1466,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "427"
-            endingLineNumber = "427"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
             landmarkName = "-reloadSystemUI"
             landmarkType = "7">
          </BreakpointContent>
@@ -1514,8 +1482,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
             landmarkName = "-reloadSystemUI"
             landmarkType = "7">
          </BreakpointContent>
@@ -1530,8 +1498,8 @@
             filePath = "NewWeCoPJ/WECOView/WeNewOverView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "427"
+            endingLineNumber = "427"
             landmarkName = "-reloadSystemUI"
             landmarkType = "7">
          </BreakpointContent>
@@ -1645,6 +1613,358 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-didMoveToWindow"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD41A421-A91E-4058-9B05-CC367E4AB527"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "850"
+            endingLineNumber = "850"
+            landmarkName = "-getDevDetailNet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50F6F7A0-2403-4A32-9C30-4C7607870A31"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "852"
+            endingLineNumber = "852"
+            landmarkName = "-getDevDetailNet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15BC1C35-60F1-4245-93BE-3622F39F42FD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/BDCMassageCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-createCellUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1478C8C-5089-4F6D-943F-9E74FF702D1C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "668"
+            endingLineNumber = "668"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82954BFD-315C-42C6-9034-C7CCA06F06D5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/BDCMassageCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-reloadBDCMessageCell"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47122055-9DC5-40EF-8616-71DA3E107037"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/WePlanModeVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-createNameArr"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C3BBEB6-F744-4F28-9249-B5880156642F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceSetVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-createSetUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6829E031-70B1-48C9-BFCB-A5EC70736E2D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3493E82E-6AF3-4391-9D8E-5C1B179AE6AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/WeSystemView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-createSystemUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9694BAEE-366D-49A2-AD4D-1466C6D8E6EF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/WeSystemView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-createSystemUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73852081-02BD-476D-AC36-667011D9534D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "791"
+            endingLineNumber = "791"
+            landmarkName = "-getDevDetailNet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "922EA776-92B3-4857-B05A-17B46D291BEE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "757"
+            endingLineNumber = "757"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DC4B531-69B0-4853-83F3-B50484E04609"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "-createBatUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94F54B17-FDC1-4283-84DA-A564EAADD6C5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "854"
+            endingLineNumber = "854"
+            landmarkName = "-getDevDetailNet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78110782-73F3-4AC5-B5A5-7826D71CED08"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/BDCMassageCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-reloadBDCMessageCell"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EFEBB43-1EDE-49EC-8221-12FCCA43BF3D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "732"
+            endingLineNumber = "732"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56483E55-5A2A-4107-BBDB-53EFF4A72E6E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9524EC8B-111C-4AF1-AE29-38F75FD6136E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "733"
+            endingLineNumber = "733"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "849A6261-204E-4574-A630-666945314530"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "878"
+            endingLineNumber = "878"
+            landmarkName = "-HVBDataSet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9B2A491-D0B9-4854-BA46-D316B432C700"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "920"
+            endingLineNumber = "920"
+            landmarkName = "-HVBDataSubSet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30BE3F4C-D8F7-4F60-96D6-50D16AC71F1B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "793"
+            endingLineNumber = "793"
+            landmarkName = "-getDevDetailNet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C72E78A8-3CAF-4322-BF61-F696771EE609"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewWeCoPJ/WECOView/&#x8bbe;&#x5907;&#x5217;&#x8868;/WeDeviceDetailVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "789"
+            endingLineNumber = "789"
+            landmarkName = "-getDevDetailNet"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

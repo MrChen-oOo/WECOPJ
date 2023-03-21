@@ -72,7 +72,7 @@
     deletebtn.layer.cornerRadius = 8*HEIGHT_SIZE;
     deletebtn.layer.masksToBounds = YES;
     [deletebtn addTarget:self action:@selector(deleteclick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:deletebtn];
+//    [self.view addSubview:deletebtn];
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _nameArray.count;

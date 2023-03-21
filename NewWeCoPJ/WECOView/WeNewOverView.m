@@ -7,7 +7,7 @@
 //
 
 #import "WeNewOverView.h"
-#import "RedxMMScanViewController.h"
+#import "ScanViewController.h"
 #import "WeSystemView.h"
 #import "RedxDTKDropdownMenuView.h"
 #import "RedxKTDropdownMenuView.h"
@@ -267,18 +267,28 @@
     }else{
         
         if([_devCount intValue] == 0 || [_codeStr isEqualToString:@"2"]){
-            RedxMMScanViewController *scanVc = [[RedxMMScanViewController alloc] initWithQrType:MMScanTypeAll onFinish:^(NSString *result, NSError *error) {
-                if (error) {
-                    NSLog(@"error: %@",error);
-                } else {
-                    NSLog(@"扫描结果：%@",result);
-                }
-            }];
-            scanVc.titleString=root_saomiao_sn;
-            scanVc.scanBarType=2;
-            scanVc.isDataloggerView=YES;
+//            RedxMMScanViewController *scanVc = [[RedxMMScanViewController alloc] initWithQrType:MMScanTypeAll onFinish:^(NSString *result, NSError *error) {
+//                if (error) {
+//                    NSLog(@"error: %@",error);
+//                } else {
+//                    NSLog(@"扫描结果：%@",result);
+//                }
+//            }];
+//            scanVc.titleString=root_saomiao_sn;
+//            scanVc.scanBarType=2;
+//            scanVc.isDataloggerView=YES;
+//            scanVc.PlantID = _PlantID;
+//            [self.navigationController pushViewController:scanVc animated:YES];
+            
+            ScanViewController *scanVc = [[ScanViewController alloc]init];
+            scanVc.title=root_saomiao_sn;
             scanVc.PlantID = _PlantID;
+            scanVc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:scanVc animated:YES];
+
+            scanVc.resultBlock = ^(NSString * _Nonnull scanResult) {
+                
+            };
             
         }
     }
@@ -523,19 +533,27 @@
         return;
     }
     
-    RedxMMScanViewController *scanVc = [[RedxMMScanViewController alloc] initWithQrType:MMScanTypeAll onFinish:^(NSString *result, NSError *error) {
-        if (error) {
-            NSLog(@"error: %@",error);
-        } else {
-            NSLog(@"扫描结果：%@",result);
-        }
-    }];
-    scanVc.titleString=root_saomiao_sn;
-    scanVc.scanBarType=2;
-    scanVc.isDataloggerView=YES;
+//    RedxMMScanViewController *scanVc = [[RedxMMScanViewController alloc] initWithQrType:MMScanTypeAll onFinish:^(NSString *result, NSError *error) {
+//        if (error) {
+//            NSLog(@"error: %@",error);
+//        } else {
+//            NSLog(@"扫描结果：%@",result);
+//        }
+//    }];
+//    scanVc.titleString=root_saomiao_sn;
+//    scanVc.scanBarType=2;
+//    scanVc.isDataloggerView=YES;
+//    scanVc.PlantID = _PlantID;
+//    [self.navigationController pushViewController:scanVc animated:YES];
+    ScanViewController *scanVc = [[ScanViewController alloc]init];
+    scanVc.title=root_saomiao_sn;
     scanVc.PlantID = _PlantID;
+    scanVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:scanVc animated:YES];
-    
+
+    scanVc.resultBlock = ^(NSString * _Nonnull scanResult) {
+        
+    };
 }
 
 
@@ -569,6 +587,7 @@
         WePlantSettingVC *devlistvc = [[WePlantSettingVC alloc]init];
         devlistvc.devSN = _mainDeviceSn;
         devlistvc.plantModel = _plantmode;
+        devlistvc.maindevType = _mainDeviceType;
         [self.navigationController pushViewController:devlistvc animated:YES];
     }
 }

@@ -185,10 +185,6 @@
 		625B9337298A8664006F985A /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9330298A8664006F985A /* NSObject+Swizzling.m */; };
 		625B9338298A8664006F985A /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9331298A8664006F985A /* NSArray+Safe.m */; };
 		625B9339298A8664006F985A /* NSObject+ImpChangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B9332298A8664006F985A /* NSObject+ImpChangeTool.m */; };
-		62664B58299B835E0028EA17 /* leftDownOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 62664B54299B835E0028EA17 /* leftDownOff.png */; };
-		62664B59299B835E0028EA17 /* leftUpOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 62664B55299B835E0028EA17 /* leftUpOff.png */; };
-		62664B5A299B835E0028EA17 /* rightDownOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 62664B56299B835E0028EA17 /* rightDownOff.png */; };
-		62664B5B299B835E0028EA17 /* rightUpOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 62664B57299B835E0028EA17 /* rightUpOff.png */; };
 		62664B5E299DD9520028EA17 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664B5D299DD9520028EA17 /* CircleView.m */; };
 		62664B61299DDAB80028EA17 /* DeviceBatteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664B60299DDAB80028EA17 /* DeviceBatteryView.m */; };
 		62664B6529A357340028EA17 /* ZYNetworkAccessibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664B6429A357330028EA17 /* ZYNetworkAccessibility.m */; };
@@ -204,6 +200,8 @@
 		62664B8C29A396040028EA17 /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664B7E29A396040028EA17 /* BRAddressModel.m */; };
 		62664B8D29A396040028EA17 /* BRAddressPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62664B8129A396040028EA17 /* BRAddressPickerView.bundle */; };
 		62664B8E29A396040028EA17 /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664B8229A396040028EA17 /* BRAddressPickerView.m */; };
+		62664BA729B9F9960028EA17 /* WePCSOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664BA629B9F9960028EA17 /* WePCSOneCell.m */; };
+		62664BB029C43C5E0028EA17 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62664BAF29C43C5E0028EA17 /* ScanViewController.m */; };
 		6267C959298CFBA1001820B2 /* WeTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6267C958298CFBA1001820B2 /* WeTitleView.m */; };
 		6267C963299A0E4B001820B2 /* rightUp2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C95B299A0E4B001820B2 /* rightUp2.gif */; };
 		6267C964299A0E4B001820B2 /* leftUp.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C95C299A0E4B001820B2 /* leftUp.gif */; };
@@ -590,10 +588,6 @@
 		625B9330298A8664006F985A /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		625B9331298A8664006F985A /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		625B9332298A8664006F985A /* NSObject+ImpChangeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ImpChangeTool.m"; sourceTree = "<group>"; };
-		62664B54299B835E0028EA17 /* leftDownOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftDownOff.png; sourceTree = "<group>"; };
-		62664B55299B835E0028EA17 /* leftUpOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftUpOff.png; sourceTree = "<group>"; };
-		62664B56299B835E0028EA17 /* rightDownOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightDownOff.png; sourceTree = "<group>"; };
-		62664B57299B835E0028EA17 /* rightUpOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightUpOff.png; sourceTree = "<group>"; };
 		62664B5C299DD9520028EA17 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
 		62664B5D299DD9520028EA17 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		62664B5F299DDAB80028EA17 /* DeviceBatteryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceBatteryView.h; sourceTree = "<group>"; };
@@ -624,6 +618,10 @@
 		62664B8029A396040028EA17 /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		62664B8129A396040028EA17 /* BRAddressPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BRAddressPickerView.bundle; sourceTree = "<group>"; };
 		62664B8229A396040028EA17 /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
+		62664BA529B9F9960028EA17 /* WePCSOneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WePCSOneCell.h; sourceTree = "<group>"; };
+		62664BA629B9F9960028EA17 /* WePCSOneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WePCSOneCell.m; sourceTree = "<group>"; };
+		62664BAE29C43C5E0028EA17 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		62664BAF29C43C5E0028EA17 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		6267C957298CFBA1001820B2 /* WeTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTitleView.h; sourceTree = "<group>"; };
 		6267C958298CFBA1001820B2 /* WeTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTitleView.m; sourceTree = "<group>"; };
 		6267C95B299A0E4B001820B2 /* rightUp2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rightUp2.gif; sourceTree = "<group>"; };
@@ -733,7 +731,6 @@
 		625B910C298A50BC006F985A /* WECOView */ = {
 			isa = PBXGroup;
 			children = (
-				62664B53299B835E0028EA17 /* offAllImg */,
 				6267C95A299A0E4B001820B2 /* DataToGif */,
 				625B914A298A50BC006F985A /* WeNewOverView.h */,
 				625B913B298A50BC006F985A /* WeNewOverView.m */,
@@ -798,6 +795,8 @@
 				625B911C298A50BC006F985A /* WePCSDJCell.m */,
 				625B911B298A50BC006F985A /* USSet1Cell.h */,
 				625B912A298A50BC006F985A /* USSet1Cell.m */,
+				62664BA529B9F9960028EA17 /* WePCSOneCell.h */,
+				62664BA629B9F9960028EA17 /* WePCSOneCell.m */,
 				625B911E298A50BC006F985A /* USSetValueAlterView.h */,
 				625B9126298A50BC006F985A /* USSetValueAlterView.m */,
 			);
@@ -891,6 +890,8 @@
 		625B9187298A51F3006F985A /* 采集器蓝牙配网 */ = {
 			isa = PBXGroup;
 			children = (
+				62664BAE29C43C5E0028EA17 /* ScanViewController.h */,
+				62664BAF29C43C5E0028EA17 /* ScanViewController.m */,
 				625B91AC298A521A006F985A /* RedxMMScanViewController.h */,
 				625B91A8298A521A006F985A /* RedxMMScanViewController.m */,
 				625B91B6298A5246006F985A /* RedxNewAddCollector22VC.h */,
@@ -1445,17 +1446,6 @@
 			path = SafeObject;
 			sourceTree = "<group>";
 		};
-		62664B53299B835E0028EA17 /* offAllImg */ = {
-			isa = PBXGroup;
-			children = (
-				62664B54299B835E0028EA17 /* leftDownOff.png */,
-				62664B55299B835E0028EA17 /* leftUpOff.png */,
-				62664B56299B835E0028EA17 /* rightDownOff.png */,
-				62664B57299B835E0028EA17 /* rightUpOff.png */,
-			);
-			path = offAllImg;
-			sourceTree = "<group>";
-		};
 		62664B6229A357330028EA17 /* ZYNetworkAccessibility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1659,19 +1649,15 @@
 			files = (
 				625B91B4298A521A006F985A /* resource.bundle in Resources */,
 				625B91B0298A521A006F985A /* shouDianTong1.png in Resources */,
-				62664B59299B835E0028EA17 /* leftUpOff.png in Resources */,
-				62664B5B299B835E0028EA17 /* rightUpOff.png in Resources */,
 				6267C965299A0E4B001820B2 /* rightUp.gif in Resources */,
 				625B91B1298A521A006F985A /* shouDianTong2.png in Resources */,
 				62664B8829A396040028EA17 /* BRPickerView.bundle in Resources */,
 				6267C968299A0E4B001820B2 /* leftDown2.gif in Resources */,
 				6267C963299A0E4B001820B2 /* rightUp2.gif in Resources */,
-				62664B58299B835E0028EA17 /* leftDownOff.png in Resources */,
 				625B91AF298A521A006F985A /* dataloggerShow.PNG in Resources */,
 				6267C969299A0E4B001820B2 /* rightDown.gif in Resources */,
 				625B90E7298A5042006F985A /* LaunchScreen.storyboard in Resources */,
 				6267C966299A0E4B001820B2 /* rightDown2.gif in Resources */,
-				62664B5A299B835E0028EA17 /* rightDownOff.png in Resources */,
 				625B91CF298A5739006F985A /* LICENSE in Resources */,
 				625B91C1298A5577006F985A /* Localizable.strings in Resources */,
 				625B9236298A5769006F985A /* MJRefresh.bundle in Resources */,
@@ -1819,6 +1805,7 @@
 				625B92FB298A61F8006F985A /* View+MASAdditions.m in Sources */,
 				625B9262298A57A4006F985A /* CGXPickerUIBaseView.m in Sources */,
 				625B92CD298A5C38006F985A /* RedxDTKDropdownMenuView.m in Sources */,
+				62664BA729B9F9960028EA17 /* WePCSOneCell.m in Sources */,
 				625B9168298A50BC006F985A /* WePlantSettingVC.m in Sources */,
 				625B9333298A8664006F985A /* NSMutableArray+Safe.m in Sources */,
 				625B9161298A50BC006F985A /* WeSystemView.m in Sources */,
@@ -1920,6 +1907,7 @@
 				625B9244298A5769006F985A /* MJRefreshHeader.m in Sources */,
 				625B92BC298A5809006F985A /* BaseAlertView.m in Sources */,
 				625B92B0298A5809006F985A /* AddCollectorAlert.m in Sources */,
+				62664BB029C43C5E0028EA17 /* ScanViewController.m in Sources */,
 				625B9150298A50BC006F985A /* WePeakSetVC.m in Sources */,
 				625B91EC298A5753006F985A /* AFNetworkReachabilityManager.m in Sources */,
 				625B91A3298A51F3006F985A /* BluetoolsUpadtaDevVC.m in Sources */,
@@ -2128,7 +2116,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2023.03.09;
+				MARKETING_VERSION = 2023.03.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2171,7 +2159,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2023.03.09;
+				MARKETING_VERSION = 2023.03.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

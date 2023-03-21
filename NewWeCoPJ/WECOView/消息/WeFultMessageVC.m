@@ -243,6 +243,7 @@
     [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
     [alvc addAction:[UIAlertAction actionWithTitle:root_OK style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
        
+        [self.editBtnView removeFromSuperview];
         [self DeleteSet];
 
     }]];

@@ -93,11 +93,11 @@
 - (NSString *)getDateString:(NSString *)dateString type:(NSString *)type{
     
     NSArray *array = [dateString componentsSeparatedByString:@"-"];
-    if ([type isEqualToString:@"Day"] || [type isEqualToString:@"Hour"]) {
+    if ([type isEqualToString:@"Hour"]) {
         return [NSString stringWithFormat:@"%@-%@-%@", array[0],array[1],array[2]];
-    } else if ([type isEqualToString:@"Month"]) {
+    } else if ([type isEqualToString:@"Day"]) {
         return [NSString stringWithFormat:@"%@-%@", array[0],array[1]];
-    } else if ([type isEqualToString:@"Year"]) {
+    } else if ([type isEqualToString:@"Year"] || [type isEqualToString:@"Month"]) {
         return array[0];
     }
     return @"";
@@ -118,20 +118,20 @@
     }
     if (_dateType == 1) {//月
         // 2.设置属性
-        datePickerView.pickerMode = BRDatePickerModeYM;
+        datePickerView.pickerMode = BRDatePickerModeY;
         defValue = [self getDateString:_dateString type:@"Month"];
 
     }
     if (_dateType == 2) {//日
         // 2.设置属性
-        datePickerView.pickerMode = BRDatePickerModeYMD;
+        datePickerView.pickerMode = BRDatePickerModeYM;
         defValue = [self getDateString:_dateString type:@"Day"];
 
     }
     if (_dateType == 3) {//时
         // 2.设置属性
         datePickerView.pickerMode = BRDatePickerModeYMD;
-        defValue = [self getDateString:_dateString type:@"Day"];
+        defValue = [self getDateString:_dateString type:@"Hour"];
 
     }
     
@@ -151,13 +151,17 @@
             _dateString = [datemuarr componentsJoinedByString:@"-"];
         }
         if (_dateType == 1) {//月
+            
             NSMutableArray *datemuarr = [NSMutableArray arrayWithArray:[_dateString componentsSeparatedByString:@"-"]];
             [datemuarr replaceObjectAtIndex:0 withObject:selectValue];
-            _dateString = [selectValue stringByAppendingFormat:@"-%@",datemuarr.lastObject];
+            _dateString = [datemuarr componentsJoinedByString:@"-"];
+            
+
 
         }
         if (_dateType == 2) {//日
-            _dateString = selectValue;
+            NSMutableArray *datemuarr = [NSMutableArray arrayWithArray:[_dateString componentsSeparatedByString:@"-"]];
+            _dateString = [selectValue stringByAppendingFormat:@"-%@",datemuarr.lastObject];
 
         }
         if (_dateType == 3) {//时
@@ -742,16 +746,20 @@
                                 NSRange range = NSMakeRange(0, obj1.length);
                                 return [obj1 compare:obj2 options:comparisonOptions range:range];
                             };
-                            _powerMapArr = [NSMutableArray arrayWithArray:[powerDict.allKeys sortedArrayUsingComparator:sort]];
+                            NSMutableArray *allKeyarr = [NSMutableArray arrayWithArray:[powerDict.allKeys sortedArrayUsingComparator:sort]];
+                            
+                            _powerMapArr = [[NSMutableArray alloc]init];
                             _Y_dataArr = [NSMutableArray array];
-                            for (NSString *key in _powerMapArr) {
+                            for (NSString *key in allKeyarr) {
                                 NSString *valuestr = [NSString stringWithFormat:@"%@",powerDict[key]];
-                   
-                                if (kStringIsEmpty(valuestr)) {
-                                    valuestr = @"0";
+                                if (!kStringIsEmpty(valuestr)) {
+//                                    valuestr = @"0";
+                                    [_powerMapArr addObject:key];
+
+                                    NSNumber *valuNumb = [NSNumber numberWithFloat:[valuestr floatValue]];
+                                    [_Y_dataArr addObject:valuNumb];
                                 }
-                                NSNumber *valuNumb = [NSNumber numberWithFloat:[valuestr floatValue]];
-                                [_Y_dataArr addObject:valuNumb];
+                                
 
                             }
                             
