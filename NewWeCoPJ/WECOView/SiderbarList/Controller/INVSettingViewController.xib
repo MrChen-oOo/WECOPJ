@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="INVSettingViewController">
+            <connections>
+                <outlet property="scrollContentView" destination="kja-zu-8Hx" id="szN-Ea-xjd"/>
+                <outlet property="setScrollView" destination="5Yz-Fh-dVu" id="CD5-44-lbE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-Fh-dVu">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kja-zu-8Hx">
+                            <rect key="frame" x="0.0" y="0.0" width="786" height="793"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="kja-zu-8Hx" secondAttribute="bottom" id="547-kK-z72"/>
+                        <constraint firstItem="kja-zu-8Hx" firstAttribute="leading" secondItem="5Yz-Fh-dVu" secondAttribute="leading" id="Cg1-Tv-Ui2"/>
+                        <constraint firstItem="kja-zu-8Hx" firstAttribute="centerY" secondItem="5Yz-Fh-dVu" secondAttribute="centerY" id="Tx5-On-8UE"/>
+                        <constraint firstAttribute="trailing" secondItem="kja-zu-8Hx" secondAttribute="trailing" id="cVt-Or-fw2"/>
+                        <constraint firstItem="kja-zu-8Hx" firstAttribute="top" secondItem="5Yz-Fh-dVu" secondAttribute="top" id="tiJ-S8-K5H"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="kja-zu-8Hx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="2" id="ETr-Oi-31l"/>
+                <constraint firstItem="5Yz-Fh-dVu" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="PnT-ij-ibH"/>
+                <constraint firstItem="5Yz-Fh-dVu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Qac-NM-hYx"/>
+                <constraint firstAttribute="bottom" secondItem="5Yz-Fh-dVu" secondAttribute="bottom" id="iK8-L8-OwF"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5Yz-Fh-dVu" secondAttribute="trailing" id="vG1-Ha-Pvk"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

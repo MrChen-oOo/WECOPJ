@@ -9,8 +9,6 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array/>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
 	<key>URL Schemes</key>
 	<string></string>
 </dict>

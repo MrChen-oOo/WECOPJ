@@ -22,7 +22,8 @@
 #import "WeStationSetVC.h"
 #import "WeMeSetting.h"
 #import "WePlantSettingVC.h"
-
+#import "INVSettingViewController.h"
+#import "INVSettingViewModel.h"
 
 @interface WeNewOverView ()
 @property (nonatomic, strong) UIScrollView *bgscrollv;
@@ -49,6 +50,7 @@
 
 @property (nonatomic, strong) WeTitleView *AllPlanistView;
 @property (nonatomic, strong) NSString *codeStr;
+@property (nonatomic, strong) INVSettingViewModel *invViewModel;
 
 @end
 
@@ -211,7 +213,7 @@
     _addbtn1 = addBtn;
     
     
-    NSArray *namearr = @[home_Energy,home_Impact,home_DeviceList,home_PlantSetting];//,home_PlantSetting
+    NSArray *namearr = @[home_Energy,home_Impact,home_DeviceList,home_PlantSetting];//,home_PlantSetting //home_PlantSetting
     
     
     NSArray *detailarr = @[[NSString stringWithFormat:@"0 %@",home_GeneratedTD],[NSString stringWithFormat:@"0 Estimated Savings Today"],@"0 Devices Are Running",@"Work Model:"];//,@""
@@ -417,7 +419,6 @@
             self.navigationItem.titleView = _titleMenuView;
         }
     }
-    
 }
 
 
@@ -447,6 +448,7 @@
 - (void)leftbtnclick{
     
     RedxCeHuaView *cehuaview = [[RedxCeHuaView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    [cehuaview createValueUIWith:self.invViewModel.isMgrnDevice];
     [KEYWINDOW addSubview:cehuaview];
     
     cehuaview.selectBlock = ^(NSInteger selectNumb) {//tag 100+
@@ -482,13 +484,13 @@
         //            }]];
         //            [self presentViewController:alvc animated:YES completion:nil];
         //        }
-        if (selectNumb == 101) {//
-            
-            WeMeSetting *settingvc = [[WeMeSetting alloc]init];
-            [self.navigationController pushViewController:settingvc animated:YES];
-            
-            
-        }
+//        if (selectNumb == 102) {//
+//
+//            WeMeSetting *settingvc = [[WeMeSetting alloc]init];
+//            [self.navigationController pushViewController:settingvc animated:YES];
+//
+//
+//        }
         
         
         if (selectNumb == 102) {//
@@ -513,7 +515,37 @@
         //
         //
         //        }
+        
+        
+        
+        if(selectNumb == 101){//INV Setting
+            if (self.invViewModel.isMgrnDevice == YES) {
+                INVSettingViewController *settingvc = [[INVSettingViewController alloc]init];
+                settingvc.settingVM = self.invViewModel;
+                [self.navigationController pushViewController:settingvc animated:YES];
+            } else {
+                UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
+                [alvc addAction:[UIAlertAction actionWithTitle:root_OK style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    [self logOutClick];
+                    
+                }]];
+                [self presentViewController:alvc animated:YES completion:nil];
+            }
+           
+        }
     };
+}
+
+// 获取电站id
+- (void)getPowerStation {
+    [self.invViewModel getPowerStationMessageWith:self.PlantID completeBlock:^(NSString *resultStr) {
+        if (resultStr.length == 0) {
+        } else {
+            
+        }
+    }];
 }
 
 //消息
@@ -582,8 +614,8 @@
     }
     
     if(tapge.view.tag == 103){
-        
-        
+
+
         WePlantSettingVC *devlistvc = [[WePlantSettingVC alloc]init];
         devlistvc.devSN = _mainDeviceSn;
         devlistvc.plantModel = _plantmode;
@@ -851,7 +883,7 @@
             
             
         }
-        
+        [self getPowerStation];
         
     } failure:^(NSError *error) {
         [self hideProgressView];
@@ -937,5 +969,12 @@
         [_addbtn1 setTitle:@"Add Plant" forState:UIControlStateNormal];
         
     }];
+}
+
+-(INVSettingViewModel *)invViewModel {
+    if (!_invViewModel) {
+        _invViewModel = [[INVSettingViewModel alloc]initViewModel];
+    }
+    return _invViewModel;
 }
 @end

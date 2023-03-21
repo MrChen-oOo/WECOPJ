@@ -1,6 +1,13 @@
 
 
 #import "RedxCeHuaView.h"
+@interface RedxCeHuaView()
+
+@property (nonatomic ,strong) NSMutableArray *namarr;
+@property (nonatomic ,strong) NSMutableArray *imgarr;
+
+@end
+
 
 @implementation RedxCeHuaView
 
@@ -19,11 +26,10 @@
     
     self.backgroundColor = COLOR(0, 0, 0, 0.3);
     
-    [self createValueUI];
 }
 
-- (void)createValueUI{
-    
+-(void)createValueUIWith:(BOOL)isMgrn{
+    self.isMgrn = isMgrn;
     UIView *leftv = [[UIView alloc]initWithFrame:CGRectMake(-(kScreenWidth*2/3), 0, kScreenWidth*2/3, kScreenHeight)];
     leftv.backgroundColor = WhiteColor;//backgroundNewColor;
 //    leftv.userInteractionEnabled = NO;
@@ -98,16 +104,20 @@
 //    rigimg.image = IMAGE(@"nav_ico_back2");
 //    [userView addSubview:rigimg];
     
+    NSArray *namArr = [NSMutableArray arrayWithObjects:home_CehuaList1,@"Inverter Setting",home_CehuaList3, nil]; //Me_SetName1,Me_SetName2,Me_SetName3
+    NSArray *imgArr = [NSMutableArray arrayWithObjects:@"WePlanListIcon",@"WeSetting",@"WeLogoutIMG", nil];
     
-    NSArray *imgarr = @[@"WePlanListIcon",@"WeSetting",@"WeLogoutIMG"];//,@"weSuggest"//@"WeLocalDebugimg",
-    NSArray *namarr = @[home_CehuaList1,
-//                        Me_SetName1,
-                        Me_SetName2,
-//                        Me_SetName3,
-                        home_CehuaList3
-    ];
+    NSArray *namArr1 = [NSMutableArray arrayWithObjects:home_CehuaList1,home_CehuaList3, nil]; //Me_SetName1,Me_SetName2,Me_SetName3
+    NSArray *imgArr1 = [NSMutableArray arrayWithObjects:@"WePlanListIcon",@"WeLogoutIMG", nil];
+    if (self.isMgrn == YES) {
+        [self.namarr addObjectsFromArray:namArr];
+        [self.imgarr addObjectsFromArray:imgArr];
+    } else {
+        [self.namarr addObjectsFromArray:namArr1];
+        [self.imgarr addObjectsFromArray:imgArr1];
+    }
     
-    for (int i = 0 ; i < namarr.count; i ++) {
+    for (int i = 0 ; i < self.namarr.count; i ++) {
         UIView *listv = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(namelb.frame)+20*HEIGHT_SIZE+50*HEIGHT_SIZE*i, leftwide, 50*HEIGHT_SIZE)];
         listv.tag = 100+i;
         [leftv addSubview:listv];
@@ -116,7 +126,7 @@
         
         
         UIImageView *iconimgv = [[UIImageView alloc]initWithFrame:CGRectMake(10*NOW_SIZE, (50*HEIGHT_SIZE - 20*HEIGHT_SIZE)/2, 20*HEIGHT_SIZE, 20*HEIGHT_SIZE)];
-        iconimgv.image = IMAGE(imgarr[i]);
+        iconimgv.image = IMAGE(self.imgarr[i]);
         iconimgv.contentMode = UIViewContentModeScaleAspectFit;
         [listv addSubview:iconimgv];
         
@@ -124,7 +134,7 @@
         namelb22.font = FontSize(14*HEIGHT_SIZE);
         namelb22.textColor = colorblack_51;
         namelb22.adjustsFontSizeToFitWidth = YES;
-        namelb22.text = namarr[i];
+        namelb22.text = self.namarr[i];
         [listv addSubview:namelb22];
         
         UIView *linev = [[UIView alloc]initWithFrame:CGRectMake(0, listv.xmg_height-1*HEIGHT_SIZE, leftwide, 1*HEIGHT_SIZE)];
@@ -253,6 +263,20 @@
         languageType=@"14";
     }
     return languageType;
+}
+
+-(NSMutableArray *)namarr {
+    if (!_namarr){
+        _namarr = [NSMutableArray array];
+    }
+    return _namarr;
+}
+
+-(NSMutableArray *)imgarr {
+    if (!_imgarr){
+        _imgarr = [NSMutableArray array];
+    }
+    return _imgarr;
 }
 
 @end
