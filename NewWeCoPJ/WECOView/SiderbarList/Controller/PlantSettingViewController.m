@@ -53,9 +53,6 @@
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             [selfWeak.plantTableView reloadData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [selfWeak showToastViewWithTitle:@"Setting succeeded"];
-            });
         } else {
             // 提示错误
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -157,7 +154,9 @@
             [selfWeak planGetInverterTime];
         } else {
             // 提示错误
-            [selfWeak showToastViewWithTitle:resultStr];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [selfWeak showToastViewWithTitle:resultStr];
+            });
         }
     }];
 }

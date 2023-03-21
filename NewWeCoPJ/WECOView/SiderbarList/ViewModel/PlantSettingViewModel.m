@@ -15,7 +15,7 @@
 -(void)getInverterTimeSoltMsgWithParam:(NSString *)param completeBlock:(void(^)(NSString *resultStr))completeBlock {
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/terminal/setting/getInverterTimeSolt",HEAD_URL];
 
-    NSDictionary *dic = @{@"deivceSn":self.deviceStr};
+    NSDictionary *dic = @{@"deviceSn":self.deviceStr};
     [PlantSettingViewModel requestGetForURL:urlStr withParam:dic withSuccess:^(id  _Nonnull resultData) {
         if ([self judgeSuccess:resultData] == YES) {
             self.planModel = [PlanArrayModel mj_objectWithKeyValues:resultData];
@@ -55,14 +55,14 @@
         NSDictionary *dic = @{@"isCharge":@(model.charge),@"startHour":model.startHour,@"startMinute":model.startMinute,@"endHour":model.endHour,@"endMinute":model.endMinute,@"power":model.power};
         [disChargArray addObject:dic];
     }
-    NSDictionary *chargeDic =  @{@"isCharge":@(0),@"startHour":@"09",@"startMinute":@"00",@"endHour":@"12",@"endMinute":@"00",@"power":@"0"};
+    NSDictionary *chargeDic =  @{@"isCharge":@(0),@"startHour":@"00",@"startMinute":@"00",@"endHour":@"00",@"endMinute":@"00",@"power":@"0"};
     if (chargeArray.count < 3) {
         NSInteger num = 3 - chargeArray.count;
         for (int i = 0; i < num; i++) {
             [chargeArray addObject:chargeDic];
         }
     }
-    NSDictionary *disChargeDic =  @{@"isCharge":@(1),@"startHour":@"09",@"startMinute":@"00",@"endHour":@"12",@"endMinute":@"00",@"power":@"0"};
+    NSDictionary *disChargeDic =  @{@"isCharge":@(1),@"startHour":@"00",@"startMinute":@"00",@"endHour":@"00",@"endMinute":@"00",@"power":@"0"};
     if (disChargArray.count < 3) {
         NSInteger num = 3 - chargeArray.count;
         for (int i = 0; i < num; i++) {
