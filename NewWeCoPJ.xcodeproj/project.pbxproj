@@ -211,6 +211,39 @@
 		6267C968299A0E4B001820B2 /* leftDown2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C960299A0E4B001820B2 /* leftDown2.gif */; };
 		6267C969299A0E4B001820B2 /* rightDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C961299A0E4B001820B2 /* rightDown.gif */; };
 		6267C96A299A0E4B001820B2 /* leftDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C962299A0E4B001820B2 /* leftDown.gif */; };
+		7C43016F29CAA44900BCBEE7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */; };
+		7CD8678E29C9AD6900D883A6 /* UserInfoSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */; };
+		7CD8678F29C9AD6900D883A6 /* RBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */; };
+		7CD8679029C9AD6900D883A6 /* INVSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676A29C9AD6900D883A6 /* INVSettingViewModel.m */; };
+		7CD8679129C9AD6900D883A6 /* PlantSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676B29C9AD6900D883A6 /* PlantSettingViewModel.m */; };
+		7CD8679229C9AD6900D883A6 /* INVSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677029C9AD6900D883A6 /* INVSettingViewController.m */; };
+		7CD8679329C9AD6900D883A6 /* PlantSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677129C9AD6900D883A6 /* PlantSettingViewController.m */; };
+		7CD8679429C9AD6900D883A6 /* INVSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8677229C9AD6900D883A6 /* INVSettingViewController.xib */; };
+		7CD8679529C9AD6900D883A6 /* SettingOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677529C9AD6900D883A6 /* SettingOptionModel.m */; };
+		7CD8679629C9AD6900D883A6 /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677729C9AD6900D883A6 /* TimeModel.m */; };
+		7CD8679729C9AD6900D883A6 /* SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677A29C9AD6900D883A6 /* SettingModel.m */; };
+		7CD8679829C9AD6900D883A6 /* PlantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677C29C9AD6900D883A6 /* PlantTableViewCell.m */; };
+		7CD8679929C9AD6900D883A6 /* GridStandardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8677E29C9AD6900D883A6 /* GridStandardView.xib */; };
+		7CD8679A29C9AD6900D883A6 /* GridStandardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8677F29C9AD6900D883A6 /* GridStandardTableViewCell.m */; };
+		7CD8679B29C9AD6900D883A6 /* BasicWarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8678129C9AD6900D883A6 /* BasicWarningView.m */; };
+		7CD8679C29C9AD6900D883A6 /* InpuPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8678229C9AD6900D883A6 /* InpuPopView.m */; };
+		7CD8679D29C9AD6900D883A6 /* GridStandardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8678329C9AD6900D883A6 /* GridStandardView.m */; };
+		7CD8679E29C9AD6900D883A6 /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8678529C9AD6900D883A6 /* BasicTableViewCell.xib */; };
+		7CD8679F29C9AD6900D883A6 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8678629C9AD6900D883A6 /* BasicTableViewCell.m */; };
+		7CD867A029C9AD6900D883A6 /* BasicWarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8678729C9AD6900D883A6 /* BasicWarningView.xib */; };
+		7CD867A129C9AD6900D883A6 /* GridStandardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8678929C9AD6900D883A6 /* GridStandardTableViewCell.xib */; };
+		7CD867A229C9AD6900D883A6 /* InpuPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8678A29C9AD6900D883A6 /* InpuPopView.xib */; };
+		7CD867A329C9AD6900D883A6 /* PlantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8678C29C9AD6900D883A6 /* PlantTableViewCell.xib */; };
+		7CD867DD29C9E86A00D883A6 /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867CA29C9E86A00D883A6 /* MJPropertyType.m */; };
+		7CD867DE29C9E86A00D883A6 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867CD29C9E86A00D883A6 /* NSObject+MJKeyValue.m */; };
+		7CD867DF29C9E86A00D883A6 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867CE29C9E86A00D883A6 /* MJProperty.m */; };
+		7CD867E029C9E86A00D883A6 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D029C9E86A00D883A6 /* NSObject+MJCoding.m */; };
+		7CD867E129C9E86A00D883A6 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D229C9E86A00D883A6 /* MJExtensionConst.m */; };
+		7CD867E229C9E86A00D883A6 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D329C9E86A00D883A6 /* NSObject+MJProperty.m */; };
+		7CD867E329C9E86A00D883A6 /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D529C9E86A00D883A6 /* NSObject+MJClass.m */; };
+		7CD867E429C9E86A00D883A6 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D629C9E86A00D883A6 /* NSString+MJExtension.m */; };
+		7CD867E529C9E86A00D883A6 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D729C9E86A00D883A6 /* MJPropertyKey.m */; };
+		7CD867E729C9E86A00D883A6 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867DC29C9E86A00D883A6 /* MJFoundation.m */; };
 		B8F711EB04840B3373E4AA76 /* libPods-NewWeCoPJ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9504F49F20AC0496816509 /* libPods-NewWeCoPJ.a */; };
 /* End PBXBuildFile section */
 
@@ -632,6 +665,67 @@
 		6267C960299A0E4B001820B2 /* leftDown2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leftDown2.gif; sourceTree = "<group>"; };
 		6267C961299A0E4B001820B2 /* rightDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rightDown.gif; sourceTree = "<group>"; };
 		6267C962299A0E4B001820B2 /* leftDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leftDown.gif; sourceTree = "<group>"; };
+		7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
+		7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
+		7CD8676429C9AD6900D883A6 /* RBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseViewModel.h; sourceTree = "<group>"; };
+		7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoSingleTon.m; sourceTree = "<group>"; };
+		7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseViewModel.m; sourceTree = "<group>"; };
+		7CD8676729C9AD6900D883A6 /* UserInfoSingleTon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoSingleTon.h; sourceTree = "<group>"; };
+		7CD8676A29C9AD6900D883A6 /* INVSettingViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INVSettingViewModel.m; sourceTree = "<group>"; };
+		7CD8676B29C9AD6900D883A6 /* PlantSettingViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantSettingViewModel.m; sourceTree = "<group>"; };
+		7CD8676C29C9AD6900D883A6 /* INVSettingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INVSettingViewModel.h; sourceTree = "<group>"; };
+		7CD8676D29C9AD6900D883A6 /* PlantSettingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantSettingViewModel.h; sourceTree = "<group>"; };
+		7CD8676F29C9AD6900D883A6 /* PlantSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantSettingViewController.h; sourceTree = "<group>"; };
+		7CD8677029C9AD6900D883A6 /* INVSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INVSettingViewController.m; sourceTree = "<group>"; };
+		7CD8677129C9AD6900D883A6 /* PlantSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantSettingViewController.m; sourceTree = "<group>"; };
+		7CD8677229C9AD6900D883A6 /* INVSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = INVSettingViewController.xib; sourceTree = "<group>"; };
+		7CD8677329C9AD6900D883A6 /* INVSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INVSettingViewController.h; sourceTree = "<group>"; };
+		7CD8677529C9AD6900D883A6 /* SettingOptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingOptionModel.m; sourceTree = "<group>"; };
+		7CD8677629C9AD6900D883A6 /* SettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingModel.h; sourceTree = "<group>"; };
+		7CD8677729C9AD6900D883A6 /* TimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeModel.m; sourceTree = "<group>"; };
+		7CD8677829C9AD6900D883A6 /* SettingOptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingOptionModel.h; sourceTree = "<group>"; };
+		7CD8677929C9AD6900D883A6 /* TimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeModel.h; sourceTree = "<group>"; };
+		7CD8677A29C9AD6900D883A6 /* SettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingModel.m; sourceTree = "<group>"; };
+		7CD8677C29C9AD6900D883A6 /* PlantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantTableViewCell.m; sourceTree = "<group>"; };
+		7CD8677D29C9AD6900D883A6 /* GridStandardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStandardView.h; sourceTree = "<group>"; };
+		7CD8677E29C9AD6900D883A6 /* GridStandardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridStandardView.xib; sourceTree = "<group>"; };
+		7CD8677F29C9AD6900D883A6 /* GridStandardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStandardTableViewCell.m; sourceTree = "<group>"; };
+		7CD8678029C9AD6900D883A6 /* BasicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		7CD8678129C9AD6900D883A6 /* BasicWarningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicWarningView.m; sourceTree = "<group>"; };
+		7CD8678229C9AD6900D883A6 /* InpuPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InpuPopView.m; sourceTree = "<group>"; };
+		7CD8678329C9AD6900D883A6 /* GridStandardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridStandardView.m; sourceTree = "<group>"; };
+		7CD8678429C9AD6900D883A6 /* PlantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantTableViewCell.h; sourceTree = "<group>"; };
+		7CD8678529C9AD6900D883A6 /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
+		7CD8678629C9AD6900D883A6 /* BasicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
+		7CD8678729C9AD6900D883A6 /* BasicWarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicWarningView.xib; sourceTree = "<group>"; };
+		7CD8678829C9AD6900D883A6 /* GridStandardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridStandardTableViewCell.h; sourceTree = "<group>"; };
+		7CD8678929C9AD6900D883A6 /* GridStandardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridStandardTableViewCell.xib; sourceTree = "<group>"; };
+		7CD8678A29C9AD6900D883A6 /* InpuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InpuPopView.xib; sourceTree = "<group>"; };
+		7CD8678B29C9AD6900D883A6 /* InpuPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InpuPopView.h; sourceTree = "<group>"; };
+		7CD8678C29C9AD6900D883A6 /* PlantTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlantTableViewCell.xib; sourceTree = "<group>"; };
+		7CD8678D29C9AD6900D883A6 /* BasicWarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicWarningView.h; sourceTree = "<group>"; };
+		7CD867C729C9E86A00D883A6 /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
+		7CD867C829C9E86A00D883A6 /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
+		7CD867C929C9E86A00D883A6 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
+		7CD867CA29C9E86A00D883A6 /* MJPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyType.m; sourceTree = "<group>"; };
+		7CD867CB29C9E86A00D883A6 /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		7CD867CC29C9E86A00D883A6 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
+		7CD867CD29C9E86A00D883A6 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		7CD867CE29C9E86A00D883A6 /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
+		7CD867CF29C9E86A00D883A6 /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		7CD867D029C9E86A00D883A6 /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		7CD867D129C9E86A00D883A6 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		7CD867D229C9E86A00D883A6 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
+		7CD867D329C9E86A00D883A6 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
+		7CD867D429C9E86A00D883A6 /* MJPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyType.h; sourceTree = "<group>"; };
+		7CD867D529C9E86A00D883A6 /* NSObject+MJClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJClass.m"; sourceTree = "<group>"; };
+		7CD867D629C9E86A00D883A6 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		7CD867D729C9E86A00D883A6 /* MJPropertyKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyKey.m; sourceTree = "<group>"; };
+		7CD867D829C9E86A00D883A6 /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		7CD867D929C9E86A00D883A6 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		7CD867DA29C9E86A00D883A6 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		7CD867DB29C9E86A00D883A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CD867DC29C9E86A00D883A6 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
 		9A745A500C755B567CEAF315 /* Pods-NewWeCoPJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeCoPJ.debug.xcconfig"; path = "Target Support Files/Pods-NewWeCoPJ/Pods-NewWeCoPJ.debug.xcconfig"; sourceTree = "<group>"; };
 		AEB6B977C89762E3077599FA /* Pods-NewWeCoPJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeCoPJ.release.xcconfig"; path = "Target Support Files/Pods-NewWeCoPJ/Pods-NewWeCoPJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -731,6 +825,8 @@
 		625B910C298A50BC006F985A /* WECOView */ = {
 			isa = PBXGroup;
 			children = (
+				7CD8676329C9AD6900D883A6 /* RBase */,
+				7CD8676829C9AD6900D883A6 /* SiderbarList */,
 				6267C95A299A0E4B001820B2 /* DataToGif */,
 				625B914A298A50BC006F985A /* WeNewOverView.h */,
 				625B913B298A50BC006F985A /* WeNewOverView.m */,
@@ -1533,6 +1629,121 @@
 			path = DataToGif;
 			sourceTree = "<group>";
 		};
+		7CD8676329C9AD6900D883A6 /* RBase */ = {
+			isa = PBXGroup;
+			children = (
+				7CD867C629C9E86A00D883A6 /* MJExtension */,
+				7CD8676429C9AD6900D883A6 /* RBaseViewModel.h */,
+				7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */,
+				7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */,
+				7CD8676729C9AD6900D883A6 /* UserInfoSingleTon.h */,
+				7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */,
+				7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */,
+			);
+			path = RBase;
+			sourceTree = "<group>";
+		};
+		7CD8676829C9AD6900D883A6 /* SiderbarList */ = {
+			isa = PBXGroup;
+			children = (
+				7CD8676929C9AD6900D883A6 /* ViewModel */,
+				7CD8676E29C9AD6900D883A6 /* Controller */,
+				7CD8677429C9AD6900D883A6 /* Model */,
+				7CD8677B29C9AD6900D883A6 /* View */,
+			);
+			path = SiderbarList;
+			sourceTree = "<group>";
+		};
+		7CD8676929C9AD6900D883A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7CD8676A29C9AD6900D883A6 /* INVSettingViewModel.m */,
+				7CD8676B29C9AD6900D883A6 /* PlantSettingViewModel.m */,
+				7CD8676C29C9AD6900D883A6 /* INVSettingViewModel.h */,
+				7CD8676D29C9AD6900D883A6 /* PlantSettingViewModel.h */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7CD8676E29C9AD6900D883A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7CD8676F29C9AD6900D883A6 /* PlantSettingViewController.h */,
+				7CD8677029C9AD6900D883A6 /* INVSettingViewController.m */,
+				7CD8677129C9AD6900D883A6 /* PlantSettingViewController.m */,
+				7CD8677229C9AD6900D883A6 /* INVSettingViewController.xib */,
+				7CD8677329C9AD6900D883A6 /* INVSettingViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7CD8677429C9AD6900D883A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CD8677529C9AD6900D883A6 /* SettingOptionModel.m */,
+				7CD8677629C9AD6900D883A6 /* SettingModel.h */,
+				7CD8677729C9AD6900D883A6 /* TimeModel.m */,
+				7CD8677829C9AD6900D883A6 /* SettingOptionModel.h */,
+				7CD8677929C9AD6900D883A6 /* TimeModel.h */,
+				7CD8677A29C9AD6900D883A6 /* SettingModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7CD8677B29C9AD6900D883A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CD8677C29C9AD6900D883A6 /* PlantTableViewCell.m */,
+				7CD8677D29C9AD6900D883A6 /* GridStandardView.h */,
+				7CD8677E29C9AD6900D883A6 /* GridStandardView.xib */,
+				7CD8677F29C9AD6900D883A6 /* GridStandardTableViewCell.m */,
+				7CD8678029C9AD6900D883A6 /* BasicTableViewCell.h */,
+				7CD8678129C9AD6900D883A6 /* BasicWarningView.m */,
+				7CD8678229C9AD6900D883A6 /* InpuPopView.m */,
+				7CD8678329C9AD6900D883A6 /* GridStandardView.m */,
+				7CD8678429C9AD6900D883A6 /* PlantTableViewCell.h */,
+				7CD8678529C9AD6900D883A6 /* BasicTableViewCell.xib */,
+				7CD8678629C9AD6900D883A6 /* BasicTableViewCell.m */,
+				7CD8678729C9AD6900D883A6 /* BasicWarningView.xib */,
+				7CD8678829C9AD6900D883A6 /* GridStandardTableViewCell.h */,
+				7CD8678929C9AD6900D883A6 /* GridStandardTableViewCell.xib */,
+				7CD8678A29C9AD6900D883A6 /* InpuPopView.xib */,
+				7CD8678B29C9AD6900D883A6 /* InpuPopView.h */,
+				7CD8678C29C9AD6900D883A6 /* PlantTableViewCell.xib */,
+				7CD8678D29C9AD6900D883A6 /* BasicWarningView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CD867C629C9E86A00D883A6 /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7CD867C729C9E86A00D883A6 /* MJPropertyKey.h */,
+				7CD867C829C9E86A00D883A6 /* NSObject+MJClass.h */,
+				7CD867C929C9E86A00D883A6 /* NSString+MJExtension.h */,
+				7CD867CA29C9E86A00D883A6 /* MJPropertyType.m */,
+				7CD867CB29C9E86A00D883A6 /* NSObject+MJProperty.h */,
+				7CD867CC29C9E86A00D883A6 /* MJExtensionConst.h */,
+				7CD867CD29C9E86A00D883A6 /* NSObject+MJKeyValue.m */,
+				7CD867CE29C9E86A00D883A6 /* MJProperty.m */,
+				7CD867CF29C9E86A00D883A6 /* MJFoundation.h */,
+				7CD867D029C9E86A00D883A6 /* NSObject+MJCoding.m */,
+				7CD867D129C9E86A00D883A6 /* MJExtension.h */,
+				7CD867D229C9E86A00D883A6 /* MJExtensionConst.m */,
+				7CD867D329C9E86A00D883A6 /* NSObject+MJProperty.m */,
+				7CD867D429C9E86A00D883A6 /* MJPropertyType.h */,
+				7CD867D529C9E86A00D883A6 /* NSObject+MJClass.m */,
+				7CD867D629C9E86A00D883A6 /* NSString+MJExtension.m */,
+				7CD867D729C9E86A00D883A6 /* MJPropertyKey.m */,
+				7CD867D829C9E86A00D883A6 /* MJProperty.h */,
+				7CD867D929C9E86A00D883A6 /* NSObject+MJKeyValue.h */,
+				7CD867DA29C9E86A00D883A6 /* NSObject+MJCoding.h */,
+				7CD867DB29C9E86A00D883A6 /* Info.plist */,
+				7CD867DC29C9E86A00D883A6 /* MJFoundation.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
 		AD3416FD8EA4F5EE03B15EC7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1649,24 +1860,31 @@
 			files = (
 				625B91B4298A521A006F985A /* resource.bundle in Resources */,
 				625B91B0298A521A006F985A /* shouDianTong1.png in Resources */,
+				7CD8679E29C9AD6900D883A6 /* BasicTableViewCell.xib in Resources */,
 				6267C965299A0E4B001820B2 /* rightUp.gif in Resources */,
 				625B91B1298A521A006F985A /* shouDianTong2.png in Resources */,
 				62664B8829A396040028EA17 /* BRPickerView.bundle in Resources */,
 				6267C968299A0E4B001820B2 /* leftDown2.gif in Resources */,
+				7CD867A329C9AD6900D883A6 /* PlantTableViewCell.xib in Resources */,
 				6267C963299A0E4B001820B2 /* rightUp2.gif in Resources */,
+				7CD867A129C9AD6900D883A6 /* GridStandardTableViewCell.xib in Resources */,
+				7CD8679929C9AD6900D883A6 /* GridStandardView.xib in Resources */,
 				625B91AF298A521A006F985A /* dataloggerShow.PNG in Resources */,
 				6267C969299A0E4B001820B2 /* rightDown.gif in Resources */,
 				625B90E7298A5042006F985A /* LaunchScreen.storyboard in Resources */,
+				7CD867A029C9AD6900D883A6 /* BasicWarningView.xib in Resources */,
 				6267C966299A0E4B001820B2 /* rightDown2.gif in Resources */,
 				625B91CF298A5739006F985A /* LICENSE in Resources */,
 				625B91C1298A5577006F985A /* Localizable.strings in Resources */,
 				625B9236298A5769006F985A /* MJRefresh.bundle in Resources */,
 				62664B8D29A396040028EA17 /* BRAddressPickerView.bundle in Resources */,
+				7CD8679429C9AD6900D883A6 /* INVSettingViewController.xib in Resources */,
 				625B90E4298A5042006F985A /* Assets.xcassets in Resources */,
 				625B9260298A57A4006F985A /* CGXPickerView.bundle in Resources */,
 				6267C967299A0E4B001820B2 /* leftUp2.gif in Resources */,
 				6267C964299A0E4B001820B2 /* leftUp.gif in Resources */,
 				625B919E298A51F3006F985A /* BTSeach.gif in Resources */,
+				7CD867A229C9AD6900D883A6 /* InpuPopView.xib in Resources */,
 				625B91D0298A5739006F985A /* README.mdown in Resources */,
 				625B90E2298A5040006F985A /* Main.storyboard in Resources */,
 				6267C96A299A0E4B001820B2 /* leftDown.gif in Resources */,
@@ -1736,9 +1954,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CD867E229C9E86A00D883A6 /* NSObject+MJProperty.m in Sources */,
 				625B919B298A51F3006F985A /* CollectorUpdataFirstVC.m in Sources */,
 				625B9338298A8664006F985A /* NSArray+Safe.m in Sources */,
+				7CD8679729C9AD6900D883A6 /* SettingModel.m in Sources */,
 				625B91B2298A521A006F985A /* RedxMMScanViewController.m in Sources */,
+				7CD867E429C9E86A00D883A6 /* NSString+MJExtension.m in Sources */,
 				62664B8729A396040028EA17 /* BRDatePickerView.m in Sources */,
 				625B92BE298A5809006F985A /* socketModeAlert.m in Sources */,
 				62664B8B29A396040028EA17 /* NSBundle+BRPickerView.m in Sources */,
@@ -1750,6 +1971,7 @@
 				625B9201298A575A006F985A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				625B9172298A5126006F985A /* NTVLocalized.m in Sources */,
 				625B923F298A5769006F985A /* MJRefreshAutoNormalFooter.m in Sources */,
+				7CD8679F29C9AD6900D883A6 /* BasicTableViewCell.m in Sources */,
 				62664B8929A396040028EA17 /* BRPickerStyle.m in Sources */,
 				625B930A298A6333006F985A /* RedxHanyuPinyinOutputFormat.m in Sources */,
 				625B914C298A50BC006F985A /* WeStationSetVC.m in Sources */,
@@ -1762,6 +1984,7 @@
 				625B92C0298A5809006F985A /* ProgressLineView.m in Sources */,
 				625B9310298A6355006F985A /* RedxChineseToPinyinResource.m in Sources */,
 				625B91BC298A52C2006F985A /* RedxRootNewViewController.m in Sources */,
+				7CD867DE29C9E86A00D883A6 /* NSObject+MJKeyValue.m in Sources */,
 				625B92FC298A61F8006F985A /* RedxMASViewConstraint.m in Sources */,
 				62664B61299DDAB80028EA17 /* DeviceBatteryView.m in Sources */,
 				625B915E298A50BC006F985A /* OssLanguageVC.m in Sources */,
@@ -1771,6 +1994,7 @@
 				625B9245298A5769006F985A /* MJRefreshBackFooter.m in Sources */,
 				6267C959298CFBA1001820B2 /* WeTitleView.m in Sources */,
 				625B915F298A50BC006F985A /* WeSettingCell.m in Sources */,
+				7CD8678E29C9AD6900D883A6 /* UserInfoSingleTon.m in Sources */,
 				625B915A298A50BC006F985A /* WeMeSetting.m in Sources */,
 				62664B8A29A396040028EA17 /* BRBaseView.m in Sources */,
 				625B91E8298A5753006F985A /* AFURLSessionManager.m in Sources */,
@@ -1778,9 +2002,12 @@
 				625B92F9298A61F8006F985A /* ViewController+MASAdditions.m in Sources */,
 				625B9319298A63AD006F985A /* RedxHCSortString.m in Sources */,
 				625B90DF298A5040006F985A /* ViewController.m in Sources */,
+				7CD867DD29C9E86A00D883A6 /* MJPropertyType.m in Sources */,
+				7CD8679329C9AD6900D883A6 /* PlantSettingViewController.m in Sources */,
 				625B9316298A636F006F985A /* NSString+PinYin4Cocoa.m in Sources */,
 				625B923C298A5769006F985A /* MJRefreshBackNormalFooter.m in Sources */,
 				625B9166298A50BC006F985A /* WeImpactVC.m in Sources */,
+				7CD8679C29C9AD6900D883A6 /* InpuPopView.m in Sources */,
 				625B91ED298A5753006F985A /* AFSecurityPolicy.m in Sources */,
 				625B925E298A57A4006F985A /* NSDate+CGXPicker.m in Sources */,
 				625B931C298A63C0006F985A /* UIAlertController+HCAdd.m in Sources */,
@@ -1795,6 +2022,7 @@
 				625B9151298A50BC006F985A /* WePCSDJCell.m in Sources */,
 				625B9334298A8664006F985A /* NSMutableDictionary+Safe.m in Sources */,
 				625B9160298A50BC006F985A /* WeNewOverView.m in Sources */,
+				7CD8679D29C9AD6900D883A6 /* GridStandardView.m in Sources */,
 				625B9261298A57A4006F985A /* CGXDatePickerView.m in Sources */,
 				625B92F5298A61F8006F985A /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				625B9200298A575A006F985A /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -1807,12 +2035,14 @@
 				625B92CD298A5C38006F985A /* RedxDTKDropdownMenuView.m in Sources */,
 				62664BA729B9F9960028EA17 /* WePCSOneCell.m in Sources */,
 				625B9168298A50BC006F985A /* WePlantSettingVC.m in Sources */,
+				7CD8678F29C9AD6900D883A6 /* RBaseViewModel.m in Sources */,
 				625B9333298A8664006F985A /* NSMutableArray+Safe.m in Sources */,
 				625B9161298A50BC006F985A /* WeSystemView.m in Sources */,
 				625B9152298A50BC006F985A /* WeRightItemView.m in Sources */,
 				625B92AB298A5809006F985A /* UIImage+Size.m in Sources */,
 				625B917D298A518F006F985A /* FirstSelectVC1.m in Sources */,
 				625B9241298A5769006F985A /* MJRefreshStateHeader.m in Sources */,
+				7C43016F29CAA44900BCBEE7 /* BaseScrollView.m in Sources */,
 				625B9164298A50BC006F985A /* WeFaultDetailVC.m in Sources */,
 				625B9157298A50BC006F985A /* WeDeviceDetailVC.m in Sources */,
 				625B9237298A5769006F985A /* UIScrollView+MJExtension.m in Sources */,
@@ -1821,6 +2051,7 @@
 				625B9304298A630A006F985A /* RedxChineseInclude.m in Sources */,
 				625B915D298A50BC006F985A /* MyLanguageCell.m in Sources */,
 				625B91A0298A51F3006F985A /* BluetoolsHelp.m in Sources */,
+				7CD8679629C9AD6900D883A6 /* TimeModel.m in Sources */,
 				625B91C7298A560C006F985A /* RedxBaseRequest.m in Sources */,
 				625B9156298A50BC006F985A /* USSetValueAlterView.m in Sources */,
 				625B92AD298A5809006F985A /* UIButton+type.m in Sources */,
@@ -1841,11 +2072,13 @@
 				625B923E298A5769006F985A /* MJRefreshAutoGifFooter.m in Sources */,
 				625B9177298A514D006F985A /* RetrievePasswordVC.m in Sources */,
 				625B9155298A50BC006F985A /* WeDeviceListVC.m in Sources */,
+				7CD8679B29C9AD6900D883A6 /* BasicWarningView.m in Sources */,
 				62664B8429A396040028EA17 /* BRStringPickerView.m in Sources */,
 				625B9167298A50BC006F985A /* WeOverDataVC.m in Sources */,
 				62664B8629A396040028EA17 /* NSDate+BRPickerView.m in Sources */,
 				625B923D298A5769006F985A /* MJRefreshAutoStateFooter.m in Sources */,
 				625B925F298A57A4006F985A /* CGXAddressPcikerView.m in Sources */,
+				7CD8679029C9AD6900D883A6 /* INVSettingViewModel.m in Sources */,
 				625B91B5298A521A006F985A /* RedxMMScanView.m in Sources */,
 				625B92B3298A5809006F985A /* LongGestureAlertView.m in Sources */,
 				625B91CE298A5739006F985A /* MBProgressHUD.m in Sources */,
@@ -1855,11 +2088,15 @@
 				625B914F298A50BC006F985A /* WeDeviceSetVC.m in Sources */,
 				625B9159298A50BC006F985A /* USSet1Cell.m in Sources */,
 				625B90D9298A5040006F985A /* AppDelegate.m in Sources */,
+				7CD8679829C9AD6900D883A6 /* PlantTableViewCell.m in Sources */,
 				625B9204298A575A006F985A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				7CD8679A29C9AD6900D883A6 /* GridStandardTableViewCell.m in Sources */,
 				625B9243298A5769006F985A /* MJRefreshFooter.m in Sources */,
+				7CD867DF29C9E86A00D883A6 /* MJProperty.m in Sources */,
 				625B91C4298A55F8006F985A /* RedxUserInfo.m in Sources */,
 				625B91E7298A5753006F985A /* AFURLConnectionOperation.m in Sources */,
 				625B90EA298A5042006F985A /* main.m in Sources */,
+				7CD867E729C9E86A00D883A6 /* MJFoundation.m in Sources */,
 				625B92B4298A5809006F985A /* PickerViewAlert.m in Sources */,
 				625B9162298A50BC006F985A /* FaultTbvCell.m in Sources */,
 				625B919D298A51F3006F985A /* BluetoolsManageVC.m in Sources */,
@@ -1869,10 +2106,13 @@
 				625B914E298A50BC006F985A /* WePlantListCell.m in Sources */,
 				625B92AE298A5809006F985A /* UIView+Frame.m in Sources */,
 				625B91A1298A51F3006F985A /* BluetoolsDataSetVC.m in Sources */,
+				7CD8679529C9AD6900D883A6 /* SettingOptionModel.m in Sources */,
 				625B9153298A50BC006F985A /* WeDevlistCell.m in Sources */,
 				625B92B6298A5809006F985A /* progressAlert.m in Sources */,
 				625B9158298A50BC006F985A /* WeAllDataSetVC.m in Sources */,
+				7CD8679129C9AD6900D883A6 /* PlantSettingViewModel.m in Sources */,
 				625B9235298A5769006F985A /* MJRefreshConst.m in Sources */,
+				7CD867E129C9E86A00D883A6 /* MJExtensionConst.m in Sources */,
 				625B92B2298A5809006F985A /* LongGestureAlertModel.m in Sources */,
 				625B92D3298A5E44006F985A /* RedxKTDropdownMenuView.m in Sources */,
 				625B92B8298A5809006F985A /* SolarTipsAlert.m in Sources */,
@@ -1881,6 +2121,7 @@
 				625B91EB298A5753006F985A /* AFHTTPRequestOperation.m in Sources */,
 				625B92FA298A61F8006F985A /* NSArray+MASAdditions.m in Sources */,
 				625B915C298A50BC006F985A /* WeMeVC.m in Sources */,
+				7CD867E529C9E86A00D883A6 /* MJPropertyKey.m in Sources */,
 				625B91E9298A5753006F985A /* AFHTTPRequestOperationManager.m in Sources */,
 				625B917A298A517B006F985A /* RedxloginViewController.m in Sources */,
 				625B92D6298A5EB6006F985A /* RedxCeHuaView.m in Sources */,
@@ -1890,6 +2131,7 @@
 				625B9301298A6277006F985A /* RedxZYPinYinSearch.m in Sources */,
 				625B92BD298A5809006F985A /* homeWattTuyaLoginAlert.m in Sources */,
 				625B9242298A5769006F985A /* MJRefreshGifHeader.m in Sources */,
+				7CD867E329C9E86A00D883A6 /* NSObject+MJClass.m in Sources */,
 				625B9173298A5126006F985A /* NSBundle+language.m in Sources */,
 				625B92FD298A61F8006F985A /* RedxMASCompositeConstraint.m in Sources */,
 				625B91B8298A5246006F985A /* RedxNewAddCollector22VC.m in Sources */,
@@ -1899,6 +2141,7 @@
 				625B9171298A5126006F985A /* langShowView.m in Sources */,
 				625B9307298A6320006F985A /* RedxPinYinForObjc.m in Sources */,
 				625B91A2298A51F3006F985A /* BluetoolsSeachDevVC.m in Sources */,
+				7CD8679229C9AD6900D883A6 /* INVSettingViewController.m in Sources */,
 				62664B8529A396040028EA17 /* BRDatePickerView+BR.m in Sources */,
 				625B92C1298A5809006F985A /* NSString+Zero.m in Sources */,
 				62664B5E299DD9520028EA17 /* CircleView.m in Sources */,
@@ -1906,6 +2149,7 @@
 				625B91E5298A5753006F985A /* AFURLResponseSerialization.m in Sources */,
 				625B9244298A5769006F985A /* MJRefreshHeader.m in Sources */,
 				625B92BC298A5809006F985A /* BaseAlertView.m in Sources */,
+				7CD867E029C9E86A00D883A6 /* NSObject+MJCoding.m in Sources */,
 				625B92B0298A5809006F985A /* AddCollectorAlert.m in Sources */,
 				62664BB029C43C5E0028EA17 /* ScanViewController.m in Sources */,
 				625B9150298A50BC006F985A /* WePeakSetVC.m in Sources */,
@@ -2107,6 +2351,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -2150,6 +2395,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
