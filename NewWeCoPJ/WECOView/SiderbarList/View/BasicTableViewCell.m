@@ -206,9 +206,14 @@
 
 // 按钮开关点击方法
 - (IBAction)changeSwichAction:(UISwitch *)sender {
+    NSInteger isSwich = sender.isOn;
     NSArray *array = self.optionModel.basicSettingParamArray[self.indexPath.section];
     NSString *codeStr = [NSString stringWithFormat:@"%@",array[self.indexPath.row]];
-    NSDictionary *paramDic = @{@"deviceSn":self.device,@"code":codeStr,@"value":@(self.indexPath.row)};
+    
+    if (self.indexPath.section == 0){
+        isSwich = self.indexPath.row;
+    }
+    NSDictionary *paramDic = @{@"deviceSn":self.device,@"code":codeStr,@"value":@(isSwich)};
     
     if ([self.delegate respondsToSelector:@selector(didClickSwichActionWith:swich:)]) {
         [self.delegate didClickSwichActionWith:paramDic swich:sender];

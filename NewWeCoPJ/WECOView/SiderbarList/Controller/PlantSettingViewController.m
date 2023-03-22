@@ -115,17 +115,28 @@
 #pragma mark cell的代理方法
 -(void)didClickAddAction:(NSIndexPath *)indexPath {
     
+    TimeModel *model = [[TimeModel alloc]init];
+    model.power = @"0";
+    model.startHour = @"00";
+    model.startMinute = @"00";
+    model.endHour = @"00";
+    model.endMinute = @"00";
+    model.show = 1;
     if (indexPath.section == 0) {
         if (self.planVM.batteryChargArray.count >= 3) {
             return;;
         }
-        [self.planVM.batteryChargArray addObject:self.planVM.batteryChargArray[0]];
+        model.charge = 1;
+        model.order = [NSString stringWithFormat:@"%ld",self.planVM.batteryChargArray.count];
+        [self.planVM.batteryChargArray addObject:model];
         
     } else {
         if (self.planVM.batteryDisChargArray.count >= 3) {
             return;;
         }
-        [self.planVM.batteryDisChargArray addObject:self.planVM.batteryDisChargArray[0]];
+        model.charge = 0;
+        model.order = [NSString stringWithFormat:@"%ld",self.planVM.batteryDisChargArray.count];
+        [self.planVM.batteryDisChargArray addObject:model];
     }
     [self.plantTableView reloadData];
 }
@@ -151,6 +162,9 @@
     [self.planVM setUpPlantModelParamCompleteBlock:^(NSString * _Nonnull resultStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [selfWeak showToastViewWithTitle:@"Setting succeeded"];
+            });
             [selfWeak planGetInverterTime];
         } else {
             // 提示错误
@@ -401,6 +415,31 @@
     
     return isBeing;
 }
+
+- (BOOL)isBetweenDateWith:(NSString *)time0 Time1:(NSString *)time1{
+    //设置的是中国时间
+    NSString *startTime=@"13:01";
+    NSString *expireTime=@"20:01";
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm"];
+    NSString * todayStr=[dateFormat stringFromDate:today];//将日期转换成字符串
+    today=[ dateFormat dateFromString:todayStr];//转换成NSDate类型。日期置为方法默认日期
+    NSDate *start = [dateFormat dateFromString:startTime];
+    NSDate *expire = [dateFormat dateFromString:expireTime];
+    NSLog(@"today today ==%@",today);
+    NSLog(@"start start ==%@",start);
+    NSLog(@"expire expire ==%@",expire);
+    if ([today compare:start] == NSOrderedDescending && [today compare:expire] == NSOrderedAscending) {
+        return YES;
+    }
+    else{
+        return NO;
+    }
+    return NO;
+}
+
+
 
 - (void)showToastViewWithTitle:(NSString *)title {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];

@@ -47,32 +47,26 @@
 
     NSMutableArray *chargeArray = [NSMutableArray array];
     NSMutableArray *disChargArray = [NSMutableArray array];
-    for (TimeModel *model in self.batteryChargArray) {
-        NSDictionary *dic = @{@"isCharge":@(model.charge),@"startHour":model.startHour,@"startMinute":model.startMinute,@"endHour":model.endHour,@"endMinute":model.endMinute,@"power":model.power};
-        [chargeArray addObject:dic];
-    }
-    for (TimeModel *model in self.batteryDisChargArray) {
-        NSDictionary *dic = @{@"isCharge":@(model.charge),@"startHour":model.startHour,@"startMinute":model.startMinute,@"endHour":model.endHour,@"endMinute":model.endMinute,@"power":model.power};
-        [disChargArray addObject:dic];
-    }
-    NSDictionary *chargeDic =  @{@"isCharge":@(0),@"startHour":@"00",@"startMinute":@"00",@"endHour":@"00",@"endMinute":@"00",@"power":@"0"};
-    if (chargeArray.count < 3) {
-        NSInteger num = 3 - chargeArray.count;
-        for (int i = 0; i < num; i++) {
-            [chargeArray addObject:chargeDic];
+
+    for (int i = 0; i < 3; i++) {
+        if (i <= self.batteryChargArray.count - 1) {
+            NSDictionary *dic = @{@"isCharge":@(self.batteryChargArray[i].charge),@"startHour":self.batteryChargArray[i].startHour,@"startMinute":self.batteryChargArray[i].startMinute,@"endHour":self.batteryChargArray[i].endHour,@"endMinute":self.batteryChargArray[i].endMinute,@"power":self.batteryChargArray[i].power,@"order":@(i)};
+            [chargeArray addObject:dic];
+        } else {
+            NSDictionary *dic = @{@"isCharge":@(0),@"startHour":@"00",@"startMinute":@"00",@"endHour":@"00",@"endMinute":@"00",@"power":@"0",@"order":@(i)};
+            [chargeArray addObject:dic];
         }
-    }
-    NSDictionary *disChargeDic =  @{@"isCharge":@(1),@"startHour":@"00",@"startMinute":@"00",@"endHour":@"00",@"endMinute":@"00",@"power":@"0"};
-    if (disChargArray.count < 3) {
-        NSInteger num = 3 - chargeArray.count;
-        for (int i = 0; i < num; i++) {
-            [chargeArray addObject:disChargeDic];
+        
+        if (i <= self.batteryDisChargArray.count - 1) {
+            NSDictionary *dic = @{@"isCharge":@(self.batteryDisChargArray[i].charge),@"startHour":self.batteryDisChargArray[i].startHour,@"startMinute":self.batteryDisChargArray[i].startMinute,@"endHour":self.batteryDisChargArray[i].endHour,@"endMinute":self.batteryDisChargArray[i].endMinute,@"power":self.batteryDisChargArray[i].power,@"order":@(i)};
+            [disChargArray addObject:dic];
+        } else {
+            NSDictionary *dic = @{@"isCharge":@(1),@"startHour":@"00",@"startMinute":@"00",@"endHour":@"00",@"endMinute":@"00",@"power":@"0",@"order":@(i)};
+            [disChargArray addObject:dic];
         }
     }
     
-    NSDictionary *param = @{@"deviceSn":self.deviceStr,@"charge":chargeArray,@"disCharge":disChargArray};
-    NSLog(@"时间参数：%@",param);
-
+    NSDictionary *param = @{@"charge":chargeArray,@"disCharge":disChargArray,@"deviceSn":self.deviceStr};
     [PlantSettingViewModel requestPostForURL:urlStr withParam:[self gs_jsonStringCompactFormatForDictionary:param] withSuccess:^(id  _Nonnull resultData) {
         if ([self judgeSuccess:resultData] == YES) {
             completeBlock ? completeBlock(@"") : nil;

@@ -113,8 +113,8 @@
         NSArray *parallelSettingArray = @[@"INV_PARALLEL_NUM",@"INV_PARALLEL_IDENTITY",@"INV_PARALLEL_ADDR",@"COMMON_BATTERY_ENABLE",@"COMMON_GRIDCT_ENABLE",
                                         @"P_HASE_ENABLE",@"PARALLEL_CHARGE_CURRENT",@"PARALLEL_DISCHARGE_CURRENT",@"INV_PARALLEL_ENABLE"];
 
-        NSArray *geneatorSettingArray = @[@"GENERATOR_START_SOC",@"GENERATOR_STOP_SOC",@"GENERATOR_CHARGES_CURRENT",@"MAXIMUM_OPERATING_TIM",@"GENERATOR_COOLING_TIME",@"GEN_Enable"
-                                          ,@"GEN_CHARGE_ENABLE",@"GEN_AUTO_START",@"GEN_MANUAL_ON",@"GEN_MANUAL_CMD",@"genConnectToGridInput",@"GENERATOR_POWER"];
+        NSArray *geneatorSettingArray = @[@"GENERATOR_START_SOC",@"GENERATOR_STOP_SOC",@"GENERATOR_CHARGES_CURRENT",@"MAXIMUM_OPERATING_TIM",@"GENERATOR_COOLING_TIME",@"GEN_ENABLE"
+                                          ,@"GEN_CHARGE_ENABLE",@"GEN_AUTO_START",@"GEN_MANUAL_ON",@"GEN_MANUAL_CMD",@"GEN_CONNECT_TO_GRID_INPUT",@"GENERATOR_POWER"];
         _basicSettingParamArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,parallelSettingArray,geneatorSettingArray, nil];
     }
     return _basicSettingParamArray;

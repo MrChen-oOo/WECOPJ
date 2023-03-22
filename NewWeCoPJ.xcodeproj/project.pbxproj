@@ -211,6 +211,7 @@
 		6267C968299A0E4B001820B2 /* leftDown2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C960299A0E4B001820B2 /* leftDown2.gif */; };
 		6267C969299A0E4B001820B2 /* rightDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C961299A0E4B001820B2 /* rightDown.gif */; };
 		6267C96A299A0E4B001820B2 /* leftDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C962299A0E4B001820B2 /* leftDown.gif */; };
+		7C43016F29CAA44900BCBEE7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */; };
 		7CD8678E29C9AD6900D883A6 /* UserInfoSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */; };
 		7CD8678F29C9AD6900D883A6 /* RBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */; };
 		7CD8679029C9AD6900D883A6 /* INVSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676A29C9AD6900D883A6 /* INVSettingViewModel.m */; };
@@ -664,6 +665,8 @@
 		6267C960299A0E4B001820B2 /* leftDown2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leftDown2.gif; sourceTree = "<group>"; };
 		6267C961299A0E4B001820B2 /* rightDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rightDown.gif; sourceTree = "<group>"; };
 		6267C962299A0E4B001820B2 /* leftDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leftDown.gif; sourceTree = "<group>"; };
+		7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
+		7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		7CD8676429C9AD6900D883A6 /* RBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseViewModel.h; sourceTree = "<group>"; };
 		7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoSingleTon.m; sourceTree = "<group>"; };
 		7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseViewModel.m; sourceTree = "<group>"; };
@@ -1634,6 +1637,8 @@
 				7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */,
 				7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */,
 				7CD8676729C9AD6900D883A6 /* UserInfoSingleTon.h */,
+				7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */,
+				7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */,
 			);
 			path = RBase;
 			sourceTree = "<group>";
@@ -2037,6 +2042,7 @@
 				625B92AB298A5809006F985A /* UIImage+Size.m in Sources */,
 				625B917D298A518F006F985A /* FirstSelectVC1.m in Sources */,
 				625B9241298A5769006F985A /* MJRefreshStateHeader.m in Sources */,
+				7C43016F29CAA44900BCBEE7 /* BaseScrollView.m in Sources */,
 				625B9164298A50BC006F985A /* WeFaultDetailVC.m in Sources */,
 				625B9157298A50BC006F985A /* WeDeviceDetailVC.m in Sources */,
 				625B9237298A5769006F985A /* UIScrollView+MJExtension.m in Sources */,
@@ -2328,7 +2334,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4FLHX556XV;
+				DEVELOPMENT_TEAM = 3RXX44PSB5;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/NewWeCoPJ/通用类/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewWeCoPJ/Info.plist;
@@ -2356,7 +2362,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2023.03.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.weco.bluetooth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2372,7 +2378,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4FLHX556XV;
+				DEVELOPMENT_TEAM = 3RXX44PSB5;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/NewWeCoPJ/通用类/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewWeCoPJ/Info.plist;
@@ -2400,7 +2406,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2023.03.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.weco.bluetooth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
