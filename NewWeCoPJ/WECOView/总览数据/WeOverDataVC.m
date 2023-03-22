@@ -756,8 +756,8 @@
 //                                    valuestr = @"0";
                                     [_powerMapArr addObject:key];
 
-                                    NSNumber *valuNumb = [NSNumber numberWithFloat:[valuestr floatValue]];
-                                    [_Y_dataArr addObject:valuNumb];
+//                                    NSNumber *valuNumb = [NSNumber numberWithFloat:[valuestr floatValue]];
+                                    [_Y_dataArr addObject:powerDict[key]];
                                 }
                                 
 

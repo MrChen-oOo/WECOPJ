@@ -443,6 +443,11 @@ UIGestureRecognizerDelegate>
 
 - (void)processWithResult:(NSString *)resultStr {
     NSArray *textArray = [resultStr componentsSeparatedByString:@" "];
+    
+    RedxNewAddCollector22VC *addvc = [[RedxNewAddCollector22VC alloc]init];
+    addvc.SNStr = textArray.lastObject;
+    addvc.stationId = _PlantID;
+    [self.navigationController pushViewController:addvc animated:YES];
     if (self.resultBlock) {
         self.resultBlock(textArray.lastObject);
     }
