@@ -193,8 +193,8 @@
     self.shutDownBtn.layer.borderWidth = 1;
     self.startBtn.layer.borderColor = isStart == YES ? [UIColor clearColor].CGColor : HexRGB(0x4776ff).CGColor;
     self.shutDownBtn.layer.borderColor = isStart == NO ? [UIColor clearColor].CGColor : HexRGB(0x4776ff).CGColor;
-    self.startBtn.titleLabel.font = [UIFont systemFontOfSize:10];
-    self.shutDownBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+    self.startBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.shutDownBtn.titleLabel.font = [UIFont systemFontOfSize:12];
 }
 
 

@@ -97,7 +97,7 @@
     UILabel *sectionName = [[UILabel alloc]initWithFrame:CGRectMake(26, 10, kScreenWidth - 40, 29)];
     sectionName.textAlignment = NSTextAlignmentLeft;
     [sectionName setTextColor:[UIColor lightGrayColor]];
-    [sectionName setFont:[UIFont fontWithName:@"Helvetica Neue Bold" size:14]];
+    [sectionName setFont:[UIFont fontWithName:@"Helvetica Neue Bold" size:16]];
     [sectionName setTextColor:HexRGB(0x999999)];
     sectionName.text = tableView == self.basicTableView ? self.settingVM.optionModel.basicSettingOptionSectionArray[section] : @"";
     [view addSubview:sectionName];
@@ -194,6 +194,12 @@
         CGPoint point = scrollView.contentOffset;
         point.y = 0;
         scrollView.contentOffset = point;
+        if (point.x > kScreenWidth / 2) {
+            self.title = @"Advanced Setting";
+        } else {
+            self.title = @"Basic Setting";
+
+        }
     }
 
 }

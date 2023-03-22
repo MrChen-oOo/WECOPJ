@@ -484,16 +484,24 @@
         //            }]];
         //            [self presentViewController:alvc animated:YES completion:nil];
         //        }
-//        if (selectNumb == 102) {//
-//
-//            WeMeSetting *settingvc = [[WeMeSetting alloc]init];
-//            [self.navigationController pushViewController:settingvc animated:YES];
-//
-//
-//        }
-        
-        
         if (selectNumb == 102) {//
+            if (self.invViewModel.isMgrnDevice == YES) {
+                WeMeSetting *settingvc = [[WeMeSetting alloc]init];
+                [self.navigationController pushViewController:settingvc animated:YES];
+            } else {
+                UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
+                [alvc addAction:[UIAlertAction actionWithTitle:root_OK style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    [self logOutClick];
+                    
+                }]];
+                [self presentViewController:alvc animated:YES completion:nil];
+            }
+        }
+        
+        
+        if (selectNumb == 103) {//
             
             UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
             [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
@@ -524,14 +532,8 @@
                 settingvc.settingVM = self.invViewModel;
                 [self.navigationController pushViewController:settingvc animated:YES];
             } else {
-                UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
-                [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
-                [alvc addAction:[UIAlertAction actionWithTitle:root_OK style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                    [self logOutClick];
-                    
-                }]];
-                [self presentViewController:alvc animated:YES completion:nil];
+                WeMeSetting *settingvc = [[WeMeSetting alloc]init];
+                [self.navigationController pushViewController:settingvc animated:YES];
             }
            
         }
