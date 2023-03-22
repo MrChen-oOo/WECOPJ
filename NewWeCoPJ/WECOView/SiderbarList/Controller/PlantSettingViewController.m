@@ -116,7 +116,7 @@
 -(void)didClickAddAction:(NSIndexPath *)indexPath {
     
     TimeModel *model = [[TimeModel alloc]init];
-    model.power = @"0";
+    model.power = self.planVM.batteryChargArray[0].power;
     model.startHour = @"00";
     model.startMinute = @"00";
     model.endHour = @"00";

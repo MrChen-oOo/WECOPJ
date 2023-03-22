@@ -16,7 +16,7 @@
 
 @implementation SettingOptionModel
 
-#pragma mark basic相关model
+#pragma mark Inverter basic相关model
 
 // basic setting标题数组
 -(NSMutableArray<NSString *> *)basicSettingOptionSectionArray {
@@ -135,7 +135,7 @@
 }
 
 
-#pragma mark advanced相关model
+#pragma mark Inverter advanced相关model
 
 // advanced setting标题数组
 -(NSMutableArray<NSString *> *)advancedSettingOptionSectionArray {
@@ -201,8 +201,112 @@
     [self.advancedSettingOptionValueArray addObject:array];
 }
 
+#pragma mark Cabinet Basic 相关model
 
-#pragma mark 弹框GridStandard 相关model
+//Cabinet basic setting标题数组
+-(NSMutableArray<NSString *> *)cabinetBasicSettingOptionSectionArray {
+    if (!_cabinetBasicSettingOptionSectionArray) {
+        
+        _cabinetBasicSettingOptionSectionArray = [NSMutableArray arrayWithObjects:@"Work Mode",@"Sys Setting",@"Battery Setting",@"Grid Setting",@"He Setting", nil];
+    }
+    return _cabinetBasicSettingOptionSectionArray;
+}
+
+//Cabinet basic setting选项数组
+-(NSMutableArray<NSArray *> *)cabinetBasicSettingOptionKeyArray {
+    if (!_cabinetBasicSettingOptionKeyArray) {
+        
+        NSArray *workingModeArray = @[@"Load Prioritized",@"Plan Mode"];
+       
+        NSArray *sysSettingArray = @[@"Date",@"Time",@"DG Capacity",@"Maximum Load Power"];
+        
+        NSArray *batSettingArray = @[@"Charging Targt Soc",@"SocThreshold Hysteresis",@"On Grid Soc Discharg",@"Off Grid Soc Dischar",@"Battery Cut Off Soc"];
+        
+        NSArray *gridSettingArray = @[@"On-Grid Maximum",@"Grid Capacity"];
+        
+        NSArray *heSettingArray = @[@"Electricity Price"];
+
+        _cabinetBasicSettingOptionKeyArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+    }
+    return _cabinetBasicSettingOptionKeyArray;
+}
+
+//Cabinet basic setting UI展示数组
+-(NSMutableArray<NSArray *> *)cabinetBasicSettingUIArray {
+    // 0:保留按钮 1:保留文字和箭头 2:特殊符号
+    if (!_cabinetBasicSettingUIArray) {
+        NSArray *workingModeArray = @[@"0",@"0"];
+        NSArray *sysSettingArray = @[@"1",@"1",@"1",@"1"];
+        NSArray *batSettingArray = @[@"1",@"1",@"1",@"1"];
+        NSArray *gridSettingArray = @[@"1",@"1"];
+        NSArray *heSettingArray = @[@"1"];
+        _cabinetBasicSettingUIArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+    }
+    return _cabinetBasicSettingUIArray;
+}
+
+//Cabinet basic setting data数组
+-(NSMutableArray<NSArray *> *)cabinetBasicSettingOptionValueArray {
+    if (!_cabinetBasicSettingOptionValueArray) {
+        _cabinetBasicSettingOptionValueArray = [NSMutableArray array];
+    }
+    return _cabinetBasicSettingOptionValueArray;
+}
+
+-(void)cabinetAddBasicSettingDataArray {
+    
+    NSMutableArray *workingModeArray = [NSMutableArray array];
+    for (int i = 0; i < 2; i++) {
+        NSInteger modeNum = [self.settingModel.workMode intValue];
+        [workingModeArray addObject:modeNum == i ? @"1" : @"0"];
+    }
+    
+    NSArray *sysSettingArray = @[self.settingModel.date,self.settingModel.time,self.settingModel.oilEngineRatedCapacity,self.settingModel.maximumLoadPower];
+    
+    NSArray *batSettingArray = @[self.settingModel.batterySocUpLimit,self.settingModel.socReturnDifference,self.settingModel.gridSocLowerLimit,self.settingModel.offGridSocLowerLimit,self.settingModel.shutdownSocLimit];
+    
+    NSArray *gridSettingArray = @[self.settingModel.gridPowerUpLimit,self.settingModel.transformerCapacity];
+    
+    NSArray *heSettingArray = @[@""];
+
+    NSArray *allArray = [NSArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+    
+    [self.basicSettingOptionValueArray removeAllObjects];
+    [self.basicSettingOptionValueArray addObjectsFromArray:allArray];
+        
+}
+
+//Cabinet basic setting 参数数组
+- (NSMutableArray<NSArray *> *)cabinetBasicSettingParamArray {
+    if (!_basicSettingParamArray) {
+        NSArray *workingModeArray = @[@"sysOperaPolicyMode",@"sysOperaPolicyMode"];
+        NSArray *sysSettingArray = @[@"date",@"time",@"ratedCapacityOfOilEngine",@"MAXIMUM_LOAD_POWER"];
+        NSArray *batSettingArray = @[@"batterySOCLimit",@"socReturnDifference",@"gridSOCLowerLimit",@"OffGridSOCLowerLimit",@"ShutdownSOCLimit"];
+
+        NSArray *gridSettingArray = @[@"gridPowerUpperLimit",@"gridPowerUpperLimit"];
+
+        NSArray *heSettingArray = @[@""];
+
+        _basicSettingParamArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+    }
+    return _basicSettingParamArray;
+}
+
+-(NSMutableArray<NSArray *> *)cabinetBasicSettingSelectArray {
+    if (!_cabinetBasicSettingSelectArray) {
+        // 0:无操作 1:跳转输入框（百分比） 2:跳转输入框 3:时间弹窗 4:选择界面 5:跳转设置电价
+        NSArray *workingModeArray = @[@"0",@"0"];
+        NSArray *sysSettingArray = @[@"3",@"3",@"1",@"1"];
+        NSArray *batSettingArray = @[@"1",@"1",@"1",@"1",@"1"];
+        NSArray *gridSettingArray = @[@"1",@"1"];
+        NSArray *heSettingArray = @[@"5"];
+        _cabinetBasicSettingSelectArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+    }
+    return _cabinetBasicSettingSelectArray;
+}
+
+
+#pragma mark 选择列表相关数据
 -(NSMutableArray *)gridStandardsValueArray {
     if (!_gridStandardsValueArray) {
         _gridStandardsValueArray = [NSMutableArray arrayWithObjects:@"AU",@"AU-W",@"NZ",@"UK",@"PK",@"KR",@"PHI",@"CN",@"US",@"THAIL",@"ZA",@"Custom",@"POL",@"EN50549",@"VDE4105",@"JPN",@"ITA",@"SLO",@"CZE",@"SWE",@"HU",@"SK", nil];
