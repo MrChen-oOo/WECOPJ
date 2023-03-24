@@ -261,7 +261,7 @@
 		3C1621CAA2DFEAC36CC21C353BC6A4C9 /* Reachability-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Reachability-prefix.pch"; sourceTree = "<group>"; };
 		3C4093724B566E303F9E279503CF20E7 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		3F2DB042B92EB65E7B15F22463042CB1 /* AAChartKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAChartKit.h; path = AAChartKitLib/AAChartCreator/AAChartKit.h; sourceTree = "<group>"; };
-		400FF55D0451E7A8F33A3D0D3E11C1B9 /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libReachability.a; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		400FF55D0451E7A8F33A3D0D3E11C1B9 /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		401318E09FAD9CEB610FC9302378A0C2 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		428BA9ED4A345F38FD1291E3D61119AC /* AAPie.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AAPie.m; path = AAChartKitLib/AAOptionsModel/AAPie.m; sourceTree = "<group>"; };
 		42E9909E5B70C75DB3C321AF88BE3C7E /* CocoaAsyncSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaAsyncSocket.xcconfig; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		55138B39EF0F9E1BEB8EB96C736AE7D3 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		56F9BC44E7E45967C7B07368093AA2C8 /* UIImage+MemoryCacheCost.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MemoryCacheCost.h"; path = "SDWebImage/UIImage+MemoryCacheCost.h"; sourceTree = "<group>"; };
 		58552879364296411561B5E84B12CF44 /* AAChartKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AAChartKit.xcconfig; sourceTree = "<group>"; };
-		5D823390604C52DFAA3AC10C8BFB8335 /* libAAChartKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAAChartKit.a; path = libAAChartKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D823390604C52DFAA3AC10C8BFB8335 /* libAAChartKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAAChartKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6080CBD6783C76EE20C3B0D95B1E132E /* AAPlotBandsElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AAPlotBandsElement.m; path = AAChartKitLib/AAOptionsModel/AAPlotBandsElement.m; sourceTree = "<group>"; };
 		617A511AFE1319BC8A4FF97F3C4E2FC3 /* AACredits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AACredits.h; path = AAChartKitLib/AAOptionsModel/AACredits.h; sourceTree = "<group>"; };
 		62B5DEDD899CEE6F5F65FD5133B9F80E /* AAOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAOptions.h; path = AAChartKitLib/AAChartCreator/AAOptions.h; sourceTree = "<group>"; };
@@ -289,12 +289,12 @@
 		6B5A769B4602D1942186625FB6B6D129 /* SDWebImageGIFCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageGIFCoder.m; path = SDWebImage/SDWebImageGIFCoder.m; sourceTree = "<group>"; };
 		6BC97569653CCDA6A9FEED70B9F5E322 /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
 		6C413BFA542E8708920E3AA28B0D2A2C /* SDWebImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCoder.h; path = SDWebImage/SDWebImageCoder.h; sourceTree = "<group>"; };
-		6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCocoaAsyncSocket.a; path = libCocoaAsyncSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaAsyncSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D2A1CB609469948BA44AAD1AFFCFEC5 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		70226186BD306F1270DE8B7656A00499 /* AAChartModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAChartModel.h; path = AAChartKitLib/AAChartCreator/AAChartModel.h; sourceTree = "<group>"; };
 		71138B115041DDCB914D968124FC257A /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		7425E4B18841477490138BBAF0C85BFD /* AABar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AABar.h; path = AAChartKitLib/AAOptionsModel/AABar.h; sourceTree = "<group>"; };
-		749A8B244F7A08D090440F71E7E85464 /* AAChartKitLib.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AAChartKitLib.bundle; path = "AAChartKit-AAChartKitLib.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		749A8B244F7A08D090440F71E7E85464 /* AAChartKitLib.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AAChartKitLib.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		750FEF453AFE5D9EEB22EED72691CCD5 /* Pods-NewWeCoPJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NewWeCoPJ.debug.xcconfig"; sourceTree = "<group>"; };
 		7646C68C7EB962E956C045C0D95A34FA /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
 		767AC2BA2BB6A225F3FF559AB4839888 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = FLAnimatedImage/include/FLAnimatedImageView.h; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		9AC27C141D354687CEF41873AE70EEBE /* AAAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAAnimation.h; path = AAChartKitLib/AAOptionsModel/AAAnimation.h; sourceTree = "<group>"; };
 		9C479ECE9A527C11ED3CF81BA8364C7E /* UIImage+ForceDecode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ForceDecode.h"; path = "SDWebImage/UIImage+ForceDecode.h"; sourceTree = "<group>"; };
 		9D09E71C341F7E9845D53CA956A93DA4 /* AADataLabels.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AADataLabels.m; path = AAChartKitLib/AAOptionsModel/AADataLabels.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DEB578E5C309D511CCEAD65CB7C02F8 /* Pods-NewWeCoPJ-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NewWeCoPJ-dummy.m"; sourceTree = "<group>"; };
 		9FB6D5F41D372C40623E71C82C649246 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
 		A23D688F2A9AE9AF1EA38F1608E98697 /* SDWebImageImageIOCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageImageIOCoder.m; path = SDWebImage/SDWebImageImageIOCoder.m; sourceTree = "<group>"; };
@@ -342,7 +342,7 @@
 		AEC422E255858DB35A0E6BC811FFB25E /* AAStyleConvenience.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAStyleConvenience.h; path = AAChartKitLib/AATool/Convenience/AAStyleConvenience.h; sourceTree = "<group>"; };
 		AF7A991C369D29EB881EF7668B6AAB8F /* AAShadow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAShadow.h; path = AAChartKitLib/AAOptionsModel/AAShadow.h; sourceTree = "<group>"; };
 		B073559A6C15B49280D0BE39C9971DDF /* AAMarker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AAMarker.m; path = AAChartKitLib/AAOptionsModel/AAMarker.m; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CB3D82272455314E256B0B64FFD70A /* AAPie.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAPie.h; path = AAChartKitLib/AAOptionsModel/AAPie.h; sourceTree = "<group>"; };
 		B1315420D4B6DE153D6EC5429AD3AEBA /* AAChartKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AAChartKit-prefix.pch"; sourceTree = "<group>"; };
 		B3530082910EE69A56306FF5475F84AC /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 		B93B8F065490F8E00F80F28CE1E5B829 /* AAGradientColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AAGradientColor.m; path = AAChartKitLib/AATool/Color/AAGradientColor.m; sourceTree = "<group>"; };
 		BA1D6AD90F6752948BF5BA2019ACF567 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		BA75A5D9A247B3BB038AA73C30A149A2 /* AAPlotOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AAPlotOptions.h; path = AAChartKitLib/AAOptionsModel/AAPlotOptions.h; sourceTree = "<group>"; };
-		BAC3894A93AFD99F775DF647F2283574 /* libPods-NewWeCoPJ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-NewWeCoPJ.a"; path = "libPods-NewWeCoPJ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAC3894A93AFD99F775DF647F2283574 /* libPods-NewWeCoPJ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewWeCoPJ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6B47AF475E93147BE7092BBF13202C /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		BC432722E5A7CA6045564938CA6C21E9 /* Reachability-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Reachability-dummy.m"; sourceTree = "<group>"; };
 		BD9927045E78D086452ADF310CAE5F91 /* AALabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AALabel.m; path = AAChartKitLib/AAOptionsModel/AALabel.m; sourceTree = "<group>"; };
@@ -409,7 +409,7 @@
 		F1869B5A8322A7A10B7B03F087DA1BDB /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/SDWebImageTransition.m; sourceTree = "<group>"; };
 		F7963A42C2B991689FEC0870C22F3EB5 /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImageRep.h; path = SDWebImage/SDAnimatedImageRep.h; sourceTree = "<group>"; };
 		F98C469E172320B7038FFD46DE8FD127 /* Pods-NewWeCoPJ-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NewWeCoPJ-acknowledgements.plist"; sourceTree = "<group>"; };
-		FAA5F2D71B90788C908800A94534AA92 /* libFLAnimatedImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFLAnimatedImage.a; path = libFLAnimatedImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA5F2D71B90788C908800A94534AA92 /* libFLAnimatedImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFLAnimatedImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB7D76384F4131C9136EC03E7E94063 /* SDWebImageImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageImageIOCoder.h; path = SDWebImage/SDWebImageImageIOCoder.h; sourceTree = "<group>"; };
 		FE5AC2319BCBE3A97DF01456132DEC32 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -474,7 +474,6 @@
 				A7B101CEB839BF343CCD394ABDB28D2F /* Reachability.m */,
 				36CA773B96059520924E9DCA9AA924F3 /* Support Files */,
 			);
-			name = Reachability;
 			path = Reachability;
 			sourceTree = "<group>";
 		};
@@ -485,7 +484,6 @@
 				C836BED868F3BCE77CFD691436AE8A64 /* GIF */,
 				AEE82B92DC9480B0955DDD0038AA4982 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -750,7 +748,6 @@
 				D10FEC223E257FA749263DBA347D0BC1 /* Resources */,
 				63653001F786698A2E505BD38DD746ED /* Support Files */,
 			);
-			name = AAChartKit;
 			path = AAChartKit;
 			sourceTree = "<group>";
 		};
@@ -763,7 +760,6 @@
 				E020312BC87FDA4CF4FE7E282C91D4C0 /* FLAnimatedImageView.m */,
 				6833328C10B3BFFC58E0CB175C856841 /* Support Files */,
 			);
-			name = FLAnimatedImage;
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
@@ -811,7 +807,6 @@
 				2CAC97131C283CBCD8D33DD53E89CD5D /* GCDAsyncUdpSocket.m */,
 				72458EF68ED8DC7648270919B24E1898 /* Support Files */,
 			);
-			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -1320,9 +1315,11 @@
 			baseConfigurationReference = 58552879364296411561B5E84B12CF44 /* AAChartKit.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AAChartKit";
+				DEVELOPMENT_TEAM = 4FLHX556XV;
 				IBSC_MODULE = AAChartKit;
 				INFOPLIST_FILE = "Target Support Files/AAChartKit/ResourceBundle-AAChartKitLib-AAChartKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.AAChartKitLib;
 				PRODUCT_NAME = AAChartKitLib;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1706,9 +1703,11 @@
 			baseConfigurationReference = 58552879364296411561B5E84B12CF44 /* AAChartKit.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AAChartKit";
+				DEVELOPMENT_TEAM = 4FLHX556XV;
 				IBSC_MODULE = AAChartKit;
 				INFOPLIST_FILE = "Target Support Files/AAChartKit/ResourceBundle-AAChartKitLib-AAChartKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.AAChartKitLib;
 				PRODUCT_NAME = AAChartKitLib;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

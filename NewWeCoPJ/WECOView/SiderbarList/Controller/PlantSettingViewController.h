@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PlantSettingViewController : RedxRootNewViewController
 
 @property (nonatomic, strong)NSString *deviceSnStr;
-
+@property (nonatomic, assign)BOOL isTimePlan;      // YES：时间计划设置 NO：电价设置
+@property (nonatomic, assign)NSInteger deviceType; // 1:逆变器 0:HMI
 
 @end
 

@@ -50,7 +50,7 @@
     return _basicSettingOptionKeyArray;
 }
 
-// basic setting UI展示数组
+// basic setting UI风格展示数组
 -(NSMutableArray<NSArray *> *)basicSettingUIArray {
     // 0:保留按钮 1:保留文字和箭头 2:特殊符号
     if (!_basicSettingUIArray) {
@@ -120,6 +120,7 @@
     return _basicSettingParamArray;
 }
 
+// basic setting 跳转逻辑数组
 -(NSMutableArray<NSArray *> *)basicSettingSelectArray {
     if (!_basicSettingSelectArray) {
         // 0:无操作 1:跳转输入框（百分比） 2:跳转输入框 3:时间弹窗 4:选择界面
@@ -132,6 +133,21 @@
         _basicSettingSelectArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,parallelSettingArray,geneatorSettingArray, nil];
     }
     return _basicSettingSelectArray;
+}
+
+// basic setting 数据单位数组
+-(NSMutableArray<NSArray *> *)basicSettingUnitArray {
+    if (!_basicSettingUnitArray) {
+        // 0:无单位 1:百分比 2:安 A  3:小时 h  4:瓦 W 5:千兆 kM 6:千瓦kW
+        NSArray *workingModeArray = @[@"0",@"0",@"0"];
+        NSArray *sysSettingArray = @[@"0",@"0",@"0",@"0",@"0",@"0",@"0"];
+        NSArray *batSettingArray = @[@"1",@"1",@"1"];
+        NSArray *gridSettingArray = @[@"0",@"0",@"0"];
+        NSArray *parallelSettingArray = @[@"0",@"0",@"0",@"0",@"0",@"0",@"2",@"2",@"0"];
+        NSArray *geneatorSettingArray = @[@"1",@"1",@"2",@"3",@"3",@"0",@"0",@"0",@"0",@"0",@"0",@"4"];
+        _basicSettingUnitArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,parallelSettingArray,geneatorSettingArray, nil];
+    }
+    return _basicSettingUnitArray;
 }
 
 
@@ -166,7 +182,7 @@
 }
 
 
-// basic setting UI展示数组
+// advanced setting UI风格展示数组
 -(NSMutableArray<NSArray *> *)advancedSettingUIArray {
     // 0:保留按钮 1:保留文字和箭头 2:特殊符号 3:保留刷新按钮 4:保留开关机按钮
     if (!_advancedSettingUIArray) {
@@ -176,6 +192,7 @@
     return _advancedSettingUIArray;
 }
 
+// advanced setting 跳转逻辑数组
 -(NSMutableArray<NSArray *> *)advancedSettingSelectArray {
     if (!_advancedSettingSelectArray) {
         // 0:无操作 1:跳转输入框（百分比） 2:跳转输入框（单位） 3:时间弹窗 4:选择国家 
@@ -183,6 +200,16 @@
         _advancedSettingSelectArray = [NSMutableArray arrayWithObjects:array, nil];
     }
     return _advancedSettingSelectArray;
+}
+
+// advanced setting 数据单位数组
+-(NSMutableArray<NSArray *> *)advancedSettingUnitArray {
+    if (!_advancedSettingUnitArray) {
+        // 0:无单位 1:百分比 2:安 A  3:小时 h  4:瓦 W 5:千兆 kM 6:千瓦kW
+        NSArray *array = @[@"1",@"1",@"2",@"1",@"0",@"0",@"0",@"0"];
+        _advancedSettingUnitArray = [NSMutableArray arrayWithObjects:array, nil];
+    }
+    return _advancedSettingUnitArray;
 }
 
 -(NSMutableArray<NSArray *> *)advancedSettingParamArray {
@@ -237,7 +264,7 @@
     if (!_cabinetBasicSettingUIArray) {
         NSArray *workingModeArray = @[@"0",@"0"];
         NSArray *sysSettingArray = @[@"1",@"1",@"1",@"1"];
-        NSArray *batSettingArray = @[@"1",@"1",@"1",@"1"];
+        NSArray *batSettingArray = @[@"1",@"1",@"1",@"1",@"1"];
         NSArray *gridSettingArray = @[@"1",@"1"];
         NSArray *heSettingArray = @[@"1"];
         _cabinetBasicSettingUIArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
@@ -256,9 +283,10 @@
 -(void)cabinetAddBasicSettingDataArray {
     
     NSMutableArray *workingModeArray = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
-        NSInteger modeNum = [self.settingModel.workMode intValue];
-        [workingModeArray addObject:modeNum == i ? @"1" : @"0"];
+    NSArray *workArray = @[@"6",@"3"];
+    NSInteger modeNum = [self.settingModel.workMode intValue];
+    for (int i = 0; i < workArray.count; i++) {
+        [workingModeArray addObject:[workArray[i] intValue] == modeNum? @"1" : @"0"];
     }
     
     NSArray *sysSettingArray = @[self.settingModel.date,self.settingModel.time,self.settingModel.oilEngineRatedCapacity,self.settingModel.maximumLoadPower];
@@ -271,25 +299,25 @@
 
     NSArray *allArray = [NSArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
     
-    [self.basicSettingOptionValueArray removeAllObjects];
-    [self.basicSettingOptionValueArray addObjectsFromArray:allArray];
+    [self.cabinetBasicSettingOptionValueArray removeAllObjects];
+    [self.cabinetBasicSettingOptionValueArray addObjectsFromArray:allArray];
         
 }
 
 //Cabinet basic setting 参数数组
 - (NSMutableArray<NSArray *> *)cabinetBasicSettingParamArray {
-    if (!_basicSettingParamArray) {
+    if (!_cabinetBasicSettingParamArray) {
         NSArray *workingModeArray = @[@"sysOperaPolicyMode",@"sysOperaPolicyMode"];
         NSArray *sysSettingArray = @[@"date",@"time",@"ratedCapacityOfOilEngine",@"MAXIMUM_LOAD_POWER"];
         NSArray *batSettingArray = @[@"batterySOCLimit",@"socReturnDifference",@"gridSOCLowerLimit",@"OffGridSOCLowerLimit",@"ShutdownSOCLimit"];
 
-        NSArray *gridSettingArray = @[@"gridPowerUpperLimit",@"gridPowerUpperLimit"];
+        NSArray *gridSettingArray = @[@"gridPowerUpperLimit",@"capacityOfTransformer"];
 
         NSArray *heSettingArray = @[@""];
 
-        _basicSettingParamArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+        _cabinetBasicSettingParamArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
     }
-    return _basicSettingParamArray;
+    return _cabinetBasicSettingParamArray;
 }
 
 -(NSMutableArray<NSArray *> *)cabinetBasicSettingSelectArray {
@@ -303,6 +331,19 @@
         _cabinetBasicSettingSelectArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
     }
     return _cabinetBasicSettingSelectArray;
+}
+
+-(NSMutableArray<NSArray *> *)cabinetBasicSettingUnitArray {
+    if (!_cabinetBasicSettingUnitArray) {
+        // 0:无单位 1:百分比 2:安 A  3:小时 h  4:瓦 W 5:千兆 kM 6:千瓦kW
+        NSArray *workingModeArray = @[@"0",@"0"];
+        NSArray *sysSettingArray = @[@"0",@"0",@"0",@"5"];
+        NSArray *batSettingArray = @[@"1",@"1",@"1",@"1",@"1"];
+        NSArray *gridSettingArray = @[@"6",@"6"];
+        NSArray *heSettingArray = @[@"0"];
+        _cabinetBasicSettingUnitArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,heSettingArray, nil];
+    }
+    return _cabinetBasicSettingUnitArray;
 }
 
 

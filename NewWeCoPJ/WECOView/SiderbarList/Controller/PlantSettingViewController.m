@@ -24,15 +24,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.title = @"Plant Setting";
+    self.title = self.isTimePlan == NO ? @"Electricity Price" : @"Plant Setting";
     [self.plantTableView registerNib:[UINib nibWithNibName:@"PlantTableViewCell" bundle:nil] forCellReuseIdentifier:@"plantCell"];
     [self.view addSubview:self.plantTableView];
     [self.view endEditing:YES];
     [self addNavgationBarButton];
-    [self planGetInverterTime];
-
+    [self getPlanTimeMessage];
 }
+
+- (void) getPlanTimeMessage {
+    if (self.deviceType == 0) {
+        if (self.isTimePlan == NO) {
+            // Hmi电价设置
+            [self getHmiElectricityPrice];
+        } else {
+            // Hmi充放电计划获取
+            [self getHmiTimeSoltMsg];
+        }
+    } else {
+        // 逆变器充放电获取
+        [self planGetInverterTime];
+    }
+}
+
 
 - (void)addNavgationBarButton {
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -45,41 +59,30 @@
     
 }
 
-- (void)planGetInverterTime{
-    [self showProgressView];
-    
-    [self.planVM getInverterTimeSoltMsgWithParam:self.deviceSnStr completeBlock:^(NSString * _Nonnull resultStr) {
-        @WeakObj(self)
-        [selfWeak hideProgressView];
-        if (resultStr.length == 0) {
-            [selfWeak.plantTableView reloadData];
-        } else {
-            // 提示错误
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [selfWeak showToastViewWithTitle:resultStr];
-            });
-        }
-    }];
-}
-
 #pragma mark UITableViewDelegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.isTimePlan == NO ? 4 : 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? self.planVM.batteryChargArray.count + 1 : self.planVM.batteryDisChargArray.count + 1;
+    if (self.isTimePlan == NO) {
+        return self.planVM.electricityPriceArray[section].count + 1;
+    } else {
+        return section == 0 ? self.planVM.batteryChargArray.count + 1 : self.planVM.batteryDisChargArray.count + 1;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return 70;
-    } else if ((indexPath.section == 0 && indexPath.row == self.planVM.batteryChargArray.count) || (indexPath.section == 1 && indexPath.row == self.planVM.batteryDisChargArray.count)) {
-        return 100;
+
+    if (self.isTimePlan == NO) {
+        return indexPath.row == self.planVM.electricityPriceArray[indexPath.section].count ? 100 : indexPath.row == 0 ? 70 : 50 ;
     } else {
-        return 50;
+        return indexPath.row == 0 ? 70 : (indexPath.section == 0 && indexPath.row == self.planVM.batteryChargArray.count)
+        || (indexPath.section == 1 && indexPath.row == self.planVM.batteryDisChargArray.count) ? 100 : 50  ;
     }
+    
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -93,7 +96,7 @@
     [sectionName setTextColor:[UIColor lightGrayColor]];
     [sectionName setFont:[UIFont fontWithName:@"Helvetica Neue Bold" size:14]];
     [sectionName setTextColor:HexRGB(0x999999)];
-    sectionName.text = section == 0 ? @"Battery Charg" : @"Battery Discharge";
+    sectionName.text = self.isTimePlan == NO ? self.planVM.electricityTitleArray[section] : section == 0 ? @"Battery Charg" : @"Battery Discharge";
     [view addSubview:sectionName];
     return view;
     
@@ -107,45 +110,82 @@
         cell = [[PlantTableViewCell alloc] initWithReuseIdentifier:cellIdentity andIndexPath:indexPath viewModel:self.planVM];
     }
     cell.delegate = self;
-    [cell setMessageWithChargArray:self.planVM.batteryChargArray dischargeArray:self.planVM.batteryDisChargArray];
+    
+    if (self.isTimePlan == YES) {
+        [cell setMessageWithChargArray:self.planVM.batteryChargArray dischargeArray:self.planVM.batteryDisChargArray];
+    } else {
+        [cell setPriceMessageWithArray:self.planVM.electricityPriceArray[indexPath.section]];
+    }
     
     return cell;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+
 }
 
 #pragma mark cell的代理方法
 -(void)didClickAddAction:(NSIndexPath *)indexPath {
     
-    TimeModel *model = [[TimeModel alloc]init];
-    model.power = self.planVM.batteryChargArray[0].power;
-    model.startHour = @"00";
-    model.startMinute = @"00";
-    model.endHour = @"00";
-    model.endMinute = @"00";
-    model.show = 1;
-    if (indexPath.section == 0) {
-        if (self.planVM.batteryChargArray.count >= 3) {
-            return;;
-        }
-        model.charge = 1;
-        model.order = [NSString stringWithFormat:@"%ld",self.planVM.batteryChargArray.count];
-        [self.planVM.batteryChargArray addObject:model];
+    if (self.isTimePlan == NO) {
+        // 电价+
         
-    } else {
-        if (self.planVM.batteryDisChargArray.count >= 3) {
-            return;;
+        ElectricityPriceTimeModel * model = [[ElectricityPriceTimeModel alloc]init];
+        model.start = @"00:00";
+        model.end = @"00:00";
+        model.show = 1;
+        model.order = [NSString stringWithFormat:@"%ld",self.planVM.electricityPriceArray[indexPath.section].count];
+        if (indexPath.row >= 4) {
+            return;
+        } else {
+            [self.planVM.electricityPriceArray[indexPath.section] addObject:model];
         }
-        model.charge = 0;
-        model.order = [NSString stringWithFormat:@"%ld",self.planVM.batteryDisChargArray.count];
-        [self.planVM.batteryDisChargArray addObject:model];
+    } else {
+        // 计划时间+
+        
+        TimeModel *model = [[TimeModel alloc]init];
+        model.power = self.planVM.batteryChargArray[0].power;
+        model.startHour = @"00";
+        model.startMinute = @"00";
+        model.endHour = @"00";
+        model.endMinute = @"00";
+        model.show = 1;
+        NSInteger maxNum = self.planVM.deviceType == 1 ? 3 : 4;
+        if (indexPath.section == 0) {
+            if (self.planVM.batteryChargArray.count >= maxNum) {
+                return;;
+            }
+            model.charge = 1;
+            model.order = [NSString stringWithFormat:@"%ld",self.planVM.batteryChargArray.count];
+            [self.planVM.batteryChargArray addObject:model];
+            
+        } else {
+            if (self.planVM.batteryDisChargArray.count >= maxNum) {
+                return;;
+            }
+            model.charge = 0;
+            model.order = [NSString stringWithFormat:@"%ld",self.planVM.batteryDisChargArray.count];
+            [self.planVM.batteryDisChargArray addObject:model];
+        }
+        
+        
+        
+        
     }
     [self.plantTableView reloadData];
 }
 
 -(void)didClickReductionActionWith:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        [self.planVM.batteryChargArray removeObjectAtIndex:indexPath.row];
+    
+    if (self.isTimePlan == NO) {
+        [self.planVM.electricityPriceArray[indexPath.section] removeObjectAtIndex:indexPath.row];
     } else {
-        [self.planVM.batteryDisChargArray removeObjectAtIndex:indexPath.row];
+        if (indexPath.section == 0) {
+            [self.planVM.batteryChargArray removeObjectAtIndex:indexPath.row];
+        } else {
+            [self.planVM.batteryDisChargArray removeObjectAtIndex:indexPath.row];
+        }
     }
     [self.plantTableView reloadData];
 }
@@ -154,10 +194,52 @@
     [self timeClick:label indexRow:indexPath.row section:indexPath.section];
 }
 
-// 存储
+// 设置计划时间
 -(void)saveTimeAction:(UIButton *)sender {
-    [self showProgressView];
+    [self.view endEditing:YES];
 
+    if (self.isTimePlan == NO) {
+        // Hmi充放电计划设置
+        [self setHmiElectricityPrice];
+    } else {
+        // 逆变器充放电计划设置
+        [self setHmiPlanTime];
+    }
+}
+
+#pragma mark 网络接口请求
+
+// 获取逆变器充放电计划
+- (void)planGetInverterTime{
+    [self showProgressView];
+    [self.planVM getInverterTimeSoltMsgWithCompleteBlock:^(NSString * _Nonnull resultStr) {
+        @WeakObj(self)
+        [selfWeak hideProgressView];
+        if (resultStr.length == 0) {
+            [selfWeak.plantTableView reloadData];
+        } else {
+            [selfWeak getErrorMessageWith:resultStr];
+        }
+    }];
+}
+
+// 获取HMI充放电计划
+- (void)getHmiTimeSoltMsg {
+    [self showProgressView];
+    @WeakObj(self)
+    [self.planVM getHmiTimeSoltMsgWithCompleteBlock:^(NSString *resultStr) {
+        [selfWeak hideProgressView];
+        if (resultStr.length == 0) {
+            [selfWeak.plantTableView reloadData];
+        } else {
+            [selfWeak getErrorMessageWith:resultStr];
+        }
+    }];
+}
+
+// 设置逆变器/HMI充放电计划
+- (void)setHmiPlanTime {
+    [self showProgressView];
     @WeakObj(self)
     [self.planVM setUpPlantModelParamCompleteBlock:^(NSString * _Nonnull resultStr) {
         [selfWeak hideProgressView];
@@ -165,18 +247,62 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [selfWeak showToastViewWithTitle:@"Setting succeeded"];
             });
-            [selfWeak planGetInverterTime];
+            [selfWeak getPlanTimeMessage];
         } else {
-            // 提示错误
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [selfWeak showToastViewWithTitle:resultStr];
-            });
+            [selfWeak getErrorMessageWith:resultStr];
+        }
+    }];
+}
+
+// 获取电价
+- (void) getHmiElectricityPrice {
+    [self showProgressView];
+    @WeakObj(self)
+    [self.planVM getHmiElectricityPriceCompleteBlock:^(NSString *resultStr) {
+        [selfWeak hideProgressView];
+        if (resultStr.length == 0) {
+            [selfWeak.plantTableView reloadData];
+        } else {
+            [selfWeak getErrorMessageWith:resultStr];
         }
     }];
 }
 
 
+// 设置电价
+- (void) setHmiElectricityPrice {
+    [self showProgressView];
+    @WeakObj(self)
+    [self.planVM setHmiElectricityPriceCompleteBlock:^(NSString *resultStr) {
+        [selfWeak hideProgressView];
+        if (resultStr.length == 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [selfWeak showToastViewWithTitle:@"Setting succeeded"];
+            });
+            [selfWeak getPlanTimeMessage];
+        } else {
+            [selfWeak getErrorMessageWith:resultStr];
+        }
+    }];
+}
+
+
+// 错误信息提示
+- (void)getErrorMessageWith:(NSString *)resultStr {
+    // 提示错误
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showToastViewWithTitle:resultStr];
+    });
+}
+
+// 点击空白回收键盘
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+
+}
+
 #pragma mark 时间选择
+
 - (void)timeClick:(UILabel *)timeLB indexRow:(NSInteger)rowNumb section:(NSInteger)section{
     
     NSMutableArray *hourData = [[NSMutableArray alloc]init];
@@ -200,6 +326,7 @@
         }
         
     }
+
     NSString *valustr = timeLB.text;
     
     NSArray *timeAllArr = [valustr componentsSeparatedByString:@"-"];
@@ -220,7 +347,8 @@
             NSMutableArray *starArr2 = [NSMutableArray arrayWithArray:(NSArray *)selectValue2];
 
             NSArray *onearr = self.planVM.timeValueArray[section];
-    
+            
+//            NSArray *powerarr = self.planVM.priceArray[section];
             NSMutableArray *oldtimeArr = [[NSMutableArray alloc]init];
             
             
@@ -263,41 +391,54 @@
             // 2. 通过判断区间是否重合,来判断是否有重叠时间
             int starMin0 = [starArr[0] intValue]*60 + [starArr[1] intValue]; // 新加时间的开始时间
             int endMin0 = [starArr2[0] intValue]*60 + [starArr2[1] intValue]; // 新加时间的结束时间
-            
-            if (starMin0 == endMin0) {
-                [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
-                return ;
+//            NSString *powValu = powerarr[rowNumb];
+//            NSString *removeDanweistr = [self removeDanwei:powValu danweiStr:@"kW"];
+            if (starMin0 == endMin0 ) {
+                if (endMin0 == 0) {
+                    if(self.deviceType == 0){
+//                        if ([removeDanweistr floatValue] != 0) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                            });
+                            return;
+//                        }
+                    }
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                    });
+                    return ;
+                }
             }
             NSString *newTime = [NSString stringWithFormat:@"%@:%@-%@:%@", starArr[0],starArr[1], starArr2[0],starArr2[1]];
             
-            if (section == 0) {
-                self.planVM.batteryChargArray[rowNumb].startHour = starArr[0];
-                self.planVM.batteryChargArray[rowNumb].startMinute = starArr[1];
-                self.planVM.batteryChargArray[rowNumb].endHour = starArr2[0];
-                self.planVM.batteryChargArray[rowNumb].endMinute = starArr2[1];
-
+            // 修改时间并且计入参数
+            if (self.isTimePlan == NO) {
+                ElectricityPriceTimeModel *model = self.planVM.electricityPriceArray[section][rowNumb];
+                model.start = [NSString stringWithFormat:@"%@:%@",starArr[0],starArr[1]];
+                model.end =[NSString stringWithFormat:@"%@:%@",starArr2[0],starArr2[1]];
             } else {
-                self.planVM.batteryDisChargArray[rowNumb].startHour = starArr[0];
-                self.planVM.batteryDisChargArray[rowNumb].startMinute = starArr[1];
-                self.planVM.batteryDisChargArray[rowNumb].endHour = starArr2[0];
-                self.planVM.batteryDisChargArray[rowNumb].endMinute = starArr2[1];
+                if (section == 0) {
+                    self.planVM.batteryChargArray[rowNumb].startHour = starArr[0];
+                    self.planVM.batteryChargArray[rowNumb].startMinute = starArr[1];
+                    self.planVM.batteryChargArray[rowNumb].endHour = starArr2[0];
+                    self.planVM.batteryChargArray[rowNumb].endMinute = starArr2[1];
+
+                } else {
+                    self.planVM.batteryDisChargArray[rowNumb].startHour = starArr[0];
+                    self.planVM.batteryDisChargArray[rowNumb].startMinute = starArr[1];
+                    self.planVM.batteryDisChargArray[rowNumb].endHour = starArr2[0];
+                    self.planVM.batteryDisChargArray[rowNumb].endMinute = starArr2[1];
+                }
             }
-            
-            
             
             BOOL isBeing = NO;// 是否已存在该时间段
             if (endMin0 < starMin0) { // 结束时间小于开始时间代表是跨天的时间段
-                // 因为出现跨天的情况需要拆成两段时间才能判断  23:00-1:00  ->>  23:00-23:59 ,00:00-01:00
-                NSString *newTime1 = [NSString stringWithFormat:@"%@:%@-23:59",starArr[0],starArr[1]];
-                NSString *newTime2 = [NSString stringWithFormat:@"00:00-%@:%@",starArr2[0],starArr2[1]];
-                for (int i = 0; i < times.count; i++) {
-                    BOOL B1 = [self isOverlappingWithTime0:newTime1 Time1:times[i]];
-                    BOOL B2 = [self isOverlappingWithTime0:newTime2 Time1:times[i]];
-                    if (B1 || B2) {
-                        isBeing = YES;
-                        break;
-                    }
-                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                });
+                    return;
+    
             }else{
                 for (int i = 0; i < times.count; i++) {
                     isBeing = [self isOverlappingWithTime0:newTime Time1:times[i]];
@@ -317,7 +458,9 @@
                     [self.planVM.timeValueArray replaceObjectAtIndex:section withObject:muarr0];
                 }
             }else{
-                [self showToastViewWithTitle:root_bunengchongdie]; // 时间段不能重叠
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+                });
             }
         }];
     }];
@@ -353,7 +496,9 @@
     int endMin0 = EndH*60 + EndM; // 新加时间的结束时间
     
     if (starMin0 == endMin0) {
-        [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+        });
         return ;
     }
     NSString *newTime = [NSString stringWithFormat:@"%d:%d-%d:%d", StarH,StarM, EndH,EndM];
@@ -384,7 +529,9 @@
             [self.planVM.timeValueArray replaceObjectAtIndex:rowNumb withObject:newTime];
         }
     }else{
-        [self showToastViewWithTitle:root_bunengchongdie]; // 时间段不能重叠
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showToastViewWithTitle:root_bunengchongdie];// 开始结束时间不能相同
+        });
     }
 }
 // 判断时间段重叠的方法
@@ -415,31 +562,13 @@
     
     return isBeing;
 }
-
-- (BOOL)isBetweenDateWith:(NSString *)time0 Time1:(NSString *)time1{
-    //设置的是中国时间
-    NSString *startTime=@"13:01";
-    NSString *expireTime=@"20:01";
-    NSDate *today = [NSDate date];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"HH:mm"];
-    NSString * todayStr=[dateFormat stringFromDate:today];//将日期转换成字符串
-    today=[ dateFormat dateFromString:todayStr];//转换成NSDate类型。日期置为方法默认日期
-    NSDate *start = [dateFormat dateFromString:startTime];
-    NSDate *expire = [dateFormat dateFromString:expireTime];
-    NSLog(@"today today ==%@",today);
-    NSLog(@"start start ==%@",start);
-    NSLog(@"expire expire ==%@",expire);
-    if ([today compare:start] == NSOrderedDescending && [today compare:expire] == NSOrderedAscending) {
-        return YES;
-    }
-    else{
-        return NO;
-    }
-    return NO;
+    
+- (NSString *)removeDanwei:(NSString *)string danweiStr:(NSString *)danwei{
+    
+    NSArray *conarr = [string componentsSeparatedByString:danwei];
+    return conarr.firstObject;
+    
 }
-
-
 
 - (void)showToastViewWithTitle:(NSString *)title {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -472,6 +601,8 @@
     if (!_planVM) {
         _planVM = [[PlantSettingViewModel alloc]initViewModel];
         _planVM.deviceStr = self.deviceSnStr;
+        _planVM.deviceType = self.deviceType;
+        _planVM.isTimeSet = self.isTimePlan;
     }
     return _planVM;
 }

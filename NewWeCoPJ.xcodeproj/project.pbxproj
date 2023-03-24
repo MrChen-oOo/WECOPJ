@@ -244,6 +244,8 @@
 		7CD867E429C9E86A00D883A6 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D629C9E86A00D883A6 /* NSString+MJExtension.m */; };
 		7CD867E529C9E86A00D883A6 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867D729C9E86A00D883A6 /* MJPropertyKey.m */; };
 		7CD867E729C9E86A00D883A6 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867DC29C9E86A00D883A6 /* MJFoundation.m */; };
+		7CE0AEFA29CB134800D71391 /* CabinetAdvancedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0AEF829CB134800D71391 /* CabinetAdvancedTableViewCell.m */; };
+		7CE0AEFB29CB134800D71391 /* CabinetAdvancedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0AEF929CB134800D71391 /* CabinetAdvancedTableViewCell.xib */; };
 		B8F711EB04840B3373E4AA76 /* libPods-NewWeCoPJ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9504F49F20AC0496816509 /* libPods-NewWeCoPJ.a */; };
 /* End PBXBuildFile section */
 
@@ -726,6 +728,9 @@
 		7CD867DA29C9E86A00D883A6 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
 		7CD867DB29C9E86A00D883A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CD867DC29C9E86A00D883A6 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		7CE0AEF729CB134800D71391 /* CabinetAdvancedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CabinetAdvancedTableViewCell.h; sourceTree = "<group>"; };
+		7CE0AEF829CB134800D71391 /* CabinetAdvancedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CabinetAdvancedTableViewCell.m; sourceTree = "<group>"; };
+		7CE0AEF929CB134800D71391 /* CabinetAdvancedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CabinetAdvancedTableViewCell.xib; sourceTree = "<group>"; };
 		9A745A500C755B567CEAF315 /* Pods-NewWeCoPJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeCoPJ.debug.xcconfig"; path = "Target Support Files/Pods-NewWeCoPJ/Pods-NewWeCoPJ.debug.xcconfig"; sourceTree = "<group>"; };
 		AEB6B977C89762E3077599FA /* Pods-NewWeCoPJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeCoPJ.release.xcconfig"; path = "Target Support Files/Pods-NewWeCoPJ/Pods-NewWeCoPJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1711,6 +1716,9 @@
 				7CD8678B29C9AD6900D883A6 /* InpuPopView.h */,
 				7CD8678C29C9AD6900D883A6 /* PlantTableViewCell.xib */,
 				7CD8678D29C9AD6900D883A6 /* BasicWarningView.h */,
+				7CE0AEF729CB134800D71391 /* CabinetAdvancedTableViewCell.h */,
+				7CE0AEF829CB134800D71391 /* CabinetAdvancedTableViewCell.m */,
+				7CE0AEF929CB134800D71391 /* CabinetAdvancedTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1877,6 +1885,7 @@
 				625B91CF298A5739006F985A /* LICENSE in Resources */,
 				625B91C1298A5577006F985A /* Localizable.strings in Resources */,
 				625B9236298A5769006F985A /* MJRefresh.bundle in Resources */,
+				7CE0AEFB29CB134800D71391 /* CabinetAdvancedTableViewCell.xib in Resources */,
 				62664B8D29A396040028EA17 /* BRAddressPickerView.bundle in Resources */,
 				7CD8679429C9AD6900D883A6 /* INVSettingViewController.xib in Resources */,
 				625B90E4298A5042006F985A /* Assets.xcassets in Resources */,
@@ -2117,6 +2126,7 @@
 				625B92D3298A5E44006F985A /* RedxKTDropdownMenuView.m in Sources */,
 				625B92B8298A5809006F985A /* SolarTipsAlert.m in Sources */,
 				625B92B1298A5809006F985A /* SetTempAlert.m in Sources */,
+				7CE0AEFA29CB134800D71391 /* CabinetAdvancedTableViewCell.m in Sources */,
 				625B923A298A5769006F985A /* MJRefreshBackGifFooter.m in Sources */,
 				625B91EB298A5753006F985A /* AFHTTPRequestOperation.m in Sources */,
 				625B92FA298A61F8006F985A /* NSArray+MASAdditions.m in Sources */,

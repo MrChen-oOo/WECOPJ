@@ -122,12 +122,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface DeviceModel : NSObject
-@property (nonatomic, strong) NSString * ID;
-@property (nonatomic, strong) NSMutableArray * mgrnList;
-@property (nonatomic, strong) NSMutableArray * pcsList;
-@property (nonatomic, strong) NSString * plantName;
-@property (nonatomic, strong) NSString * plantStatus;
-@property (nonatomic, assign) NSInteger  plantType;
+@property (nonatomic, strong) NSString * ID;                // 电站id
+@property (nonatomic, strong) NSMutableArray * mgrnList;    // MGRN设备列表
+@property (nonatomic, strong) NSMutableArray * pcsList;     // HMI设备列表
+@property (nonatomic, strong) NSString * plantName;         // 电站名称
+@property (nonatomic, strong) NSString * plantStatus;       // 0:离线 1:在线 2:告警
+@property (nonatomic, assign) NSInteger  plantType;         // 0:HMI 1:MGRN
 
 @end
 

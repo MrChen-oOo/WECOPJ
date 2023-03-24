@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setMessageWithChargArray:(NSArray *)optionArray dischargeArray:(NSArray *)dischargeArray;
 
+-(void)setPriceMessageWithArray:(NSArray *)priceArray;
+
 @property (nonatomic, weak)id<PlanTimeDelegate>delegate;
 
 

@@ -72,15 +72,14 @@
                                     <action selector="reductionAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a05-5M-opg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20kW" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-eh-1Xv">
-                                <rect key="frame" x="28" y="19.999999999999996" width="50" height="17.000000000000004"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eY-eh-1Xv">
+                                <rect key="frame" x="28" y="19.999999999999996" width="15" height="17.000000000000004"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Crn-af-2qj"/>
                                     <constraint firstAttribute="height" constant="17" id="gvI-Rn-Zzb"/>
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t02-vr-UDg">
                                 <rect key="frame" x="121.33333333333334" y="11.333333333333332" width="75" height="34.333333333333343"/>
@@ -90,11 +89,18 @@
                                     <action selector="changeTimeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b8H-9f-FlC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G76-9s-nEH">
+                                <rect key="frame" x="43" y="19.999999999999996" width="18" height="17.000000000000004"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="be2-iw-lkc" secondAttribute="trailing" constant="17" id="AyQ-p2-lDf"/>
                             <constraint firstItem="t02-vr-UDg" firstAttribute="height" secondItem="SyK-Nt-peD" secondAttribute="height" multiplier="2.01961" id="CHJ-Pr-YKG"/>
+                            <constraint firstItem="G76-9s-nEH" firstAttribute="leading" secondItem="2eY-eh-1Xv" secondAttribute="trailing" id="EJW-g0-Bfb"/>
                             <constraint firstItem="crZ-gi-4eY" firstAttribute="centerX" secondItem="e0e-Vi-U2y" secondAttribute="centerX" id="KTr-dm-F63"/>
                             <constraint firstItem="Etu-hI-UAl" firstAttribute="top" secondItem="e0e-Vi-U2y" secondAttribute="top" id="KzR-9p-OSM"/>
                             <constraint firstItem="t02-vr-UDg" firstAttribute="width" secondItem="SyK-Nt-peD" secondAttribute="width" multiplier="0.974026" id="Ldu-xn-EGe"/>
@@ -103,6 +109,7 @@
                             <constraint firstItem="crZ-gi-4eY" firstAttribute="top" secondItem="e0e-Vi-U2y" secondAttribute="top" id="WEM-l1-ZXI"/>
                             <constraint firstItem="2eY-eh-1Xv" firstAttribute="top" secondItem="Etu-hI-UAl" secondAttribute="bottom" constant="3" id="WzH-hn-Xbk"/>
                             <constraint firstItem="t02-vr-UDg" firstAttribute="centerX" secondItem="SyK-Nt-peD" secondAttribute="centerX" id="bQA-B0-ynX"/>
+                            <constraint firstItem="G76-9s-nEH" firstAttribute="centerY" secondItem="2eY-eh-1Xv" secondAttribute="centerY" id="e59-5v-8uM"/>
                             <constraint firstItem="be2-iw-lkc" firstAttribute="centerY" secondItem="2eY-eh-1Xv" secondAttribute="centerY" id="eBw-U1-RAo"/>
                             <constraint firstItem="crZ-gi-4eY" firstAttribute="leading" secondItem="SyK-Nt-peD" secondAttribute="leading" id="fua-nc-lI9"/>
                             <constraint firstAttribute="height" constant="45" id="kL4-Tq-HUC"/>
@@ -164,10 +171,12 @@
                 <outlet property="addBtn" destination="pbU-RF-Q1E" id="TCt-Gx-T1k"/>
                 <outlet property="bottomLayoutConstraint" destination="Cud-v7-BCZ" id="W8j-Oi-8v6"/>
                 <outlet property="lastView" destination="dd9-34-bca" id="Mml-pq-3rU"/>
+                <outlet property="powerLabel" destination="Etu-hI-UAl" id="6MX-zr-TQm"/>
                 <outlet property="powerTF" destination="2eY-eh-1Xv" id="y8e-Qw-Emq"/>
                 <outlet property="timeLabel" destination="SyK-Nt-peD" id="RdU-3A-4sV"/>
                 <outlet property="timeViewCenterLayer" destination="cX9-C5-YWO" id="fPc-OB-0i8"/>
                 <outlet property="topLayoutConstraint" destination="gX4-vV-Iq1" id="F8l-28-baw"/>
+                <outlet property="unitLabel" destination="G76-9s-nEH" id="y9M-we-e8t"/>
             </connections>
             <point key="canvasLocation" x="129.7709923664122" y="3.5211267605633805"/>
         </tableViewCell>

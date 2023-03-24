@@ -38,7 +38,7 @@
     return self;
 }
 
-- (void)isHaveUnitWith:(BOOL)isHave numStr:(nonnull NSString *)numStr paramsStr:(nonnull NSString *)paramsStr index:(nonnull NSIndexPath *)indexPath title:(nonnull NSString *)titeleStr{
+- (void)isHaveUnitWith:(BOOL)isHave numStr:(NSString *)numStr paramsStr:(NSString *)paramsStr title:(NSString *)titeleStr index:(NSIndexPath *)indexPath deviceType:(NSInteger)deviceType {
     self.hiddenView.hidden = isHave;
     self.enterTextFiled.text = numStr;
     self.numTextFiled.text = numStr;
@@ -46,43 +46,59 @@
     self.hiddenLabel.hidden = numStr.length == 0 ? NO : YES;
     self.titleLabel.text = titeleStr;
     if(isHave == YES) {
-        if(indexPath.section == 1 && indexPath.row == 6) {
-            self.unitLabel.text =  @"   ";
-            self.rangeLabel.text = @"( 1000 ~30000 )";
-        } else if (indexPath.section == 2) {
-            self.unitLabel.text = @" % ";
-            self.rangeLabel.text = @"( 10 ~90%) ";
-        } else if (indexPath.section == 4) {
-            self.unitLabel.text = @" A ";
-            self.rangeLabel.text = @"(0 ~1000A)";
-        } else if (indexPath.section == 5) {
-            if (indexPath.row == 0 || indexPath.row == 1){
-                self.unitLabel.text = @" % ";
-                self.rangeLabel.text = @"( 0 ~100%)";
-            } else if (indexPath.row == 2){
-                self.unitLabel.text = @" A ";
-                self.rangeLabel.text = @"( 0 ~200A )";
-            } else if (indexPath.row == 11){
-                self.unitLabel.text = @" W ";
-                self.rangeLabel.text = @"( 0 ~30000W )";
-            } else {
-                self.unitLabel.text = @" h ";
-                self.rangeLabel.text = @"( 0 ~240H )";
-            }
-        } else if (indexPath.section == 0) {
-            if (indexPath.row == 2) {
-                self.unitLabel.text =  @" A ";
-                self.rangeLabel.text = @"( 1 ~190A )";
-            } else if(indexPath.row == 4) {
-                self.unitLabel.text =  @"   ";
-                self.rangeLabel.text = @"( 1 ~99 )";
-            } else{
-                self.unitLabel.text = @" % ";
+        
+        // HMI部分数据的输入范围
+        if(deviceType == 0) {
+            if (indexPath.section == 1 && indexPath.row == 3) {
+                self.unitLabel.text =  @" kW ";
+                self.rangeLabel.text = @"( 0 ~240kW )";
+            } else if ( indexPath.section == 2){
+                self.unitLabel.text =  @" % ";
                 self.rangeLabel.text = @"( 0 ~100% )";
+            } else {
+                self.unitLabel.text =  @" kW ";
+                self.rangeLabel.text = @"( 0 ~240kW )";
+            }
+        } else {
+            
+            // 逆变器部分数据的输入范围
+            if(indexPath.section == 1 && indexPath.row == 6) {
+                self.unitLabel.text =  @"   ";
+                self.rangeLabel.text = @"( 1000 ~30000 )";
+            } else if (indexPath.section == 2) {
+                self.unitLabel.text = @" % ";
+                self.rangeLabel.text = @"( 10 ~90%) ";
+            } else if (indexPath.section == 4) {
+                self.unitLabel.text = @" A ";
+                self.rangeLabel.text = @"(0 ~1000A)";
+            } else if (indexPath.section == 5) {
+                if (indexPath.row == 0 || indexPath.row == 1){
+                    self.unitLabel.text = @" % ";
+                    self.rangeLabel.text = @"( 0 ~100%)";
+                } else if (indexPath.row == 2){
+                    self.unitLabel.text = @" A ";
+                    self.rangeLabel.text = @"( 0 ~200A )";
+                } else if (indexPath.row == 11){
+                    self.unitLabel.text = @" W ";
+                    self.rangeLabel.text = @"( 0 ~30000W )";
+                } else {
+                    self.unitLabel.text = @" h ";
+                    self.rangeLabel.text = @"( 0 ~240H )";
+                }
+            } else if (indexPath.section == 0) {
+                if (indexPath.row == 2) {
+                    self.unitLabel.text =  @" A ";
+                    self.rangeLabel.text = @"( 1 ~190A )";
+                } else if(indexPath.row == 4) {
+                    self.unitLabel.text =  @"   ";
+                    self.rangeLabel.text = @"( 1 ~99 )";
+                } else{
+                    self.unitLabel.text = @" % ";
+                    self.rangeLabel.text = @"( 0 ~100% )";
+                }
             }
         }
     }
-    
     
 }
 
