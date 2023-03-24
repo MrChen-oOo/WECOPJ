@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "INVSettingViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,20 +14,19 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 -(void)didClickSwichActionWith:(NSDictionary *)param swich:(UISwitch *)swich;
--(void)didClickPlanSetting;
+-(void)didClickPlanSettingWithIsTimePlanSetting:(BOOL)isTime;
 -(void)didClickStartUpWithShutDown:(BOOL)isStart;
 -(void)didClickReloadAction;
 @end
 
 @interface BasicTableViewCell : UITableViewCell
 
--(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier andIndexPath:(NSIndexPath *)indexPath;
+-(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier andIndexPath:(NSIndexPath *)indexPath deviceType:(NSInteger)deviceType;
 
--(void)setMessageWithOptionArray:(NSArray *)optionArray valueArray:(NSArray *)valueArray keyArray:(NSArray *)keyArray selectArray:(NSArray *)selectArray row:(NSInteger)row;
+-(void)setMessageWithValueArray:(NSArray *)valueArray keyArray:(NSArray *)keyArray unitArray:(NSArray *)unitArray row:(NSInteger)row;
 -(void)setUIWithUIArray:(NSArray *)array deviceStr:(NSString *)deviceStr;
 
 @property (nonatomic, weak)id<BasicSettingDelegate>delegate;
-
 @end
 
 NS_ASSUME_NONNULL_END

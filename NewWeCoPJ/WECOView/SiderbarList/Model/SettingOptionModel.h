@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<NSArray *> *basicSettingUIArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *basicSettingSelectArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *basicSettingParamArray;
+@property (nonatomic, strong) NSMutableArray<NSArray *> *basicSettingUnitArray;
+
 
 @property (nonatomic, strong) NSMutableArray<NSString *> *advancedSettingOptionSectionArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *advancedSettingOptionKeyArray;
@@ -28,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<NSArray *> *advancedSettingUIArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *advancedSettingSelectArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *advancedSettingParamArray;
+@property (nonatomic, strong) NSMutableArray<NSArray *> *advancedSettingUnitArray;
 
 - (void)addBasicSettingDataArray;
 - (void)addAdvancedSettingDataArray;
@@ -50,13 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBasicSettingUIArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBasicSettingSelectArray;
 @property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBasicSettingParamArray;
+@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBasicSettingUnitArray;
 
-@property (nonatomic, strong) NSMutableArray<NSString *> *cabinetBdvancedSettingOptionSectionArray;
-@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingOptionKeyArray;
-@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingOptionValueArray;
-@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingUIArray;
-@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingSelectArray;
-@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingParamArray;
+//@property (nonatomic, strong) NSMutableArray<NSString *> *cabinetBdvancedSettingOptionSectionArray;
+//@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingOptionKeyArray;
+//@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingOptionValueArray;
+//@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingUIArray;
+//@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingSelectArray;
+//@property (nonatomic, strong) NSMutableArray<NSArray *> *cabinetBdvancedSettingParamArray;
 
 - (void)cabinetAddBasicSettingDataArray;
 

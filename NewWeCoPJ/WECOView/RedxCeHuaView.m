@@ -28,8 +28,9 @@
     
 }
 
--(void)createValueUIWith:(BOOL)isMgrn{
+-(void)createValueUIWith:(BOOL)isMgrn isHaveDevice:(BOOL)isHaveDevice {
     self.isMgrn = isMgrn;
+    self.isHaveDevice = isHaveDevice;
     UIView *leftv = [[UIView alloc]initWithFrame:CGRectMake(-(kScreenWidth*2/3), 0, kScreenWidth*2/3, kScreenHeight)];
     leftv.backgroundColor = WhiteColor;//backgroundNewColor;
 //    leftv.userInteractionEnabled = NO;
@@ -104,12 +105,12 @@
 //    rigimg.image = IMAGE(@"nav_ico_back2");
 //    [userView addSubview:rigimg];
     
-    NSArray *namArr = [NSMutableArray arrayWithObjects:home_CehuaList1,@"Inverter Setting",Me_SetName2,home_CehuaList3, nil]; //Me_SetName1,Me_SetName2,Me_SetName3
+    NSArray *namArr = [NSMutableArray arrayWithObjects:home_CehuaList1,self.isMgrn == YES ? @"Inverter Setting" : @"Cabinet Setting" ,Me_SetName2,home_CehuaList3, nil]; //Me_SetName1,Me_SetName2,Me_SetName3
     NSArray *imgArr = [NSMutableArray arrayWithObjects:@"WePlanListIcon",@"InverterSetting",@"WeSetting",@"WeLogoutIMG", nil];
     
     NSArray *namArr1 = [NSMutableArray arrayWithObjects:home_CehuaList1,Me_SetName2,home_CehuaList3, nil]; //Me_SetName1,Me_SetName2,Me_SetName3
     NSArray *imgArr1 = [NSMutableArray arrayWithObjects:@"WePlanListIcon",@"WeSetting",@"WeLogoutIMG", nil];
-    if (self.isMgrn == YES) {
+    if (self.isHaveDevice == YES) {
         [self.namarr addObjectsFromArray:namArr];
         [self.imgarr addObjectsFromArray:imgArr];
     } else {

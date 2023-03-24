@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-Fh-dVu" customClass="BaseScrollView">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-Fh-dVu" customClass="BaseScrollView">
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kja-zu-8Hx">
@@ -31,6 +31,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="kja-zu-8Hx" secondAttribute="bottom" id="547-kK-z72"/>
                         <constraint firstItem="kja-zu-8Hx" firstAttribute="leading" secondItem="5Yz-Fh-dVu" secondAttribute="leading" id="Cg1-Tv-Ui2"/>
+                        <constraint firstItem="kja-zu-8Hx" firstAttribute="height" secondItem="5Yz-Fh-dVu" secondAttribute="height" id="H59-QE-GEs"/>
                         <constraint firstItem="kja-zu-8Hx" firstAttribute="centerY" secondItem="5Yz-Fh-dVu" secondAttribute="centerY" id="Tx5-On-8UE"/>
                         <constraint firstAttribute="trailing" secondItem="kja-zu-8Hx" secondAttribute="trailing" id="cVt-Or-fw2"/>
                         <constraint firstItem="kja-zu-8Hx" firstAttribute="top" secondItem="5Yz-Fh-dVu" secondAttribute="top" id="tiJ-S8-K5H"/>

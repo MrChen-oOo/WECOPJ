@@ -9,18 +9,22 @@
 
 @interface PlantTableViewCell()<UITextFieldDelegate>
 
-@property (nonatomic, strong) NSIndexPath * indexPath;
 @property (weak, nonatomic) IBOutlet UIView *lastView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLayoutConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *timeViewCenterLayer;
 
+@property (weak, nonatomic) IBOutlet UILabel *powerLabel;
 @property (weak, nonatomic) IBOutlet UITextField *powerTF;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ReductionBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+
+
+@property (nonatomic, strong) NSIndexPath * indexPath;
 @property (nonatomic, strong) PlantSettingViewModel *planVM;
 
 @end
@@ -32,6 +36,7 @@
     // Initialization code
     [self.addBtn setTitle:@"" forState:(UIControlStateNormal)];
     [self.ReductionBtn setTitle:@"" forState:(UIControlStateNormal)];
+    self.powerTF.delegate = self;
 }
 
 
@@ -48,10 +53,27 @@
         self.indexPath = indexPath;
         self.planVM = viewModel;
         self.lastView.hidden = YES;
+        self.powerLabel.text = viewModel.isTimeSet == 1 ? @"Power" : @"Price";
+        
+        
+        if (viewModel.deviceType == 1 || viewModel.isTimeSet == YES) {
+            self.powerLabel.hidden = NO;
+            self.powerTF.hidden = NO;
+            self.powerTF.userInteractionEnabled = viewModel.deviceType == 1 ? NO : YES;
+            self.unitLabel.hidden = NO;
+        } else {
+            self.powerLabel.hidden = indexPath.row == 0 ? NO : YES;
+            self.powerTF.hidden = indexPath.row == 0 ? NO : YES;
+            self.powerTF.userInteractionEnabled = YES;
+            self.unitLabel.hidden = indexPath.row == 0 ? NO : YES;
+        }
+        self.unitLabel.text = viewModel.isTimeSet == 1 ? @"kW" : @"$";
     }
     return self;
 }
 
+
+// 逆变器赋值操作
 -(void)setMessageWithChargArray:(NSArray *)optionArray dischargeArray:(NSArray *)dischargeArray {
 
     // UI
@@ -71,26 +93,51 @@
     if (self.indexPath.section == 0) {
         TimeModel *model = optionArray[self.indexPath.row];
         timeStr = [NSString stringWithFormat:@"%@:%@-%@:%@",model.startHour,model.startMinute,model.endHour,model.endMinute];
-        powerStr = [NSString stringWithFormat:@"%@kW",model.power];
+        powerStr = [NSString stringWithFormat:@"%@",model.power];
     } else {
         TimeModel *model = dischargeArray[self.indexPath.row];
         timeStr = [NSString stringWithFormat:@"%@:%@-%@:%@",model.startHour,model.startMinute,model.endHour,model.endMinute];
-        powerStr = [NSString stringWithFormat:@"%@kW",model.power];
+        powerStr = [NSString stringWithFormat:@"%@",model.power];
     }
     self.timeLabel.text = timeStr;
     self.powerTF.text = powerStr;
 }
 
+// HMI赋值操作
+- (void)setPriceMessageWithArray:(NSArray *)priceArray {
+    // UI
+    if (self.indexPath.row == priceArray.count) {
+        self.bottomLayoutConstraint.constant = 10;
+        self.lastView.hidden = NO;
+    } else {
+        self.topLayoutConstraint.constant = self.indexPath.row == 0 ? 10 : -10;
+        self.timeViewCenterLayer.constant = self.indexPath.row == 0 ? 15 : 0;
+        self.lastView.hidden = YES;
+    }
+    self.ReductionBtn.hidden = self.indexPath.row == 0 ? YES :NO;
+    
+    //赋值
+    ElectricityPriceTimeModel *model = priceArray[self.indexPath.row];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@-%@",model.start,model.end];
+    self.powerTF.text = [NSString stringWithFormat:@"%@",self.planVM.priceArray[self.indexPath.section]];
+}
+
+
+
+
 #pragma mark UITextFieldDelegate
 -(void)textFieldDidEndEditing:(UITextField *)textField {
+    self.powerTF.text = [NSString stringWithFormat:@"%@",textField.text];
     
-    if (self.indexPath.section == 0) {
-        self.planVM.batteryChargArray[self.indexPath.row].power = textField.text;
+    if (self.planVM.isTimeSet == YES) {
+        if (self.indexPath.section == 0) {
+            self.planVM.batteryChargArray[self.indexPath.row].power = textField.text;
+        } else {
+            self.planVM.batteryDisChargArray[self.indexPath.row].power = textField.text;
+        }
     } else {
-        self.planVM.batteryDisChargArray[self.indexPath.row].power = textField.text;
+        [self.planVM.priceArray replaceObjectAtIndex:self.indexPath.section withObject:textField.text];
     }
-    
-    self.powerTF.text = [NSString stringWithFormat:@"%@kW",textField.text];
 }
 
 

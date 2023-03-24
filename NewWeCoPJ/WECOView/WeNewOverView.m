@@ -448,7 +448,7 @@
 - (void)leftbtnclick{
     
     RedxCeHuaView *cehuaview = [[RedxCeHuaView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    [cehuaview createValueUIWith:self.invViewModel.isMgrnDevice];
+    [cehuaview createValueUIWith:self.invViewModel.deviceType isHaveDevice:self.invViewModel.isHaveDevice];
     [KEYWINDOW addSubview:cehuaview];
     
     cehuaview.selectBlock = ^(NSInteger selectNumb) {//tag 100+
@@ -485,7 +485,7 @@
         //            [self presentViewController:alvc animated:YES completion:nil];
         //        }
         if (selectNumb == 102) {//
-            if (self.invViewModel.isMgrnDevice == YES) {
+            if (self.invViewModel.isHaveDevice == YES) {
                 WeMeSetting *settingvc = [[WeMeSetting alloc]init];
                 [self.navigationController pushViewController:settingvc animated:YES];
             } else {
@@ -527,7 +527,7 @@
         
         
         if(selectNumb == 101){//INV Setting
-            if (self.invViewModel.isMgrnDevice == YES) {
+            if (self.invViewModel.isHaveDevice == YES) {
                 INVSettingViewController *settingvc = [[INVSettingViewController alloc]init];
                 settingvc.settingVM = self.invViewModel;
                 [self.navigationController pushViewController:settingvc animated:YES];

@@ -8,9 +8,10 @@ typedef void(^backBlock)(NSInteger selectNumb);
 @property (nonatomic, strong)UIView *leftview;
 @property (nonatomic, strong)backBlock selectBlock;
 
+@property (nonatomic, assign)BOOL isHaveDevice;
 @property (nonatomic, assign)BOOL isMgrn;
 
--(void)createValueUIWith:(BOOL)isMgrn;
+-(void)createValueUIWith:(BOOL)isMgrn isHaveDevice:(BOOL)isHaveDevice;
 @end
 
 

@@ -17,7 +17,7 @@ typedef void(^ChangeDataBlock)(NSDictionary *dic);
 
 -(instancetype)initWithViewModel:(INVSettingViewModel *)viewModel;
 
-- (void)isHaveUnitWith:(BOOL)isHave numStr:(NSString *)numStr paramsStr:(NSString *)paramsStr index:(NSIndexPath *)indexPath title:(NSString *)titeleStr; 
+- (void)isHaveUnitWith:(BOOL)isHave numStr:(NSString *)numStr paramsStr:(NSString *)paramsStr title:(NSString *)titeleStr index:(NSIndexPath *)indexPath deviceType:(NSInteger)deviceType;
 @property (nonatomic,copy) ChangeDataBlock changeDataBlock;
 
 @end
