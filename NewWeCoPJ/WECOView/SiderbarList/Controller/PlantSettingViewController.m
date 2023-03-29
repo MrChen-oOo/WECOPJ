@@ -27,9 +27,13 @@
     self.title = self.isTimePlan == NO ? @"Electricity Price" : @"Plant Setting";
     [self.plantTableView registerNib:[UINib nibWithNibName:@"PlantTableViewCell" bundle:nil] forCellReuseIdentifier:@"plantCell"];
     [self.view addSubview:self.plantTableView];
-    [self.view endEditing:YES];
     [self addNavgationBarButton];
     [self getPlanTimeMessage];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+     action:@selector(tapAction)];
+    tap.cancelsTouchesInView = NO; //切记,否则cell不能点击 ,collectionview同样如此
+    [self.plantTableView addGestureRecognizer:tap];
 }
 
 - (void) getPlanTimeMessage {
@@ -191,6 +195,8 @@
 }
 
 -(void)didClickChangeTimeActionWith:(NSIndexPath *)indexPath label:(nonnull UILabel *)label{
+    [self.view endEditing:YES];
+
     [self timeClick:label indexRow:indexPath.row section:indexPath.section];
 }
 
@@ -205,6 +211,10 @@
         // 逆变器充放电计划设置
         [self setHmiPlanTime];
     }
+}
+
+- (void)tapAction {
+    [self.view endEditing:YES];
 }
 
 #pragma mark 网络接口请求

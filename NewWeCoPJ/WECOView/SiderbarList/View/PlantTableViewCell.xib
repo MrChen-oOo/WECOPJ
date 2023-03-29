@@ -79,7 +79,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t02-vr-UDg">
                                 <rect key="frame" x="121.33333333333334" y="11.333333333333332" width="75" height="34.333333333333343"/>
@@ -95,12 +95,25 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOm-ED-GKf">
+                                <rect key="frame" x="10.666666666666664" y="3.3333333333333321" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XhL-VH-KWc"/>
+                                    <constraint firstAttribute="width" constant="50" id="n53-nW-K2g"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="startTextFieldAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EiM-hc-d0X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2eY-eh-1Xv" firstAttribute="centerX" secondItem="iOm-ED-GKf" secondAttribute="centerX" id="9CK-7I-740"/>
                             <constraint firstAttribute="trailing" secondItem="be2-iw-lkc" secondAttribute="trailing" constant="17" id="AyQ-p2-lDf"/>
                             <constraint firstItem="t02-vr-UDg" firstAttribute="height" secondItem="SyK-Nt-peD" secondAttribute="height" multiplier="2.01961" id="CHJ-Pr-YKG"/>
                             <constraint firstItem="G76-9s-nEH" firstAttribute="leading" secondItem="2eY-eh-1Xv" secondAttribute="trailing" id="EJW-g0-Bfb"/>
+                            <constraint firstItem="2eY-eh-1Xv" firstAttribute="centerY" secondItem="iOm-ED-GKf" secondAttribute="centerY" id="K3y-ss-7Zo"/>
                             <constraint firstItem="crZ-gi-4eY" firstAttribute="centerX" secondItem="e0e-Vi-U2y" secondAttribute="centerX" id="KTr-dm-F63"/>
                             <constraint firstItem="Etu-hI-UAl" firstAttribute="top" secondItem="e0e-Vi-U2y" secondAttribute="top" id="KzR-9p-OSM"/>
                             <constraint firstItem="t02-vr-UDg" firstAttribute="width" secondItem="SyK-Nt-peD" secondAttribute="width" multiplier="0.974026" id="Ldu-xn-EGe"/>
@@ -117,7 +130,7 @@
                             <constraint firstItem="2eY-eh-1Xv" firstAttribute="leading" secondItem="e0e-Vi-U2y" secondAttribute="leading" constant="28" id="vQl-JL-32W"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-34-bca">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-34-bca">
                         <rect key="frame" x="30" y="10" width="260" height="66"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-RF-Q1E">
@@ -173,6 +186,7 @@
                 <outlet property="lastView" destination="dd9-34-bca" id="Mml-pq-3rU"/>
                 <outlet property="powerLabel" destination="Etu-hI-UAl" id="6MX-zr-TQm"/>
                 <outlet property="powerTF" destination="2eY-eh-1Xv" id="y8e-Qw-Emq"/>
+                <outlet property="textfieldBtn" destination="iOm-ED-GKf" id="KWK-Mg-w9s"/>
                 <outlet property="timeLabel" destination="SyK-Nt-peD" id="RdU-3A-4sV"/>
                 <outlet property="timeViewCenterLayer" destination="cX9-C5-YWO" id="fPc-OB-0i8"/>
                 <outlet property="topLayoutConstraint" destination="gX4-vV-Iq1" id="F8l-28-baw"/>

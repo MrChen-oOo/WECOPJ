@@ -7,8 +7,6 @@
 
 #import "BasicTableViewCell.h"
 #import "SettingOptionModel.h"
-#define IS_IPHONE_SE ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(375, 667), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
-
 
 @interface BasicTableViewCell()
 
@@ -54,7 +52,9 @@
         [self.reloadBtn setTitle:@"" forState:(UIControlStateNormal)];
         [self setBtnBackgroundColor];
         [self endEditing:YES];
-        if (IS_IPHONE_SE) {
+        
+        // SE
+        if (kScreenWidth == 320) {
             [self changeSeUi];
         }
     }
@@ -68,8 +68,8 @@
 
 // 特殊机型SE处理
 - (void)changeSeUi {
-    self.btnRightLayout.constant = 1;
-    self.btnLeftLayout.constant = 1;
+    self.btnRightLayout.constant = 37;
+    self.btnLeftLayout.constant = 37;
     self.msgRightLayout.constant = 5;
 }
 
@@ -86,6 +86,16 @@
     NSInteger girdInt = [valueArray[row] intValue];
     NSInteger uniInt = [unitArray[row] intValue];
     NSString *labelText = @"";
+    
+    self.dataArray = [NSArray arrayWithArray:valueArray];
+    self.controlNameLabel.text = [NSString stringWithFormat:@"%@", keyArray[row]];
+    [self setCellUIWithArray:keyArray row:row value:valueArray[row]];
+    
+    if (valueArray[row] == nil) {
+        self.dataMsgLabel.text = @"0";
+        return;
+    }
+    
     // 0:无单位 1:百分比 2:安 A  3:小时 h  4:瓦 W 5:千兆 kM 6:千瓦kW
     switch (uniInt) {
         case 0:{
@@ -94,7 +104,7 @@
                 // gridStandad
                 labelText = self.gridStandardsKeyArray[girdInt];
             } else if (self.indexPath.section == 3 && row == 2){
-                
+          
                 // usaStandardClass
                 labelText = self.usaStandardClassArray[girdInt];
             } else if (self.indexPath.section == 3 && row == 1) {
@@ -152,9 +162,7 @@
             break;
     }
     self.dataMsgLabel.text = labelText;
-    self.dataArray = [NSArray arrayWithArray:valueArray];
-    self.controlNameLabel.text = [NSString stringWithFormat:@"%@", keyArray[row]];
-    [self setCellUIWithArray:keyArray row:row value:valueArray[row]];
+  
     
 }
 
@@ -199,7 +207,7 @@
     
     // 0:保留按钮 1:保留文字和箭头 2:特殊符号 3:保留刷新按钮 4:保留开关机按钮
     self.openSwitch.hidden = num == 0 ? NO : YES;
-//    self.dataMsgLabel.hidden = num == 1 ? NO : YES;
+    self.dataMsgLabel.hidden = num == 1 ? NO : YES;
     self.rightImage.hidden = num == 1 ? NO : YES;
     self.reloadBtn.hidden = num == 3 ? NO : YES;
     self.startBtn.hidden = num == 4 ? NO : YES;
@@ -282,7 +290,11 @@
 
 -(NSMutableArray *)usaStandardClassArray {
     if (!_usaStandardClassArray) {
-        _usaStandardClassArray = [NSMutableArray arrayWithObjects:@"UL1741&IEEE1547.2020",@"Rule21",@"SRD-UL1741 1.0",@"UL1741 SB",@"UL1741 SA",@"Heco 2.0", nil];
+
+        NSArray *array = @[@"UL1741&IEEE1547.2020",@"Rule21",@"SRD-UL1741 1.0",@"UL1741 SB",@"UL1741 SA",@"Heco 2.0"];
+        NSArray *seArray = @[@"UL1741...",@"Rule21",@"SRD-UL...",@"UL1741 SB",@"UL1741 SA",@"Heco 2.0"];
+        _usaStandardClassArray = [NSMutableArray array];
+        [_usaStandardClassArray addObjectsFromArray:kScreenWidth == 320 ? seArray : array];
     }
     return _usaStandardClassArray;
 }

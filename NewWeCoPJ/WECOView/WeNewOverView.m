@@ -24,6 +24,8 @@
 #import "WePlantSettingVC.h"
 #import "INVSettingViewController.h"
 #import "INVSettingViewModel.h"
+#import "CabinetViewController.h"
+#import "InveterViewController.h"
 
 @interface WeNewOverView ()
 @property (nonatomic, strong) UIScrollView *bgscrollv;
@@ -213,8 +215,8 @@
     _addbtn1 = addBtn;
     
     
-    NSArray *namearr = @[home_Energy,home_Impact,home_DeviceList,home_PlantSetting];//,home_PlantSetting //home_PlantSetting
-    
+    NSArray *namearr = @[home_Energy,home_DeviceList];//home_PlantSetting //home_Impact,home_PlantSetting
+
     
     NSArray *detailarr = @[[NSString stringWithFormat:@"0 %@",home_GeneratedTD],[NSString stringWithFormat:@"0 Estimated Savings Today"],@"0 Devices Are Running",@"Work Model:"];//,@""
     
@@ -486,8 +488,16 @@
         //        }
         if (selectNumb == 102) {//
             if (self.invViewModel.isHaveDevice == YES) {
-                WeMeSetting *settingvc = [[WeMeSetting alloc]init];
-                [self.navigationController pushViewController:settingvc animated:YES];
+                if (self.invViewModel.deviceType == 0) {
+                    CabinetViewController *cabinetVC = [[CabinetViewController alloc]init];
+                    cabinetVC.deviceSnStr = self.invViewModel.deviceSnStr;
+                    [self.navigationController pushViewController:cabinetVC animated:YES];
+                } else {
+                    InveterViewController *inveter = [[InveterViewController alloc]init];
+                    inveter.deviceSnStr = self.invViewModel.deviceSnStr;
+                    [self.navigationController pushViewController:inveter animated:YES];
+                }
+              
             } else {
                 UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
@@ -500,8 +510,15 @@
             }
         }
         
-        
         if (selectNumb == 103) {//
+            WeMeSetting *settingvc = [[WeMeSetting alloc]init];
+            [self.navigationController pushViewController:settingvc animated:YES];
+        }
+        
+        
+        
+        
+        if (selectNumb == 104) {//
             
             UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
             [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
@@ -721,24 +738,24 @@
                     
                     
                     
-                    
-                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
-                        
-                        impactV.hidden = YES;
-                        
-                        devCountV.xmg_y = impactV.xmg_y;
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 3*50*HEIGHT_SIZE;
-                        
-                    }else{
-                        
-                        impactV.hidden = NO;
-                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 4*50*HEIGHT_SIZE;
-                        
-                    }
-                    
+//
+//                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
+//
+//                        impactV.hidden = YES;
+//
+//                        devCountV.xmg_y = impactV.xmg_y;
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 2*50*HEIGHT_SIZE;
+//
+//                    }else{
+//
+//                        impactV.hidden = NO;
+//                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 2*50*HEIGHT_SIZE;
+//
+//                    }
+//
                     devCountLB.text = [NSString stringWithFormat:@"%@ Devices Are Running",deviceCount];
                     workmodelLB.text = [NSString stringWithFormat:@"Work Model:%@",workModel];
                     self.devCount = deviceCount;
@@ -819,24 +836,24 @@
                     
                     
                     
-                    
-                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
-                        
-                        impactV.hidden = YES;
-                        
-                        devCountV.xmg_y = impactV.xmg_y;
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 3*50*HEIGHT_SIZE;
-                        
-                    }else{
-                        
-                        impactV.hidden = NO;
-                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 4*50*HEIGHT_SIZE;
-                        
-                    }
-                    
+//                    
+//                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
+//                        
+//                        impactV.hidden = YES;
+//                        
+//                        devCountV.xmg_y = impactV.xmg_y;
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 3*50*HEIGHT_SIZE;
+//                        
+//                    }else{
+//                        
+//                        impactV.hidden = NO;
+//                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 4*50*HEIGHT_SIZE;
+//                        
+//                    }
+//                    
                     devCountLB.text = [NSString stringWithFormat:@"%@ Devices Are Running",deviceCount];
                     workmodelLB.text = [NSString stringWithFormat:@"Work Model:%@",workModel];
                     self.devCount = deviceCount;
