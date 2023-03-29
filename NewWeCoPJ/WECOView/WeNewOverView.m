@@ -24,6 +24,7 @@
 #import "WePlantSettingVC.h"
 #import "INVSettingViewController.h"
 #import "INVSettingViewModel.h"
+#import "TJAccountVC.h"
 
 @interface WeNewOverView ()
 @property (nonatomic, strong) UIScrollView *bgscrollv;
@@ -454,9 +455,9 @@
     cehuaview.selectBlock = ^(NSInteger selectNumb) {//tag 100+
         
         if (selectNumb == 10) {//编辑
-            //            RedxnewManagementViewController *aboutView = [[RedxnewManagementViewController alloc]init];
-            //            aboutView.hidesBottomBarWhenPushed=YES;
-            //            [self.navigationController pushViewController:aboutView animated:NO];
+            TJAccountVC *aboutView = [[TJAccountVC alloc]init];
+//            aboutView.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:aboutView animated:NO];
         }
         
         if (selectNumb == 100) {//

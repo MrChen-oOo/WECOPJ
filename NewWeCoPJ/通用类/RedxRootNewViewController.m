@@ -68,12 +68,12 @@
     _Ov1Dic = [[NSMutableDictionary alloc]init];
     
 //    _LangNameArr = @[@"Auto",@"English",@"简体中文",@"繁體中文",@"čeština",@"Deutsch",@"español",@"Français",@"Magyar",@"Italiano",@"한국인",@"Nederlands",@"Português",@"Polski",@"Română"];//(Hungary),(Portugal)
-    _LangNameArr = @[@"Auto",@"English",@"简体中文"];//(Hungary),(Portugal)
+    _LangNameArr = @[@"English"];//(Hungary),(Portugal)//,@"简体中文"//@"Auto",
 
 
 //    _LangKeyArr = @[@"",@"zh-Hans",@"zh-Hant",@"en",@"it",@"pl",@"nl",@"de",@"hu-HU",@"pt-PT",@"es",@"ko",@"fr",@"cs"];
 //    _LangKeyArr = @[@"",@"en",@"zh-Hans",@"zh-Hant",@"cs",@"de",@"es",@"fr",@"hu-HU",@"it",@"ko",@"nl",@"pt-PT",@"pl",@"ro"];
-    _LangKeyArr = @[@"",@"en",@"zh-Hans"];
+    _LangKeyArr = @[@"en"];//@"",,@"zh-Hans"
 
 //    _LangKey2Arr = @[@[@""],@[@"zh-Hans"],@[@"zh-Hant"],@[@"en"],@[@"it"],@[@"pl"],@[@"nl"],@[@"de"],@[@"hu-HU"],@[@"pt-PT"],@[@"es"],@[@"ko"],@[@"fr"],@[@"cs"]];
 //    _LangKey2Arr = @[@[@""],@[@"en"],@[@"zh-Hans"],@[@"zh-Hant"],@[@"cs"],@[@"de"],@[@"es"],@[@"fr"],@[@"hu-HU"],@[@"it"],@[@"ko"],@[@"nl"],@[@"pt-PT"],@[@"pl"],@[@"ro"]];

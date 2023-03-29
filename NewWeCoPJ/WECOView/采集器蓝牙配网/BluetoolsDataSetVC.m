@@ -773,14 +773,14 @@
         [self showToastViewWithTitle:root_peizhi_shinewifi_shuru_wifi_mima];
         return;
     }
-    if ([self isHaveIllegalChar:_wifiNameTF.text]) {
-        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
-        return;
-    }
-    if ([self isHaveIllegalChar:_wifiPswTF.text]) {
-        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
-        return;
-    }
+//    if ([self isHaveIllegalChar:_wifiNameTF.text]) {
+//        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
+//        return;
+//    }
+//    if ([self isHaveIllegalChar:_wifiPswTF.text]) {
+//        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
+//        return;
+//    }
     if (_settingView) {
         
      [_settingView removeFromSuperview];

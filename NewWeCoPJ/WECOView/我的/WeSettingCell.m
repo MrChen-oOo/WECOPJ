@@ -31,7 +31,7 @@
     [self.contentView addSubview:titLb];
     _titleLB = titLb;
     
-    UILabel *valueLb = [self goToInitLable:CGRectMake(CGRectGetMaxX(titLb.frame)+5*NOW_SIZE, 0, 80*NOW_SIZE, 30*HEIGHT_SIZE) textName:@"" textColor:colorblack_102 fontFloat:14*HEIGHT_SIZE AlignmentType:1 isAdjust:YES];
+    UILabel *valueLb = [self goToInitLable:CGRectMake(CGRectGetMaxX(titLb.frame)+5*NOW_SIZE, 0, 80*NOW_SIZE, 30*HEIGHT_SIZE) textName:@"" textColor:colorblack_102 fontFloat:14*HEIGHT_SIZE AlignmentType:2 isAdjust:YES];
     [self.contentView addSubview:valueLb];
     _contenLB = valueLb;
     

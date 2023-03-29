@@ -62,6 +62,9 @@
     userHeaderIMG.layer.cornerRadius = 25*HEIGHT_SIZE;
     userHeaderIMG.layer.masksToBounds = YES;
 //    uitap
+    UITapGestureRecognizer *headIMGTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editClick)];
+    [userHeaderIMG addGestureRecognizer:headIMGTap];
+    userHeaderIMG.userInteractionEnabled = YES;
     [leftv addSubview:userHeaderIMG];
     
     // 加载图片
@@ -69,13 +72,10 @@
     [userHeaderIMG sd_setImageWithURL:[NSURL URLWithString:iconstr] placeholderImage:IMAGE(@"WeHeaderIMG")];
     
     
-    UIButton *editbtn = [[UIButton alloc]initWithFrame:CGRectMake(5*NOW_SIZE, CGRectGetMaxY(userHeaderIMG.frame), 25*HEIGHT_SIZE, 25*HEIGHT_SIZE)];
-    [editbtn setImage:IMAGE(@"weeditIMG") forState:UIControlStateNormal];
-    [editbtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
-//    [leftv addSubview:editbtn];
     
     
-    UILabel *namelb = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(editbtn.frame)+5*NOW_SIZE, CGRectGetMaxY(userHeaderIMG.frame), leftwide - CGRectGetMaxX(editbtn.frame)*2-10*NOW_SIZE, 25*HEIGHT_SIZE)];
+    
+    UILabel *namelb = [[UILabel alloc]initWithFrame:CGRectMake(5*NOW_SIZE, CGRectGetMaxY(userHeaderIMG.frame), leftwide - 25*HEIGHT_SIZE*2-10*NOW_SIZE, 25*HEIGHT_SIZE)];
     namelb.font = FontSize(16*HEIGHT_SIZE);
     namelb.textColor = colorBlack;
     namelb.adjustsFontSizeToFitWidth = YES;
@@ -83,10 +83,15 @@
     namelb.text = [RedxUserInfo defaultUserInfo].email;
     [leftv addSubview:namelb];
     
+    UIButton *editbtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(namelb.frame), CGRectGetMaxY(userHeaderIMG.frame), 25*HEIGHT_SIZE, 25*HEIGHT_SIZE)];
+    [editbtn setImage:IMAGE(@"weeditIMG") forState:UIControlStateNormal];
+    [editbtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
+    [leftv addSubview:editbtn];
     
-    UIButton *LogOutbtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(namelb.frame)+5*NOW_SIZE, CGRectGetMaxY(userHeaderIMG.frame), 25*HEIGHT_SIZE, 25*HEIGHT_SIZE)];
-    [LogOutbtn setImage:IMAGE(@"weeditIMG") forState:UIControlStateNormal];
-    [LogOutbtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
+    
+//    UIButton *LogOutbtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(namelb.frame)+5*NOW_SIZE, CGRectGetMaxY(userHeaderIMG.frame), 25*HEIGHT_SIZE, 25*HEIGHT_SIZE)];
+//    [LogOutbtn setImage:IMAGE(@"weeditIMG") forState:UIControlStateNormal];
+//    [LogOutbtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
 //    [leftv addSubview:LogOutbtn];
     
 //    UILabel *phonelb = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(userHeaderIMG.frame)+5*NOW_SIZE,CGRectGetMaxY(namelb.frame), leftwide - CGRectGetMaxX(userHeaderIMG.frame)-5*NOW_SIZE - 5*NOW_SIZE - 8*HEIGHT_SIZE - 5*NOW_SIZE, 25*HEIGHT_SIZE)];

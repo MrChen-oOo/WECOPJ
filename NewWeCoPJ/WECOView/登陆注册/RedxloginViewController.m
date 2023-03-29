@@ -777,6 +777,8 @@
 
                     NSString *counrtyName=[NSString stringWithFormat:@"%@",_dataSource[@"country"]];
                     NSString *timezone=[NSString stringWithFormat:@"%@",_dataSource[@"timeZone"]];
+                    NSString *username=[NSString stringWithFormat:@"%@",_dataSource[@"username"]];
+
                     if([timezone floatValue] >= 0){
                         timezone = [NSString stringWithFormat:@"GMT+%@",_dataSource[@"timeZone"]];
                     }else{
@@ -801,6 +803,7 @@
                     [RedxUserInfo defaultUserInfo].userPassword = _loginUserPassword;
                     [RedxUserInfo defaultUserInfo].TelNumber = phone;
                     [RedxUserInfo defaultUserInfo].userIcon = picAddress;
+                    [RedxUserInfo defaultUserInfo].userName = username;
 
                     [self didPresentControllerButtonTouch];
 

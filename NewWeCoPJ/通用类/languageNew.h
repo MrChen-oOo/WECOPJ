@@ -3300,7 +3300,9 @@
 #define  HEM_meiyoushebei NSLocalizedString(@"116您暂时还没有设备呢",nil)
 #define  HEM_ExitEdit NSLocalizedString(@"Exit Edit",nil)
 #define  oss_inputEmail  NSLocalizedString(@"请填写邮箱", nil)
+#define  Home_clearSuccess  NSLocalizedString(@"Clear cache successfully", nil)
 
+#define  Home_VersionUpdateNew  NSLocalizedString(@"The version is up to date", nil)
 
 
 

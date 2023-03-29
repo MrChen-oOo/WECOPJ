@@ -211,6 +211,10 @@
 		6267C968299A0E4B001820B2 /* leftDown2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C960299A0E4B001820B2 /* leftDown2.gif */; };
 		6267C969299A0E4B001820B2 /* rightDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C961299A0E4B001820B2 /* rightDown.gif */; };
 		6267C96A299A0E4B001820B2 /* leftDown.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6267C962299A0E4B001820B2 /* leftDown.gif */; };
+		6271548C29CEEB4900F78278 /* TJAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271548B29CEEB4900F78278 /* TJAccountVC.m */; };
+		6271548F29CEEC4700F78278 /* TJChangePswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271548E29CEEC4700F78278 /* TJChangePswordVC.m */; };
+		6271549229D2ED3000F78278 /* FGCamProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271549029D2ED2F00F78278 /* FGCamProtocolVC.m */; };
+		6271549529D2EE1600F78278 /* WeAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271549429D2EE1600F78278 /* WeAboutVC.m */; };
 		7C43016F29CAA44900BCBEE7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */; };
 		7CD8678E29C9AD6900D883A6 /* UserInfoSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */; };
 		7CD8678F29C9AD6900D883A6 /* RBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */; };
@@ -667,6 +671,14 @@
 		6267C960299A0E4B001820B2 /* leftDown2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leftDown2.gif; sourceTree = "<group>"; };
 		6267C961299A0E4B001820B2 /* rightDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rightDown.gif; sourceTree = "<group>"; };
 		6267C962299A0E4B001820B2 /* leftDown.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leftDown.gif; sourceTree = "<group>"; };
+		6271548A29CEEB4900F78278 /* TJAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAccountVC.h; sourceTree = "<group>"; };
+		6271548B29CEEB4900F78278 /* TJAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAccountVC.m; sourceTree = "<group>"; };
+		6271548D29CEEC4700F78278 /* TJChangePswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJChangePswordVC.h; sourceTree = "<group>"; };
+		6271548E29CEEC4700F78278 /* TJChangePswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJChangePswordVC.m; sourceTree = "<group>"; };
+		6271549029D2ED2F00F78278 /* FGCamProtocolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGCamProtocolVC.m; sourceTree = "<group>"; };
+		6271549129D2ED2F00F78278 /* FGCamProtocolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGCamProtocolVC.h; sourceTree = "<group>"; };
+		6271549329D2EE1600F78278 /* WeAboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeAboutVC.h; sourceTree = "<group>"; };
+		6271549429D2EE1600F78278 /* WeAboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeAboutVC.m; sourceTree = "<group>"; };
 		7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
 		7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		7CD8676429C9AD6900D883A6 /* RBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseViewModel.h; sourceTree = "<group>"; };
@@ -909,12 +921,20 @@
 			children = (
 				625B9137298A50BC006F985A /* WeMeVC.h */,
 				625B9131298A50BC006F985A /* WeMeVC.m */,
+				6271548A29CEEB4900F78278 /* TJAccountVC.h */,
+				6271548B29CEEB4900F78278 /* TJAccountVC.m */,
+				6271548D29CEEC4700F78278 /* TJChangePswordVC.h */,
+				6271548E29CEEC4700F78278 /* TJChangePswordVC.m */,
 				625B9135298A50BC006F985A /* WeMeSetting.h */,
 				625B912D298A50BC006F985A /* WeMeSetting.m */,
+				6271549329D2EE1600F78278 /* WeAboutVC.h */,
+				6271549429D2EE1600F78278 /* WeAboutVC.m */,
 				625B9133298A50BC006F985A /* WeSecurVC.h */,
 				625B912F298A50BC006F985A /* WeSecurVC.m */,
 				625B9132298A50BC006F985A /* OssLanguageVC.h */,
 				625B9136298A50BC006F985A /* OssLanguageVC.m */,
+				6271549129D2ED2F00F78278 /* FGCamProtocolVC.h */,
+				6271549029D2ED2F00F78278 /* FGCamProtocolVC.m */,
 				625B912E298A50BC006F985A /* MyLanguageCell.h */,
 				625B9134298A50BC006F985A /* MyLanguageCell.m */,
 				625B9130298A50BC006F985A /* WeSettingCell.h */,
@@ -1987,6 +2007,7 @@
 				62664B6529A357340028EA17 /* ZYNetworkAccessibility.m in Sources */,
 				625B9163298A50BC006F985A /* WeFultMessageVC.m in Sources */,
 				625B92B9298A5809006F985A /* InputSettingAlert.m in Sources */,
+				6271548C29CEEB4900F78278 /* TJAccountVC.m in Sources */,
 				625B915B298A50BC006F985A /* WeSecurVC.m in Sources */,
 				625B9239298A5769006F985A /* UIView+MJExtension.m in Sources */,
 				625B9339298A8664006F985A /* NSObject+ImpChangeTool.m in Sources */,
@@ -2015,6 +2036,7 @@
 				7CD8679329C9AD6900D883A6 /* PlantSettingViewController.m in Sources */,
 				625B9316298A636F006F985A /* NSString+PinYin4Cocoa.m in Sources */,
 				625B923C298A5769006F985A /* MJRefreshBackNormalFooter.m in Sources */,
+				6271549229D2ED3000F78278 /* FGCamProtocolVC.m in Sources */,
 				625B9166298A50BC006F985A /* WeImpactVC.m in Sources */,
 				7CD8679C29C9AD6900D883A6 /* InpuPopView.m in Sources */,
 				625B91ED298A5753006F985A /* AFSecurityPolicy.m in Sources */,
@@ -2078,6 +2100,7 @@
 				625B92AF298A5809006F985A /* HSDropDownMenu.m in Sources */,
 				625B92CA298A5BC6006F985A /* RedxcollectorDownLoad.m in Sources */,
 				625B92FE298A61F8006F985A /* RedxMASConstraintMaker.m in Sources */,
+				6271548F29CEEC4700F78278 /* TJChangePswordVC.m in Sources */,
 				625B923E298A5769006F985A /* MJRefreshAutoGifFooter.m in Sources */,
 				625B9177298A514D006F985A /* RetrievePasswordVC.m in Sources */,
 				625B9155298A50BC006F985A /* WeDeviceListVC.m in Sources */,
@@ -2096,6 +2119,7 @@
 				625B925C298A57A4006F985A /* CGforDemoShowViewController.m in Sources */,
 				625B914F298A50BC006F985A /* WeDeviceSetVC.m in Sources */,
 				625B9159298A50BC006F985A /* USSet1Cell.m in Sources */,
+				6271549529D2EE1600F78278 /* WeAboutVC.m in Sources */,
 				625B90D9298A5040006F985A /* AppDelegate.m in Sources */,
 				7CD8679829C9AD6900D883A6 /* PlantTableViewCell.m in Sources */,
 				625B9204298A575A006F985A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -2371,7 +2395,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2023.03.22;
+				MARKETING_VERSION = 2023.03.28;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2415,7 +2439,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2023.03.22;
+				MARKETING_VERSION = 2023.03.28;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
