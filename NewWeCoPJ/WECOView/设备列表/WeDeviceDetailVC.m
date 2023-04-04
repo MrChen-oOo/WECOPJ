@@ -47,7 +47,7 @@
         
         [self HVBOXFirstSet];
     }else{
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:IMAGE(@"WeMoreList") style:UIBarButtonItemStylePlain target:self action:@selector(DevSetClick)];
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:IMAGE(@"WeMoreList") style:UIBarButtonItemStylePlain target:self action:@selector(DevSetClick)];
         [self createBatUI];
 
     }

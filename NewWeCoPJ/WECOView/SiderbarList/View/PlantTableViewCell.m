@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *ReductionBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+@property (weak, nonatomic) IBOutlet UIButton *textfieldBtn;
 
 
 @property (nonatomic, strong) NSIndexPath * indexPath;
@@ -37,6 +38,12 @@
     [self.addBtn setTitle:@"" forState:(UIControlStateNormal)];
     [self.ReductionBtn setTitle:@"" forState:(UIControlStateNormal)];
     self.powerTF.delegate = self;
+    
+
+}
+- (IBAction)startTextFieldAction:(UIButton *)sender {
+    [self.powerTF becomeFirstResponder];
+    self.textfieldBtn.hidden = YES;
 }
 
 
@@ -46,6 +53,11 @@
     // Configure the view for the selected state
 }
 
+
+// 点击提示框视图以外的其他地方时隐藏弹框
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.contentView endEditing:YES];
+}
 
 -(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier andIndexPath:(NSIndexPath *)indexPath viewModel:(nonnull PlantSettingViewModel *)viewModel{
     self = [[NSBundle mainBundle] loadNibNamed:@"PlantTableViewCell" owner:self options:nil].lastObject;;
@@ -59,11 +71,13 @@
         if (viewModel.deviceType == 1 || viewModel.isTimeSet == YES) {
             self.powerLabel.hidden = NO;
             self.powerTF.hidden = NO;
+            self.textfieldBtn.hidden = viewModel.deviceType == 1 ? YES : NO;
             self.powerTF.userInteractionEnabled = viewModel.deviceType == 1 ? NO : YES;
             self.unitLabel.hidden = NO;
         } else {
             self.powerLabel.hidden = indexPath.row == 0 ? NO : YES;
             self.powerTF.hidden = indexPath.row == 0 ? NO : YES;
+            self.textfieldBtn.hidden = indexPath.row == 0 ? NO : YES;
             self.powerTF.userInteractionEnabled = YES;
             self.unitLabel.hidden = indexPath.row == 0 ? NO : YES;
         }
@@ -92,12 +106,13 @@
     NSString *powerStr;
     if (self.indexPath.section == 0) {
         TimeModel *model = optionArray[self.indexPath.row];
-        timeStr = [NSString stringWithFormat:@"%@:%@-%@:%@",model.startHour,model.startMinute,model.endHour,model.endMinute];
-        powerStr = [NSString stringWithFormat:@"%@",model.power];
+        
+        timeStr = model == nil ? @"00:00-00:00" :  [NSString stringWithFormat:@"%@:%@-%@:%@",model.startHour,model.startMinute,model.endHour,model.endMinute];
+        powerStr = model == nil ? @"0" : [NSString stringWithFormat:@"%@",model.power];
     } else {
         TimeModel *model = dischargeArray[self.indexPath.row];
-        timeStr = [NSString stringWithFormat:@"%@:%@-%@:%@",model.startHour,model.startMinute,model.endHour,model.endMinute];
-        powerStr = [NSString stringWithFormat:@"%@",model.power];
+        timeStr = model == nil ? @"00:00-00:00" : [NSString stringWithFormat:@"%@:%@-%@:%@",model.startHour,model.startMinute,model.endHour,model.endMinute];
+        powerStr = model == nil ? @"0" : [NSString stringWithFormat:@"%@",model.power];
     }
     self.timeLabel.text = timeStr;
     self.powerTF.text = powerStr;
@@ -138,6 +153,7 @@
     } else {
         [self.planVM.priceArray replaceObjectAtIndex:self.indexPath.section withObject:textField.text];
     }
+    self.textfieldBtn.hidden = NO;
 }
 
 

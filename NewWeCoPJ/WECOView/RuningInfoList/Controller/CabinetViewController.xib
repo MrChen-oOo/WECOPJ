@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CabinetViewController">
+            <connections>
+                <outlet property="scrollContentView" destination="356-Wm-ewK" id="QuD-7x-x5c"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV3-0o-XJk" customClass="BaseScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="356-Wm-ewK">
+                            <rect key="frame" x="0.0" y="0.0" width="1179" height="852"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="356-Wm-ewK" secondAttribute="trailing" id="Fqj-l4-YU3"/>
+                        <constraint firstItem="356-Wm-ewK" firstAttribute="top" secondItem="GV3-0o-XJk" secondAttribute="top" id="McX-Jp-r3N"/>
+                        <constraint firstItem="356-Wm-ewK" firstAttribute="centerY" secondItem="GV3-0o-XJk" secondAttribute="centerY" id="YCi-Z1-Nxa"/>
+                        <constraint firstAttribute="bottom" secondItem="356-Wm-ewK" secondAttribute="bottom" id="oOF-5s-wlU"/>
+                        <constraint firstItem="356-Wm-ewK" firstAttribute="leading" secondItem="GV3-0o-XJk" secondAttribute="leading" id="tf9-WU-rKQ"/>
+                        <constraint firstItem="356-Wm-ewK" firstAttribute="height" secondItem="GV3-0o-XJk" secondAttribute="height" id="wea-ug-joX"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GV3-0o-XJk" secondAttribute="bottom" id="2uP-sV-zve"/>
+                <constraint firstItem="356-Wm-ewK" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="3" id="4Ax-lU-mHC"/>
+                <constraint firstItem="GV3-0o-XJk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GAn-Hi-YeL"/>
+                <constraint firstItem="GV3-0o-XJk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KJW-hI-ExQ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GV3-0o-XJk" secondAttribute="trailing" id="Kpw-Zk-6VZ"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -25,6 +25,8 @@
 #import "INVSettingViewController.h"
 #import "INVSettingViewModel.h"
 #import "TJAccountVC.h"
+#import "CabinetViewController.h"
+#import "InveterViewController.h"
 
 @interface WeNewOverView ()
 @property (nonatomic, strong) UIScrollView *bgscrollv;
@@ -214,10 +216,11 @@
     _addbtn1 = addBtn;
     
     
-    NSArray *namearr = @[home_Energy,home_Impact,home_DeviceList,home_PlantSetting];//,home_PlantSetting //home_PlantSetting
+    NSArray *namearr = @[home_Energy,home_DeviceList];//home_PlantSetting //home_Impact,home_PlantSetting
+    NSArray *detailarr = @[[NSString stringWithFormat:@"0 %@",home_GeneratedTD],@"0 Devices Are Running",@"Work Model:"];//,@""
+
     
-    
-    NSArray *detailarr = @[[NSString stringWithFormat:@"0 %@",home_GeneratedTD],[NSString stringWithFormat:@"0 Estimated Savings Today"],@"0 Devices Are Running",@"Work Model:"];//,@""
+//    NSArray *detailarr = @[[NSString stringWithFormat:@"0 %@",home_GeneratedTD],[NSString stringWithFormat:@"0 Estimated Savings Today"],@"0 Devices Are Running",@"Work Model:"];//,@""
     
     UIView *funview = [self goToInitView:CGRectMake(10*NOW_SIZE, CGRectGetMaxY(_headerView.frame)+10*HEIGHT_SIZE, kScreenWidth-20*NOW_SIZE, 50*HEIGHT_SIZE*namearr.count) backgroundColor:WhiteColor];
     funview.layer.cornerRadius = 15*HEIGHT_SIZE;
@@ -487,8 +490,16 @@
         //        }
         if (selectNumb == 102) {//
             if (self.invViewModel.isHaveDevice == YES) {
-                WeMeSetting *settingvc = [[WeMeSetting alloc]init];
-                [self.navigationController pushViewController:settingvc animated:YES];
+                if (self.invViewModel.deviceType == 0) {
+                    CabinetViewController *cabinetVC = [[CabinetViewController alloc]init];
+                    cabinetVC.deviceSnStr = self.invViewModel.deviceSnStr;
+                    [self.navigationController pushViewController:cabinetVC animated:YES];
+                } else {
+                    InveterViewController *inveter = [[InveterViewController alloc]init];
+                    inveter.deviceSnStr = self.invViewModel.deviceSnStr;
+                    [self.navigationController pushViewController:inveter animated:YES];
+                }
+              
             } else {
                 UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
@@ -501,8 +512,15 @@
             }
         }
         
-        
         if (selectNumb == 103) {//
+            WeMeSetting *settingvc = [[WeMeSetting alloc]init];
+            [self.navigationController pushViewController:settingvc animated:YES];
+        }
+        
+        
+        
+        
+        if (selectNumb == 104) {//
             
             UIAlertController *alvc = [UIAlertController alertControllerWithTitle:root_tuichu_zhanghu message:@"" preferredStyle:UIAlertControllerStyleAlert];
             [alvc addAction:[UIAlertAction actionWithTitle:root_cancel style:UIAlertActionStyleCancel handler:nil]];
@@ -601,14 +619,14 @@
         overdatavc.PlantID = _PlantID;
         [self.navigationController pushViewController:overdatavc animated:YES];
     }
+//    if(tapge.view.tag == 101){
+//
+//        WeImpactVC *impactvc = [[WeImpactVC alloc]init];
+//        impactvc.PlantID = _PlantID;
+//        [self.navigationController pushViewController:impactvc animated:YES];
+//
+//    }
     if(tapge.view.tag == 101){
-        
-        WeImpactVC *impactvc = [[WeImpactVC alloc]init];
-        impactvc.PlantID = _PlantID;
-        [self.navigationController pushViewController:impactvc animated:YES];
-        
-    }
-    if(tapge.view.tag == 102){
         
         WeDeviceListVC *devlistvc = [[WeDeviceListVC alloc]init];
         devlistvc.PlantID = _PlantID;
@@ -616,7 +634,7 @@
         [self.navigationController pushViewController:devlistvc animated:YES];
     }
     
-    if(tapge.view.tag == 103){
+    if(tapge.view.tag == 102){
 
 
         WePlantSettingVC *devlistvc = [[WePlantSettingVC alloc]init];
@@ -701,15 +719,15 @@
                     UIView *workmodelV = [self.view viewWithTag:103];
                     
                     UILabel *energyLB = [self.view viewWithTag:6000];
-                    UILabel *impactLB = [self.view viewWithTag:6001];
-                    UILabel *devCountLB = [self.view viewWithTag:6002];
-                    UILabel *workmodelLB = [self.view viewWithTag:6003];
+//                    UILabel *impactLB = [self.view viewWithTag:6001];
+                    UILabel *devCountLB = [self.view viewWithTag:6001];
+                    UILabel *workmodelLB = [self.view viewWithTag:6002];
                     
                     NSString *incomeUnit = [NSString stringWithFormat:@"%@",self.overVDic[@"incomeUnit"]];
                     NSString *saveToday = [NSString stringWithFormat:@"%@",self.overVDic[@"saveToday"]];
                     
                     energyLB.text = [NSString stringWithFormat:@"%@ %@",self.overVDic[@"pvDayChargeTotal"],home_GeneratedTD];
-                    impactLB.text = [NSString stringWithFormat:@"%@ %@ Estimated Savings Today",saveToday,incomeUnit];
+//                    impactLB.text = [NSString stringWithFormat:@"%@ %@ Estimated Savings Today",saveToday,incomeUnit];
                     NSString *unReadCount = [NSString stringWithFormat:@"%@",self.overVDic[@"unReadCount"]];
                     
                     NSString *deviceCount = [NSString stringWithFormat:@"%@",self.overVDic[@"deviceCount"]];
@@ -722,24 +740,24 @@
                     
                     
                     
-                    
-                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
-                        
-                        impactV.hidden = YES;
-                        
-                        devCountV.xmg_y = impactV.xmg_y;
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 3*50*HEIGHT_SIZE;
-                        
-                    }else{
-                        
-                        impactV.hidden = NO;
-                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 4*50*HEIGHT_SIZE;
-                        
-                    }
-                    
+//
+//                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
+//
+//                        impactV.hidden = YES;
+//
+//                        devCountV.xmg_y = impactV.xmg_y;
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 2*50*HEIGHT_SIZE;
+//
+//                    }else{
+//
+//                        impactV.hidden = NO;
+//                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 2*50*HEIGHT_SIZE;
+//
+//                    }
+//
                     devCountLB.text = [NSString stringWithFormat:@"%@ Devices Are Running",deviceCount];
                     workmodelLB.text = [NSString stringWithFormat:@"Work Model:%@",workModel];
                     self.devCount = deviceCount;
@@ -770,12 +788,12 @@
                     }
                     
                     UILabel *energyLB = [self.view viewWithTag:6000];
-                    UILabel *impactLB = [self.view viewWithTag:6001];
-                    UILabel *devCountLB = [self.view viewWithTag:6002];
-                    UILabel *workmodelLB = [self.view viewWithTag:6003];
+//                    UILabel *impactLB = [self.view viewWithTag:6001];
+                    UILabel *devCountLB = [self.view viewWithTag:6001];
+                    UILabel *workmodelLB = [self.view viewWithTag:6002];
                     
                     energyLB.text = [NSString stringWithFormat:@"%@ %@",@"0.0kWh",home_GeneratedTD];
-                    impactLB.text = [NSString stringWithFormat:@"%@ %@",@"0%",home_SelfPower];
+//                    impactLB.text = [NSString stringWithFormat:@"%@ %@",@"0%",home_SelfPower];
                     devCountLB.text = [NSString stringWithFormat:@"0 Devices Are Running"];
                     workmodelLB.text = [NSString stringWithFormat:@"Work Model:"];
                     
@@ -799,15 +817,15 @@
                     UIView *workmodelV = [self.view viewWithTag:103];
                     
                     UILabel *energyLB = [self.view viewWithTag:6000];
-                    UILabel *impactLB = [self.view viewWithTag:6001];
-                    UILabel *devCountLB = [self.view viewWithTag:6002];
-                    UILabel *workmodelLB = [self.view viewWithTag:6003];
+//                    UILabel *impactLB = [self.view viewWithTag:6001];
+                    UILabel *devCountLB = [self.view viewWithTag:6001];
+                    UILabel *workmodelLB = [self.view viewWithTag:6002];
                     
                     NSString *incomeUnit = [NSString stringWithFormat:@"%@",self.overVDic[@"incomeUnit"]];
                     NSString *saveToday = [NSString stringWithFormat:@"%@",self.overVDic[@"saveToday"]];
                     
                     energyLB.text = [NSString stringWithFormat:@"%@ %@",self.overVDic[@"pvDayChargeTotal"],home_GeneratedTD];
-                    impactLB.text = [NSString stringWithFormat:@"%@ %@ Estimated Savings Today",saveToday,incomeUnit];
+//                    impactLB.text = [NSString stringWithFormat:@"%@ %@ Estimated Savings Today",saveToday,incomeUnit];
                     NSString *unReadCount = [NSString stringWithFormat:@"%@",self.overVDic[@"unReadCount"]];
                     
                     NSString *deviceCount = [NSString stringWithFormat:@"%@",self.overVDic[@"deviceCount"]];
@@ -820,24 +838,24 @@
                     
                     
                     
-                    
-                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
-                        
-                        impactV.hidden = YES;
-                        
-                        devCountV.xmg_y = impactV.xmg_y;
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 3*50*HEIGHT_SIZE;
-                        
-                    }else{
-                        
-                        impactV.hidden = NO;
-                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
-                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
-                        _funcVIew.xmg_height = 4*50*HEIGHT_SIZE;
-                        
-                    }
-                    
+//                    
+//                    if([mainDeviceType isEqualToString:@"1"]){//逆变器暂不显示收益
+//                        
+//                        impactV.hidden = YES;
+//                        
+//                        devCountV.xmg_y = impactV.xmg_y;
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 3*50*HEIGHT_SIZE;
+//                        
+//                    }else{
+//                        
+//                        impactV.hidden = NO;
+//                        devCountV.xmg_y = CGRectGetMaxY(impactV.frame);
+//                        workmodelV.xmg_y = CGRectGetMaxY(devCountV.frame);
+//                        _funcVIew.xmg_height = 4*50*HEIGHT_SIZE;
+//                        
+//                    }
+//                    
                     devCountLB.text = [NSString stringWithFormat:@"%@ Devices Are Running",deviceCount];
                     workmodelLB.text = [NSString stringWithFormat:@"Work Model:%@",workModel];
                     self.devCount = deviceCount;
@@ -870,12 +888,12 @@
                 }
                 
                 UILabel *energyLB = [self.view viewWithTag:6000];
-                UILabel *impactLB = [self.view viewWithTag:6001];
-                UILabel *devCountLB = [self.view viewWithTag:6002];
-                UILabel *workmodelLB = [self.view viewWithTag:6003];
+//                UILabel *impactLB = [self.view viewWithTag:6001];
+                UILabel *devCountLB = [self.view viewWithTag:6001];
+                UILabel *workmodelLB = [self.view viewWithTag:6002];
                 
                 energyLB.text = [NSString stringWithFormat:@"%@ %@",@"0.0kWh",home_GeneratedTD];
-                impactLB.text = [NSString stringWithFormat:@"%@ %@",@"0%",home_SelfPower];
+//                impactLB.text = [NSString stringWithFormat:@"%@ %@",@"0%",home_SelfPower];
                 devCountLB.text = [NSString stringWithFormat:@"0 Devices Are Running"];
                 workmodelLB.text = [NSString stringWithFormat:@"Work Model:"];
                 

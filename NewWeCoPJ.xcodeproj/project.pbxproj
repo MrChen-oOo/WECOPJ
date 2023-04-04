@@ -216,6 +216,24 @@
 		6271549229D2ED3000F78278 /* FGCamProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271549029D2ED2F00F78278 /* FGCamProtocolVC.m */; };
 		6271549529D2EE1600F78278 /* WeAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271549429D2EE1600F78278 /* WeAboutVC.m */; };
 		7C43016F29CAA44900BCBEE7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */; };
+		7C4F2DCF29D1763700C6A1E5 /* CabinetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DCE29D1763700C6A1E5 /* CabinetViewModel.m */; };
+		7C4F2DD229D1764C00C6A1E5 /* InveterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DD129D1764C00C6A1E5 /* InveterViewModel.m */; };
+		7C4F2DD529D1767800C6A1E5 /* CabinetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DD429D1767800C6A1E5 /* CabinetModel.m */; };
+		7C4F2DD829D1768B00C6A1E5 /* InverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DD729D1768B00C6A1E5 /* InverModel.m */; };
+		7C4F2DDB29D1778200C6A1E5 /* CabinetInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DDA29D1778200C6A1E5 /* CabinetInfoModel.m */; };
+		7C4F2DDF29D182C100C6A1E5 /* CabinetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DDD29D182C100C6A1E5 /* CabinetViewController.m */; };
+		7C4F2DE329D1847A00C6A1E5 /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DE229D1847A00C6A1E5 /* DeviceInfoView.m */; };
+		7C4F2DEC29D184D700C6A1E5 /* GridInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DEB29D184D700C6A1E5 /* GridInfoView.m */; };
+		7C4F2DEF29D184E800C6A1E5 /* BatteryInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DEE29D184E800C6A1E5 /* BatteryInfoView.m */; };
+		7C4F2DF329D1879800C6A1E5 /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DF129D1879800C6A1E5 /* InfoTableViewCell.m */; };
+		7C4F2DF429D1879800C6A1E5 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4F2DF229D1879800C6A1E5 /* InfoTableViewCell.xib */; };
+		7C4F2DFB29D2950900C6A1E5 /* CabinetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4F2DFA29D2950900C6A1E5 /* CabinetViewController.xib */; };
+		7C4F2DFF29D295DC00C6A1E5 /* InveterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2DFD29D295DC00C6A1E5 /* InveterViewController.m */; };
+		7C4F2E0029D295DC00C6A1E5 /* InveterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4F2DFE29D295DC00C6A1E5 /* InveterViewController.xib */; };
+		7C4F2E0329D2968E00C6A1E5 /* InveterInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2E0229D2968E00C6A1E5 /* InveterInfoModel.m */; };
+		7C4F2E0629D29B0D00C6A1E5 /* InveterDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2E0529D29B0D00C6A1E5 /* InveterDeviceView.m */; };
+		7C4F2E0929D2BAA900C6A1E5 /* InveterGridInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2E0829D2BAA900C6A1E5 /* InveterGridInfoView.m */; };
+		7C4F2E0C29D2BB8B00C6A1E5 /* InveterBatteryInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F2E0B29D2BB8B00C6A1E5 /* InveterBatteryInfoView.m */; };
 		7CD8678E29C9AD6900D883A6 /* UserInfoSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */; };
 		7CD8678F29C9AD6900D883A6 /* RBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */; };
 		7CD8679029C9AD6900D883A6 /* INVSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8676A29C9AD6900D883A6 /* INVSettingViewModel.m */; };
@@ -250,6 +268,8 @@
 		7CD867E729C9E86A00D883A6 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD867DC29C9E86A00D883A6 /* MJFoundation.m */; };
 		7CE0AEFA29CB134800D71391 /* CabinetAdvancedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0AEF829CB134800D71391 /* CabinetAdvancedTableViewCell.m */; };
 		7CE0AEFB29CB134800D71391 /* CabinetAdvancedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0AEF929CB134800D71391 /* CabinetAdvancedTableViewCell.xib */; };
+		7CE0AEFE29D1270A00D71391 /* BaseSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0AEFD29D1270A00D71391 /* BaseSegmentView.m */; };
+		7CE0AF0029D1273000D71391 /* BaseSegmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0AEFF29D1273000D71391 /* BaseSegmentView.xib */; };
 		B8F711EB04840B3373E4AA76 /* libPods-NewWeCoPJ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9504F49F20AC0496816509 /* libPods-NewWeCoPJ.a */; };
 /* End PBXBuildFile section */
 
@@ -681,6 +701,39 @@
 		6271549429D2EE1600F78278 /* WeAboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeAboutVC.m; sourceTree = "<group>"; };
 		7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
 		7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
+		7C4F2DCD29D1763700C6A1E5 /* CabinetViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CabinetViewModel.h; sourceTree = "<group>"; };
+		7C4F2DCE29D1763700C6A1E5 /* CabinetViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CabinetViewModel.m; sourceTree = "<group>"; };
+		7C4F2DD029D1764C00C6A1E5 /* InveterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InveterViewModel.h; sourceTree = "<group>"; };
+		7C4F2DD129D1764C00C6A1E5 /* InveterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InveterViewModel.m; sourceTree = "<group>"; };
+		7C4F2DD329D1767800C6A1E5 /* CabinetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CabinetModel.h; sourceTree = "<group>"; };
+		7C4F2DD429D1767800C6A1E5 /* CabinetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CabinetModel.m; sourceTree = "<group>"; };
+		7C4F2DD629D1768B00C6A1E5 /* InverModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InverModel.h; sourceTree = "<group>"; };
+		7C4F2DD729D1768B00C6A1E5 /* InverModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InverModel.m; sourceTree = "<group>"; };
+		7C4F2DD929D1778200C6A1E5 /* CabinetInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CabinetInfoModel.h; sourceTree = "<group>"; };
+		7C4F2DDA29D1778200C6A1E5 /* CabinetInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CabinetInfoModel.m; sourceTree = "<group>"; };
+		7C4F2DDC29D182C100C6A1E5 /* CabinetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CabinetViewController.h; sourceTree = "<group>"; };
+		7C4F2DDD29D182C100C6A1E5 /* CabinetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CabinetViewController.m; sourceTree = "<group>"; };
+		7C4F2DE129D1847A00C6A1E5 /* DeviceInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
+		7C4F2DE229D1847A00C6A1E5 /* DeviceInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
+		7C4F2DEA29D184D700C6A1E5 /* GridInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridInfoView.h; sourceTree = "<group>"; };
+		7C4F2DEB29D184D700C6A1E5 /* GridInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridInfoView.m; sourceTree = "<group>"; };
+		7C4F2DED29D184E800C6A1E5 /* BatteryInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatteryInfoView.h; sourceTree = "<group>"; };
+		7C4F2DEE29D184E800C6A1E5 /* BatteryInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatteryInfoView.m; sourceTree = "<group>"; };
+		7C4F2DF029D1879800C6A1E5 /* InfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
+		7C4F2DF129D1879800C6A1E5 /* InfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
+		7C4F2DF229D1879800C6A1E5 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		7C4F2DFA29D2950900C6A1E5 /* CabinetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CabinetViewController.xib; sourceTree = "<group>"; };
+		7C4F2DFC29D295DC00C6A1E5 /* InveterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InveterViewController.h; sourceTree = "<group>"; };
+		7C4F2DFD29D295DC00C6A1E5 /* InveterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InveterViewController.m; sourceTree = "<group>"; };
+		7C4F2DFE29D295DC00C6A1E5 /* InveterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InveterViewController.xib; sourceTree = "<group>"; };
+		7C4F2E0129D2968E00C6A1E5 /* InveterInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InveterInfoModel.h; sourceTree = "<group>"; };
+		7C4F2E0229D2968E00C6A1E5 /* InveterInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InveterInfoModel.m; sourceTree = "<group>"; };
+		7C4F2E0429D29B0D00C6A1E5 /* InveterDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InveterDeviceView.h; sourceTree = "<group>"; };
+		7C4F2E0529D29B0D00C6A1E5 /* InveterDeviceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InveterDeviceView.m; sourceTree = "<group>"; };
+		7C4F2E0729D2BAA900C6A1E5 /* InveterGridInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InveterGridInfoView.h; sourceTree = "<group>"; };
+		7C4F2E0829D2BAA900C6A1E5 /* InveterGridInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InveterGridInfoView.m; sourceTree = "<group>"; };
+		7C4F2E0A29D2BB8B00C6A1E5 /* InveterBatteryInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InveterBatteryInfoView.h; sourceTree = "<group>"; };
+		7C4F2E0B29D2BB8B00C6A1E5 /* InveterBatteryInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InveterBatteryInfoView.m; sourceTree = "<group>"; };
 		7CD8676429C9AD6900D883A6 /* RBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseViewModel.h; sourceTree = "<group>"; };
 		7CD8676529C9AD6900D883A6 /* UserInfoSingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoSingleTon.m; sourceTree = "<group>"; };
 		7CD8676629C9AD6900D883A6 /* RBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseViewModel.m; sourceTree = "<group>"; };
@@ -743,6 +796,9 @@
 		7CE0AEF729CB134800D71391 /* CabinetAdvancedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CabinetAdvancedTableViewCell.h; sourceTree = "<group>"; };
 		7CE0AEF829CB134800D71391 /* CabinetAdvancedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CabinetAdvancedTableViewCell.m; sourceTree = "<group>"; };
 		7CE0AEF929CB134800D71391 /* CabinetAdvancedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CabinetAdvancedTableViewCell.xib; sourceTree = "<group>"; };
+		7CE0AEFC29D1270A00D71391 /* BaseSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSegmentView.h; sourceTree = "<group>"; };
+		7CE0AEFD29D1270A00D71391 /* BaseSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseSegmentView.m; sourceTree = "<group>"; };
+		7CE0AEFF29D1273000D71391 /* BaseSegmentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseSegmentView.xib; sourceTree = "<group>"; };
 		9A745A500C755B567CEAF315 /* Pods-NewWeCoPJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeCoPJ.debug.xcconfig"; path = "Target Support Files/Pods-NewWeCoPJ/Pods-NewWeCoPJ.debug.xcconfig"; sourceTree = "<group>"; };
 		AEB6B977C89762E3077599FA /* Pods-NewWeCoPJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeCoPJ.release.xcconfig"; path = "Target Support Files/Pods-NewWeCoPJ/Pods-NewWeCoPJ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -842,6 +898,7 @@
 		625B910C298A50BC006F985A /* WECOView */ = {
 			isa = PBXGroup;
 			children = (
+				7CE0AF0129D147F700D71391 /* RuningInfoList */,
 				7CD8676329C9AD6900D883A6 /* RBase */,
 				7CD8676829C9AD6900D883A6 /* SiderbarList */,
 				6267C95A299A0E4B001820B2 /* DataToGif */,
@@ -1664,6 +1721,9 @@
 				7CD8676729C9AD6900D883A6 /* UserInfoSingleTon.h */,
 				7C43016D29CAA44900BCBEE7 /* BaseScrollView.h */,
 				7C43016E29CAA44900BCBEE7 /* BaseScrollView.m */,
+				7CE0AEFC29D1270A00D71391 /* BaseSegmentView.h */,
+				7CE0AEFD29D1270A00D71391 /* BaseSegmentView.m */,
+				7CE0AEFF29D1273000D71391 /* BaseSegmentView.xib */,
 			);
 			path = RBase;
 			sourceTree = "<group>";
@@ -1770,6 +1830,78 @@
 				7CD867DC29C9E86A00D883A6 /* MJFoundation.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		7CE0AF0129D147F700D71391 /* RuningInfoList */ = {
+			isa = PBXGroup;
+			children = (
+				7CE0AF0529D1484500D71391 /* Model */,
+				7CE0AF0429D1483C00D71391 /* ViewModel */,
+				7CE0AF0329D1483400D71391 /* View */,
+				7CE0AF0229D1482200D71391 /* Controller */,
+			);
+			path = RuningInfoList;
+			sourceTree = "<group>";
+		};
+		7CE0AF0229D1482200D71391 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C4F2DDC29D182C100C6A1E5 /* CabinetViewController.h */,
+				7C4F2DDD29D182C100C6A1E5 /* CabinetViewController.m */,
+				7C4F2DFA29D2950900C6A1E5 /* CabinetViewController.xib */,
+				7C4F2DFC29D295DC00C6A1E5 /* InveterViewController.h */,
+				7C4F2DFD29D295DC00C6A1E5 /* InveterViewController.m */,
+				7C4F2DFE29D295DC00C6A1E5 /* InveterViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7CE0AF0329D1483400D71391 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C4F2DE129D1847A00C6A1E5 /* DeviceInfoView.h */,
+				7C4F2DE229D1847A00C6A1E5 /* DeviceInfoView.m */,
+				7C4F2DEA29D184D700C6A1E5 /* GridInfoView.h */,
+				7C4F2DEB29D184D700C6A1E5 /* GridInfoView.m */,
+				7C4F2DED29D184E800C6A1E5 /* BatteryInfoView.h */,
+				7C4F2DEE29D184E800C6A1E5 /* BatteryInfoView.m */,
+				7C4F2DF029D1879800C6A1E5 /* InfoTableViewCell.h */,
+				7C4F2DF129D1879800C6A1E5 /* InfoTableViewCell.m */,
+				7C4F2DF229D1879800C6A1E5 /* InfoTableViewCell.xib */,
+				7C4F2E0429D29B0D00C6A1E5 /* InveterDeviceView.h */,
+				7C4F2E0529D29B0D00C6A1E5 /* InveterDeviceView.m */,
+				7C4F2E0729D2BAA900C6A1E5 /* InveterGridInfoView.h */,
+				7C4F2E0829D2BAA900C6A1E5 /* InveterGridInfoView.m */,
+				7C4F2E0A29D2BB8B00C6A1E5 /* InveterBatteryInfoView.h */,
+				7C4F2E0B29D2BB8B00C6A1E5 /* InveterBatteryInfoView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CE0AF0429D1483C00D71391 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C4F2DCD29D1763700C6A1E5 /* CabinetViewModel.h */,
+				7C4F2DCE29D1763700C6A1E5 /* CabinetViewModel.m */,
+				7C4F2DD029D1764C00C6A1E5 /* InveterViewModel.h */,
+				7C4F2DD129D1764C00C6A1E5 /* InveterViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7CE0AF0529D1484500D71391 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C4F2DD329D1767800C6A1E5 /* CabinetModel.h */,
+				7C4F2DD429D1767800C6A1E5 /* CabinetModel.m */,
+				7C4F2DD629D1768B00C6A1E5 /* InverModel.h */,
+				7C4F2DD729D1768B00C6A1E5 /* InverModel.m */,
+				7C4F2DD929D1778200C6A1E5 /* CabinetInfoModel.h */,
+				7C4F2DDA29D1778200C6A1E5 /* CabinetInfoModel.m */,
+				7C4F2E0129D2968E00C6A1E5 /* InveterInfoModel.h */,
+				7C4F2E0229D2968E00C6A1E5 /* InveterInfoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AD3416FD8EA4F5EE03B15EC7 /* Pods */ = {
@@ -1899,11 +2031,14 @@
 				7CD8679929C9AD6900D883A6 /* GridStandardView.xib in Resources */,
 				625B91AF298A521A006F985A /* dataloggerShow.PNG in Resources */,
 				6267C969299A0E4B001820B2 /* rightDown.gif in Resources */,
+				7CE0AF0029D1273000D71391 /* BaseSegmentView.xib in Resources */,
 				625B90E7298A5042006F985A /* LaunchScreen.storyboard in Resources */,
 				7CD867A029C9AD6900D883A6 /* BasicWarningView.xib in Resources */,
+				7C4F2E0029D295DC00C6A1E5 /* InveterViewController.xib in Resources */,
 				6267C966299A0E4B001820B2 /* rightDown2.gif in Resources */,
 				625B91CF298A5739006F985A /* LICENSE in Resources */,
 				625B91C1298A5577006F985A /* Localizable.strings in Resources */,
+				7C4F2DFB29D2950900C6A1E5 /* CabinetViewController.xib in Resources */,
 				625B9236298A5769006F985A /* MJRefresh.bundle in Resources */,
 				7CE0AEFB29CB134800D71391 /* CabinetAdvancedTableViewCell.xib in Resources */,
 				62664B8D29A396040028EA17 /* BRAddressPickerView.bundle in Resources */,
@@ -1916,6 +2051,7 @@
 				7CD867A229C9AD6900D883A6 /* InpuPopView.xib in Resources */,
 				625B91D0298A5739006F985A /* README.mdown in Resources */,
 				625B90E2298A5040006F985A /* Main.storyboard in Resources */,
+				7C4F2DF429D1879800C6A1E5 /* InfoTableViewCell.xib in Resources */,
 				6267C96A299A0E4B001820B2 /* leftDown.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1983,6 +2119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C4F2DEC29D184D700C6A1E5 /* GridInfoView.m in Sources */,
 				7CD867E229C9E86A00D883A6 /* NSObject+MJProperty.m in Sources */,
 				625B919B298A51F3006F985A /* CollectorUpdataFirstVC.m in Sources */,
 				625B9338298A8664006F985A /* NSArray+Safe.m in Sources */,
@@ -1990,19 +2127,24 @@
 				625B91B2298A521A006F985A /* RedxMMScanViewController.m in Sources */,
 				7CD867E429C9E86A00D883A6 /* NSString+MJExtension.m in Sources */,
 				62664B8729A396040028EA17 /* BRDatePickerView.m in Sources */,
+				7C4F2DDF29D182C100C6A1E5 /* CabinetViewController.m in Sources */,
+				7CE0AEFE29D1270A00D71391 /* BaseSegmentView.m in Sources */,
 				625B92BE298A5809006F985A /* socketModeAlert.m in Sources */,
 				62664B8B29A396040028EA17 /* NSBundle+BRPickerView.m in Sources */,
 				625B9337298A8664006F985A /* NSObject+Swizzling.m in Sources */,
 				625B91B3298A521A006F985A /* RedxdataloggerShowViewController.m in Sources */,
+				7C4F2DFF29D295DC00C6A1E5 /* InveterViewController.m in Sources */,
 				625B931F298A63EA006F985A /* RedxCollectorShowAlertView.m in Sources */,
 				625B92F6298A61F8006F985A /* RedxMASViewAttribute.m in Sources */,
 				625B9186298A51BB006F985A /* WeProtocolVC.m in Sources */,
 				625B9201298A575A006F985A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				625B9172298A5126006F985A /* NTVLocalized.m in Sources */,
 				625B923F298A5769006F985A /* MJRefreshAutoNormalFooter.m in Sources */,
+				7C4F2DE329D1847A00C6A1E5 /* DeviceInfoView.m in Sources */,
 				7CD8679F29C9AD6900D883A6 /* BasicTableViewCell.m in Sources */,
 				62664B8929A396040028EA17 /* BRPickerStyle.m in Sources */,
 				625B930A298A6333006F985A /* RedxHanyuPinyinOutputFormat.m in Sources */,
+				7C4F2E0C29D2BB8B00C6A1E5 /* InveterBatteryInfoView.m in Sources */,
 				625B914C298A50BC006F985A /* WeStationSetVC.m in Sources */,
 				62664B6529A357340028EA17 /* ZYNetworkAccessibility.m in Sources */,
 				625B9163298A50BC006F985A /* WeFultMessageVC.m in Sources */,
@@ -2024,6 +2166,7 @@
 				625B9245298A5769006F985A /* MJRefreshBackFooter.m in Sources */,
 				6267C959298CFBA1001820B2 /* WeTitleView.m in Sources */,
 				625B915F298A50BC006F985A /* WeSettingCell.m in Sources */,
+				7C4F2E0629D29B0D00C6A1E5 /* InveterDeviceView.m in Sources */,
 				7CD8678E29C9AD6900D883A6 /* UserInfoSingleTon.m in Sources */,
 				625B915A298A50BC006F985A /* WeMeSetting.m in Sources */,
 				62664B8A29A396040028EA17 /* BRBaseView.m in Sources */,
@@ -2084,8 +2227,11 @@
 				625B91A0298A51F3006F985A /* BluetoolsHelp.m in Sources */,
 				7CD8679629C9AD6900D883A6 /* TimeModel.m in Sources */,
 				625B91C7298A560C006F985A /* RedxBaseRequest.m in Sources */,
+				7C4F2DD829D1768B00C6A1E5 /* InverModel.m in Sources */,
+				7C4F2E0929D2BAA900C6A1E5 /* InveterGridInfoView.m in Sources */,
 				625B9156298A50BC006F985A /* USSetValueAlterView.m in Sources */,
 				625B92AD298A5809006F985A /* UIButton+type.m in Sources */,
+				7C4F2E0329D2968E00C6A1E5 /* InveterInfoModel.m in Sources */,
 				625B9203298A575A006F985A /* UIButton+AFNetworking.m in Sources */,
 				625B9183298A51AD006F985A /* RedxAnotherSearchViewController.m in Sources */,
 				625B92F8298A61F8006F985A /* RedxMASLayoutConstraint.m in Sources */,
@@ -2097,6 +2243,7 @@
 				625B92C3298A5809006F985A /* NSObject+Open.m in Sources */,
 				625B9240298A5769006F985A /* MJRefreshNormalHeader.m in Sources */,
 				625B92B5298A5809006F985A /* InputWiFiAlert.m in Sources */,
+				7C4F2DF329D1879800C6A1E5 /* InfoTableViewCell.m in Sources */,
 				625B92AF298A5809006F985A /* HSDropDownMenu.m in Sources */,
 				625B92CA298A5BC6006F985A /* RedxcollectorDownLoad.m in Sources */,
 				625B92FE298A61F8006F985A /* RedxMASConstraintMaker.m in Sources */,
@@ -2150,6 +2297,7 @@
 				625B92D3298A5E44006F985A /* RedxKTDropdownMenuView.m in Sources */,
 				625B92B8298A5809006F985A /* SolarTipsAlert.m in Sources */,
 				625B92B1298A5809006F985A /* SetTempAlert.m in Sources */,
+				7C4F2DDB29D1778200C6A1E5 /* CabinetInfoModel.m in Sources */,
 				7CE0AEFA29CB134800D71391 /* CabinetAdvancedTableViewCell.m in Sources */,
 				625B923A298A5769006F985A /* MJRefreshBackGifFooter.m in Sources */,
 				625B91EB298A5753006F985A /* AFHTTPRequestOperation.m in Sources */,
@@ -2179,7 +2327,9 @@
 				62664B8529A396040028EA17 /* BRDatePickerView+BR.m in Sources */,
 				625B92C1298A5809006F985A /* NSString+Zero.m in Sources */,
 				62664B5E299DD9520028EA17 /* CircleView.m in Sources */,
+				7C4F2DEF29D184E800C6A1E5 /* BatteryInfoView.m in Sources */,
 				625B92D0298A5DF6006F985A /* LoginButton.m in Sources */,
+				7C4F2DCF29D1763700C6A1E5 /* CabinetViewModel.m in Sources */,
 				625B91E5298A5753006F985A /* AFURLResponseSerialization.m in Sources */,
 				625B9244298A5769006F985A /* MJRefreshHeader.m in Sources */,
 				625B92BC298A5809006F985A /* BaseAlertView.m in Sources */,
@@ -2191,6 +2341,8 @@
 				625B91A3298A51F3006F985A /* BluetoolsUpadtaDevVC.m in Sources */,
 				625B923B298A5769006F985A /* MJRefreshBackStateFooter.m in Sources */,
 				625B9247298A5769006F985A /* MJRefreshComponent.m in Sources */,
+				7C4F2DD529D1767800C6A1E5 /* CabinetModel.m in Sources */,
+				7C4F2DD229D1764C00C6A1E5 /* InveterViewModel.m in Sources */,
 				625B92BB298A5809006F985A /* CollectorRenewalFeeAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2395,7 +2547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2023.03.28;
+				MARKETING_VERSION = 2023.04.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2439,7 +2591,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2023.03.28;
+				MARKETING_VERSION = 2023.04.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wecopj.ppv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

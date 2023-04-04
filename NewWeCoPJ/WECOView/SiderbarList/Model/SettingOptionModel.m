@@ -337,7 +337,7 @@
     if (!_cabinetBasicSettingUnitArray) {
         // 0:无单位 1:百分比 2:安 A  3:小时 h  4:瓦 W 5:千兆 kM 6:千瓦kW
         NSArray *workingModeArray = @[@"0",@"0"];
-        NSArray *sysSettingArray = @[@"0",@"0",@"0",@"5"];
+        NSArray *sysSettingArray = @[@"0",@"0",@"0",@"6"];
         NSArray *batSettingArray = @[@"1",@"1",@"1",@"1",@"1"];
         NSArray *gridSettingArray = @[@"6",@"6"];
         NSArray *heSettingArray = @[@"0"];

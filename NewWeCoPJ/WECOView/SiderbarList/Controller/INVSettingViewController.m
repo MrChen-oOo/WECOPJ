@@ -317,7 +317,6 @@
             [selfWeak showErrorViewWithResultStr:resultStr];
         }
     }];
-
 }
 
 // 获取HMI数据网络请求
