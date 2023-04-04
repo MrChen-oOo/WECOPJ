@@ -30,7 +30,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Off-GridStart">
+                                <state key="normal" title="OffGrid Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -83,7 +83,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="On-GridStart">
+                                <state key="normal" title="OnGrid Start">
                                     <color key="titleColor" red="0.0" green="0.46274509800000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -142,7 +142,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="leftLayerOut" destination="RSk-9b-PGK" id="qWj-cl-21p"/>
                 <outlet property="onGridStartBtn" destination="NrJ-lC-C4t" id="e5h-5F-nLU"/>
+                <outlet property="rightLayerOut" destination="BHG-qm-XIB" id="iRh-Tu-B6k"/>
                 <outlet property="shutBtn" destination="wj8-PE-QK1" id="8Cd-7i-boY"/>
             </connections>
             <point key="canvasLocation" x="112.97709923664122" y="38.732394366197184"/>

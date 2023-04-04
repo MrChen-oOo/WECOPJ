@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CabinetViewController">
             <connections>
+                <outlet property="pageControl" destination="h3a-hX-Du7" id="Se5-lu-Gv3"/>
                 <outlet property="scrollContentView" destination="356-Wm-ewK" id="QuD-7x-x5c"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV3-0o-XJk" customClass="BaseScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="807"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="356-Wm-ewK">
-                            <rect key="frame" x="0.0" y="0.0" width="1179" height="852"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1179" height="807"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -35,16 +36,29 @@
                         <constraint firstItem="356-Wm-ewK" firstAttribute="leading" secondItem="GV3-0o-XJk" secondAttribute="leading" id="tf9-WU-rKQ"/>
                         <constraint firstItem="356-Wm-ewK" firstAttribute="height" secondItem="GV3-0o-XJk" secondAttribute="height" id="wea-ug-joX"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="koX-jn-mJT"/>
+                    </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-hX-Du7">
+                    <rect key="frame" x="138.66666666666666" y="807" width="115.66666666666666" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="WME-WT-aHE"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.2784313725" green="0.46274509800000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="GV3-0o-XJk" secondAttribute="bottom" id="2uP-sV-zve"/>
+                <constraint firstItem="h3a-hX-Du7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0MB-IR-CBv"/>
                 <constraint firstItem="356-Wm-ewK" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="3" id="4Ax-lU-mHC"/>
                 <constraint firstItem="GV3-0o-XJk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GAn-Hi-YeL"/>
                 <constraint firstItem="GV3-0o-XJk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KJW-hI-ExQ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GV3-0o-XJk" secondAttribute="trailing" id="Kpw-Zk-6VZ"/>
+                <constraint firstAttribute="bottom" secondItem="h3a-hX-Du7" secondAttribute="bottom" constant="10" id="gxm-eR-rsz"/>
+                <constraint firstItem="h3a-hX-Du7" firstAttribute="top" secondItem="GV3-0o-XJk" secondAttribute="bottom" id="kCk-S8-T43"/>
             </constraints>
             <point key="canvasLocation" x="132" y="-11"/>
         </view>

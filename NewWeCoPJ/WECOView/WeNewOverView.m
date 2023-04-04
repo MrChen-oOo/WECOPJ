@@ -557,15 +557,6 @@
     };
 }
 
-// 获取电站id
-- (void)getPowerStation {
-    [self.invViewModel getPowerStationMessageWith:self.PlantID completeBlock:^(NSString *resultStr) {
-        if (resultStr.length == 0) {
-        } else {
-            
-        }
-    }];
-}
 
 //消息
 - (void)rightBtnclick{
@@ -902,7 +893,6 @@
             
             
         }
-        [self getPowerStation];
         
     } failure:^(NSError *error) {
         [self hideProgressView];

@@ -13,6 +13,7 @@
 #import "InpuPopView.h"
 #import "BRPickerView.h"
 #import "PlantSettingViewController.h"
+#import "RedxloginViewController.h"
 #define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 
 @interface INVSettingViewController ()<UITableViewDelegate,UITableViewDataSource,BasicSettingDelegate,UIScrollViewDelegate,CabineBasicSettingDelegate>
@@ -26,9 +27,7 @@
 @property (nonatomic, strong) BasicWarningView *warningView;
 @property (nonatomic, strong) InpuPopView *inputView;
 @property (nonatomic, strong) BRDatePickerView *datePickerView;
-
-@property (nonatomic, strong) UIPageControl *basicPageC;
-@property (nonatomic, strong) UIPageControl *advancePageC;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 @implementation INVSettingViewController
@@ -53,17 +52,24 @@
     [self.scrollContentView addSubview:self.advancedTableView];
     self.setScrollView.delegate = self;
     [self.view addSubview:self.datePickerView];
-    [self setTableViewFoot];
-}
-
-- (void)setTableViewFoot{
-    UIView *oneView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
-    [oneView addSubview:self.basicPageC];
-    self.basicTableView.tableFooterView  = oneView;
     
-    UIView *twoView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
-    [twoView addSubview:self.advancePageC];
-    self.advancedTableView.tableFooterView  = twoView;
+    // 下拉刷新
+    @WeakObj(self)
+    MJRefreshNormalHeader *reloadHeader  = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
+        if (selfWeak.settingVM.deviceType == 1) {
+            [selfWeak getSettingMessageHttp];
+        } else {
+            [selfWeak getHMISettingMessageHttp];
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [selfWeak.basicTableView.mj_header endRefreshing];
+        });
+    }];
+    reloadHeader.automaticallyChangeAlpha = YES;    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    reloadHeader.lastUpdatedTimeLabel.hidden = YES;    // 隐藏时间
+    reloadHeader.stateLabel.hidden = YES;
+    self.basicTableView.mj_header = reloadHeader;
+    self.advancedTableView.mj_header = reloadHeader;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -223,8 +229,12 @@
                                 deviceType:self.settingVM.deviceType];
             break;
         case 3:
-            [self.datePickerView show];
             self.datePickerView.pickerMode = indexPath.row == 0 ? BRDatePickerModeYMD : BRDatePickerModeHMS;
+            if (indexPath.row != 0) {
+                self.datePickerView.selectValue = self.settingVM.settingModel.time;
+            }
+            [self.datePickerView show];
+//            self.datePickerView.pickerMode = BRDatePickerModeYMW;
             break;
         case 4:
             [self.gridStandardView selectCellActionWith:tableView == self.basicTableView ? [basicValueArray[indexPath.row] intValue] : [advancedValueArray[indexPath.row]intValue]
@@ -248,9 +258,10 @@
         scrollView.contentOffset = point;
         if (point.x > kScreenWidth / 2) {
             self.title = @"Advanced Setting";
+            self.pageControl.currentPage = 1;
         } else {
             self.title = @"Basic Setting";
-
+            self.pageControl.currentPage = 0;
         }
     }
 
@@ -308,13 +319,16 @@
         [self showProgressView];
     });
     @WeakObj(self)
-    [self.settingVM getSettingInverterParamMsgCompleteBlock:^(NSString *resultStr) {
+    [self.settingVM getSettingInverterParamMsgCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             [selfWeak.basicTableView reloadData];
             [selfWeak.advancedTableView reloadData];
         } else {
             [selfWeak showErrorViewWithResultStr:resultStr];
+        }
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
         }
     }];
 }
@@ -325,13 +339,16 @@
         [self showProgressView];
     });
     @WeakObj(self)
-    [self.settingVM getPcsParamMsgCompleteBlock:^(NSString *resultStr) {
+    [self.settingVM getPcsParamMsgCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             [selfWeak.basicTableView reloadData];
             [selfWeak.advancedTableView reloadData];
         } else {
             [selfWeak showErrorViewWithResultStr:resultStr];
+        }
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
         }
     }];
 }
@@ -341,7 +358,7 @@
 -(void)sendSettingHttpWith:(NSDictionary *)param {
     [self showProgressView];
     @WeakObj(self)
-    [self.settingVM setUpInverterSingleParam:param completeBlock:^(NSString *resultStr) {
+    [self.settingVM setUpInverterSingleParam:param completeBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -350,7 +367,11 @@
         } else {
             [selfWeak showErrorViewWithResultStr:resultStr];
         }
-        [selfWeak getSettingMessageHttp];
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
+        } else {
+            [selfWeak getSettingMessageHttp];
+        }
     }];
 }
 
@@ -358,7 +379,7 @@
 - (void)sendSettingHMIHttpWith:(NSDictionary *)param {
     [self showProgressView];
     @WeakObj(self)
-    [self.settingVM setHMIParam:param completeBlock:^(NSString *resultStr) {
+    [self.settingVM setHMIParam:param completeBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -367,7 +388,11 @@
         } else {
             [selfWeak showErrorViewWithResultStr:resultStr];
         }
-        [selfWeak getHMISettingMessageHttp];
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
+        } else {
+            [selfWeak getHMISettingMessageHttp];
+        }
     }];
 }
 
@@ -379,7 +404,7 @@
     
     if (self.settingVM.deviceType == 1) {
         // 逆变器
-        [self.settingVM setInverterTimeParam:param completeBlock:^(NSString *resultStr) {
+        [self.settingVM setInverterTimeParam:param completeBlock:^(NSString *resultStr, NSString *codeStr) {
             [selfWeak hideProgressView];
             if (resultStr.length == 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -389,10 +414,13 @@
             } else {
                 [selfWeak showErrorViewWithResultStr:resultStr];
             }
+            if ([codeStr isEqualToString:@"-1"]){
+                [selfWeak pushLogin];
+            }
         }];
     } else {
         // HMI
-        [self.settingVM setPcsSystemTimeParm:param completeBlock:^(NSString *resultStr) {
+        [self.settingVM setPcsSystemTimeParm:param completeBlock:^(NSString *resultStr, NSString *codeStr) {
             [selfWeak hideProgressView];
             if (resultStr.length == 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -401,6 +429,10 @@
                 [selfWeak getHMISettingMessageHttp];
             } else {
                 [selfWeak showErrorViewWithResultStr:resultStr];
+            }
+            
+            if ([codeStr isEqualToString:@"-1"]){
+                [selfWeak pushLogin];
             }
         }];
         
@@ -416,11 +448,26 @@
     });
 }
 
+// 跳转登录
+-(void)pushLogin {
+    RedxloginViewController *login =[[RedxloginViewController alloc]init];
+    [RedxUserInfo defaultUserInfo].userPassword = @"";
+    [RedxUserInfo defaultUserInfo].isAutoLogin = NO;
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+    nav.modalPresentationStyle=UIModalPresentationFullScreen;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self presentViewController:nav animated:YES completion:nil];
+    });
+}
+
+
+
 #pragma mark 懒加载
 
 - (UITableView *) basicTableView {
     if (!_basicTableView) {
-        _basicTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight) style:UITableViewStyleGrouped];
+        _basicTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight - 20) style:UITableViewStyleGrouped];
         _basicTableView.showsVerticalScrollIndicator = NO;
         _basicTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _basicTableView.delegate = self;
@@ -433,7 +480,7 @@
 
 - (UITableView *) advancedTableView {
     if (!_advancedTableView) {
-        _advancedTableView = [[UITableView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight - kNavBarHeight) style:UITableViewStyleGrouped];
+        _advancedTableView = [[UITableView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight - kNavBarHeight - 20) style:UITableViewStyleGrouped];
         _advancedTableView.showsVerticalScrollIndicator = NO;
         _advancedTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _advancedTableView.delegate = self;
@@ -542,33 +589,6 @@
         _datePickerView.pickerStyle = customStyle;
     }
     return _datePickerView;
-}
-
-
--(UIPageControl *)basicPageC {
-    if(!_basicPageC) {
-        _basicPageC = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
-        _basicPageC.numberOfPages = 2;
-        _basicPageC.backgroundColor = [UIColor whiteColor];
-        _basicPageC.pageIndicatorTintColor = HexRGB(0xd8d8d8);
-        _basicPageC.currentPageIndicatorTintColor = HexRGB(0x4776FF);
-        _basicPageC.currentPage = 0;
-        _basicPageC.userInteractionEnabled = NO;
-    }
-    return _basicPageC;
-}
-
--(UIPageControl *)advancePageC {
-    if(!_advancePageC) {
-        _advancePageC = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
-        _advancePageC.numberOfPages = 2;
-        _advancePageC.backgroundColor = [UIColor whiteColor];
-        _advancePageC.pageIndicatorTintColor = HexRGB(0xd8d8d8);
-        _advancePageC.currentPageIndicatorTintColor = HexRGB(0x4776FF);
-        _advancePageC.currentPage = 1;
-        _advancePageC.userInteractionEnabled = NO;
-    }
-    return _advancePageC;
 }
 
 

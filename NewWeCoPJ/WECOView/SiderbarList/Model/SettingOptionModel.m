@@ -35,15 +35,15 @@
        
         NSArray *sysSettingArray = @[@"Date",@"Time",@"EPS Enable",@"PV Input Type",@"ARC Enable",@"Anti Reflux",@"CT Ratio"];
         
-        NSArray *batSettingArray = @[@"Bat Grid DOD",@"Off Grid DOD",@"Soc Threshold Hystet"];
+        NSArray *batSettingArray = @[@"OnGrid DOD",@"OffGrid DOD",@"SoC Threshold Hysteresis"];
         
         NSArray *gridSettingArray = @[@"Grid Standard",@"Grid Set",@"American Standard"];
         
         NSArray *parallelSettingArray = @[@"Inv Parallel Num",@"Parallel Master/Slave",@"Inv Parallel Addr",@"Common Battery Enable",
-                                          @"Common GridCT Enable",@"3 Phase Enable",@"Parallel Charge Current",@"Parallel Discharge Current",@"In Parallel Enable"];
+                                          @"Common GridCT Enable",@"3 Phase Enable",@"Parallel Charge Current",@"Parallel Discharge Current",@"Inv Parallel Enable"];
         
-        NSArray *geneatorSettingArray = @[@"Generator Start Soc",@"Generator Stop Soc",@"Generator Charges Current",
-                                          @"Maximum Operating Time",@"Generator Cooling Time",@"Generator Enable",@"Generator Charge Enable",@"Generator Auto Start",@"Generator Manual On",@"Generator Manual CMD",@"Generator Connect Grid",@"Generator Power"];
+        NSArray *geneatorSettingArray = @[@"Generator Start SoC",@"Generator Stop SoC",@"Generator Charges Current",
+                                          @"Max Operating Time",@"Generator Cooling Time",@"Generator Enable",@"Generator Charge Enable",@"Generator Auto Start",@"Generator Manual On",@"Generator Manual CMD",@"Generator Connect Grid",@"Generator Power"];
 
         _basicSettingOptionKeyArray = [NSMutableArray arrayWithObjects:workingModeArray,sysSettingArray,batSettingArray,gridSettingArray,parallelSettingArray,geneatorSettingArray, nil];
     }
@@ -166,7 +166,7 @@
 -(NSMutableArray<NSArray *> *)advancedSettingOptionKeyArray {
     if (!_advancedSettingOptionKeyArray) {
         
-        NSArray *array = @[@"Grid Power",@"Bat Discharge Power",@"Bat Charge Current",@"PV Power",@"Modbus ID",@"Moodbus Baud",@"Restore Factory Setting",@"Remote StartUp/ShutDown"];
+        NSArray *array = @[@"Grid Power",@"Bat Discharge Power",@"Bat Charge Current",@"PV Power",@"Modbus ID",@"Modbus Baud",@"Restore Factory Setting",@"Remote StartUp/ShutDown"];
         
         _advancedSettingOptionKeyArray = [NSMutableArray arrayWithObjects:array, nil];
     }
@@ -234,7 +234,7 @@
 -(NSMutableArray<NSString *> *)cabinetBasicSettingOptionSectionArray {
     if (!_cabinetBasicSettingOptionSectionArray) {
         
-        _cabinetBasicSettingOptionSectionArray = [NSMutableArray arrayWithObjects:@"Work Mode",@"Sys Setting",@"Battery Setting",@"Grid Setting",@"He Setting", nil];
+        _cabinetBasicSettingOptionSectionArray = [NSMutableArray arrayWithObjects:@"Work Mode",@"Sys Setting",@"Battery Setting",@"Grid Setting",@"Electricity Tariff Setting", nil];
     }
     return _cabinetBasicSettingOptionSectionArray;
 }
@@ -245,11 +245,11 @@
         
         NSArray *workingModeArray = @[@"Load Prioritized",@"Plan Mode"];
        
-        NSArray *sysSettingArray = @[@"Date",@"Time",@"DG Capacity",@"Maximum Load Power"];
+        NSArray *sysSettingArray = @[@"Date",@"Time",@"Generator Capacity",@"Max Load Power"];
         
-        NSArray *batSettingArray = @[@"Charging Targt Soc",@"SocThreshold Hysteresis",@"On Grid Soc Discharg",@"Off Grid Soc Dischar",@"Battery Cut Off Soc"];
+        NSArray *batSettingArray = @[@"Charging Target SoC",@"SoC Threshold Hysteresis",@"OnGrid SoC Disch. Limit",@"OffGrid SoC Disch. Limit",@"SoC Extreme Cut Off"];
         
-        NSArray *gridSettingArray = @[@"On-Grid Maximum",@"Grid Capacity"];
+        NSArray *gridSettingArray = @[@"OnGrid Max Power",@"Grid Capacity"];
         
         NSArray *heSettingArray = @[@"Electricity Price"];
 

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="INVSettingViewController">
             <connections>
+                <outlet property="pageControl" destination="vaU-W2-Ne8" id="9Gt-5r-ivd"/>
                 <outlet property="scrollContentView" destination="kja-zu-8Hx" id="szN-Ea-xjd"/>
                 <outlet property="setScrollView" destination="5Yz-Fh-dVu" id="CD5-44-lbE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-Fh-dVu" customClass="BaseScrollView">
-                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="748"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kja-zu-8Hx">
-                            <rect key="frame" x="0.0" y="0.0" width="786" height="793"/>
+                            <rect key="frame" x="0.0" y="0.0" width="786" height="748"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -37,15 +38,25 @@
                         <constraint firstItem="kja-zu-8Hx" firstAttribute="top" secondItem="5Yz-Fh-dVu" secondAttribute="top" id="tiJ-S8-K5H"/>
                     </constraints>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-W2-Ne8">
+                    <rect key="frame" x="147.33333333333334" y="807" width="98.666666666666657" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="wGD-Bt-Jqg"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.2784313725" green="0.46274509800000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vaU-W2-Ne8" firstAttribute="top" secondItem="5Yz-Fh-dVu" secondAttribute="bottom" id="5pO-sR-oUo"/>
                 <constraint firstItem="kja-zu-8Hx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="2" id="ETr-Oi-31l"/>
+                <constraint firstAttribute="bottom" secondItem="vaU-W2-Ne8" secondAttribute="bottom" constant="10" id="KAD-Cf-4bY"/>
                 <constraint firstItem="5Yz-Fh-dVu" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="PnT-ij-ibH"/>
                 <constraint firstItem="5Yz-Fh-dVu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Qac-NM-hYx"/>
-                <constraint firstAttribute="bottom" secondItem="5Yz-Fh-dVu" secondAttribute="bottom" id="iK8-L8-OwF"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5Yz-Fh-dVu" secondAttribute="trailing" id="vG1-Ha-Pvk"/>
+                <constraint firstItem="vaU-W2-Ne8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yeq-Lp-iZ7"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

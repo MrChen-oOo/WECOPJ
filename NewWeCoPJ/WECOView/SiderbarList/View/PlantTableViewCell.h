@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)didClickAddAction:(NSIndexPath *)indexPath;
 -(void)didClickReductionActionWith:(NSIndexPath *)indexPath;
 -(void)didClickChangeTimeActionWith:(NSIndexPath *)indexPath label:(UILabel *)label;
+
+-(void)didClickShowKeyboard;
+-(void)didClickHiddenKeyboard;
 @end
 
 @interface PlantTableViewCell : UITableViewCell

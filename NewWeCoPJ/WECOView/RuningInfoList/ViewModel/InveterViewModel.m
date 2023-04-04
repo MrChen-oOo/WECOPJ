@@ -11,7 +11,7 @@
 @implementation InveterViewModel
 
 
-- (void)getMgrnRunInfoMessageCompleteBlock:(void(^)(NSString *resultStr))completeBlock {
+- (void)getMgrnRunInfoMessageCompleteBlock:(void (^)(NSString *, NSString *))completeBlock {
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/RunInfo/getMgrnRunInfo",HEAD_URL];
 
     NSDictionary *dic = @{@"deviceSn":self.deviceStr};
@@ -22,12 +22,12 @@
             [self.infoModel addInveterSectionTwoArray];
             [self.infoModel addInveterSectionThreeArray];
 
-            completeBlock ? completeBlock(@"") : nil;
+            completeBlock ? completeBlock(@"",@"") : nil;
         } else {
-            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"]) : nil;
+            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"],[resultData objectForKey:@"errCode"]) : nil;
         }
-    } orFail:^(NSError * _Nonnull errorMsg) {
-        completeBlock ? completeBlock(@"Network request failure") : nil;
+    } orFail:^(NSString * _Nonnull errorMsg) {
+        completeBlock ? completeBlock(errorMsg,@"") : nil;
     }];
 }
 

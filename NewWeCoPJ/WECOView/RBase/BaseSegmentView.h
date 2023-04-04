@@ -17,7 +17,6 @@
 
 @interface BaseSegmentView : UIView
 
-@property (nonatomic, strong) NSMutableArray *btnArray;
 
 -(instancetype)initWithSegmentViewWithTitleArray:(NSArray *)titleArray;
 

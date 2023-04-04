@@ -119,7 +119,7 @@
             } else if(self.indexPath.section == 4 && row == 1) {
                 
                 // Parallel
-                NSArray * array = @[@"master",@"slave"];
+                NSArray * array = @[@"Master",@"Slave"];
                 NSInteger isMaster = [valueArray[row] intValue];
                 labelText = array[isMaster];
             } else if (self.indexPath.section == 4 && row == 5){
@@ -192,8 +192,8 @@
         self.centerLayoutConstraint.constant = row == 0 ? 10 : 0;
         self.planSettingBtn.hidden = self.indexPath.section == 0 && self.indexPath.row == 1 ? NO : YES;
     }
-    if ((self.indexPath.section == 0 && self.indexPath.row == 1 && array.count == 3 && [value intValue] == 1)                 // 逆变器的计划入口
-        || (self.indexPath.section == 0 && self.indexPath.row == 1 && array.count == 2 && [value intValue] == 1)){            // HMI的计划入口
+    if ((self.indexPath.section == 0 && self.indexPath.row == 1 && array.count == 3)                 // 逆变器的计划入口
+        || (self.indexPath.section == 0 && self.indexPath.row == 1 && array.count == 2)){            // HMI的计划入口
         self.planSettingBtn.hidden = NO;
     } else {
         self.planSettingBtn.hidden = YES;
