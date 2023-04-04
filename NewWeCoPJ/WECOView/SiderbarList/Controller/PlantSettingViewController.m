@@ -9,7 +9,7 @@
 #import "PlantTableViewCell.h"
 #import "PlantSettingViewModel.h"
 #import "CGXPickerView.h"
-
+#import "RedxloginViewController.h"
 #define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 
 @interface PlantSettingViewController ()<UITableViewDelegate,UITableViewDataSource,PlanTimeDelegate>
@@ -200,6 +200,27 @@
     [self timeClick:label indexRow:indexPath.row section:indexPath.section];
 }
 
+-(void)didClickShowKeyboard {
+    //取出动画时长
+    CGFloat animationDuration = 0.25;
+    //高
+    CGFloat height = 301;
+    //向上移动动画
+    UIViewKeyframeAnimationOptions options = (UIViewKeyframeAnimationOptions)7 << 16;
+    [UIView animateKeyframesWithDuration:animationDuration delay:0 options:options animations:^{
+        self.view.transform = CGAffineTransformMakeTranslation(0, -height);
+    } completion:nil];
+}
+
+
+- (void)didClickHiddenKeyboard {
+    CGFloat animationDuration = 0.25;
+    UIViewKeyframeAnimationOptions options = (UIViewKeyframeAnimationOptions)7 << 16;
+    [UIView animateKeyframesWithDuration:animationDuration delay:0 options:options animations:^{
+        self.view.transform = CGAffineTransformIdentity;
+    } completion:nil];
+}
+
 // 设置计划时间
 -(void)saveTimeAction:(UIButton *)sender {
     [self.view endEditing:YES];
@@ -222,13 +243,17 @@
 // 获取逆变器充放电计划
 - (void)planGetInverterTime{
     [self showProgressView];
-    [self.planVM getInverterTimeSoltMsgWithCompleteBlock:^(NSString * _Nonnull resultStr) {
+    [self.planVM getInverterTimeSoltMsgWithCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         @WeakObj(self)
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             [selfWeak.plantTableView reloadData];
         } else {
             [selfWeak getErrorMessageWith:resultStr];
+        }
+        
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
         }
     }];
 }
@@ -237,12 +262,16 @@
 - (void)getHmiTimeSoltMsg {
     [self showProgressView];
     @WeakObj(self)
-    [self.planVM getHmiTimeSoltMsgWithCompleteBlock:^(NSString *resultStr) {
+    [self.planVM getHmiTimeSoltMsgWithCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             [selfWeak.plantTableView reloadData];
         } else {
             [selfWeak getErrorMessageWith:resultStr];
+        }
+        
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
         }
     }];
 }
@@ -251,7 +280,7 @@
 - (void)setHmiPlanTime {
     [self showProgressView];
     @WeakObj(self)
-    [self.planVM setUpPlantModelParamCompleteBlock:^(NSString * _Nonnull resultStr) {
+    [self.planVM setUpPlantModelParamCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -261,6 +290,10 @@
         } else {
             [selfWeak getErrorMessageWith:resultStr];
         }
+        
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
+        }
     }];
 }
 
@@ -268,12 +301,16 @@
 - (void) getHmiElectricityPrice {
     [self showProgressView];
     @WeakObj(self)
-    [self.planVM getHmiElectricityPriceCompleteBlock:^(NSString *resultStr) {
+    [self.planVM getHmiElectricityPriceCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             [selfWeak.plantTableView reloadData];
         } else {
             [selfWeak getErrorMessageWith:resultStr];
+        }
+        
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
         }
     }];
 }
@@ -283,7 +320,7 @@
 - (void) setHmiElectricityPrice {
     [self showProgressView];
     @WeakObj(self)
-    [self.planVM setHmiElectricityPriceCompleteBlock:^(NSString *resultStr) {
+    [self.planVM setHmiElectricityPriceCompleteBlock:^(NSString *resultStr, NSString *codeStr) {
         [selfWeak hideProgressView];
         if (resultStr.length == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -292,6 +329,10 @@
             [selfWeak getPlanTimeMessage];
         } else {
             [selfWeak getErrorMessageWith:resultStr];
+        }
+        
+        if ([codeStr isEqualToString:@"-1"]){
+            [selfWeak pushLogin];
         }
     }];
 }
@@ -309,6 +350,19 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 
+}
+
+// 跳转登录
+-(void)pushLogin {
+    RedxloginViewController *login =[[RedxloginViewController alloc]init];
+    [RedxUserInfo defaultUserInfo].userPassword = @"";
+    [RedxUserInfo defaultUserInfo].isAutoLogin = NO;
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+    nav.modalPresentationStyle=UIModalPresentationFullScreen;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self presentViewController:nav animated:YES completion:nil];
+    });
 }
 
 #pragma mark 时间选择

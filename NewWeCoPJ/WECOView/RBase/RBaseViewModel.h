@@ -20,11 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)gs_jsonStringCompactFormatForDictionary:(NSDictionary *)dicJson;
 
-+(void)requestGetForURL:(NSString *)url withParam:(id)param withSuccess:(void(^)(id resultData))successBlock orFail:(void(^)(NSError *errorMsg))failBlock;
++(void)requestGetForURL:(NSString *)url withParam:(id)param withSuccess:(void(^)(id resultData))successBlock orFail:(void(^)(NSString *errorMsg))failBlock;
 
-+(void)requestPostForURL:(NSString *)url withParam:(id)param withSuccess:(void(^)(id resultData))successBlock orFail:(void(^)(NSError *errorMsg))failBlock;
++(void)requestPostForURL:(NSString *)url withParam:(id)param withSuccess:(void(^)(id resultData))successBlock orFail:(void(^)(NSString *errorMsg))failBlock;
 
-
++(void)requestOldPostForURL:(NSString *)url withParam:(id)param withSuccess:(void (^)(id _Nonnull))successBlock orFail:(void (^)(NSError * _Nonnull))failBlock;
 
 @end
 

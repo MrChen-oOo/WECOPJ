@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InveterViewController">
             <connections>
+                <outlet property="pageControl" destination="A4g-vs-qnf" id="Epw-Nv-B0H"/>
                 <outlet property="scrollContentView" destination="A3r-Cs-FKV" id="3Ua-ex-Llp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL9-u9-goE" customClass="BaseScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="807"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3r-Cs-FKV">
-                            <rect key="frame" x="0.0" y="0.0" width="1179" height="852"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1179" height="807"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -35,16 +36,29 @@
                         <constraint firstItem="A3r-Cs-FKV" firstAttribute="centerY" secondItem="fL9-u9-goE" secondAttribute="centerY" id="bUA-cr-qr5"/>
                         <constraint firstAttribute="bottom" secondItem="A3r-Cs-FKV" secondAttribute="bottom" id="sf0-QO-qYX"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="uPU-vb-B8v"/>
+                    </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="A4g-vs-qnf">
+                    <rect key="frame" x="138.66666666666666" y="807" width="115.66666666666666" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="XmE-cY-r88"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.2784313725" green="0.46274509800000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="A4g-vs-qnf" firstAttribute="top" secondItem="fL9-u9-goE" secondAttribute="bottom" id="Q3d-d7-ZkW"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fL9-u9-goE" secondAttribute="trailing" id="TTo-dS-GTK"/>
+                <constraint firstAttribute="bottom" secondItem="A4g-vs-qnf" secondAttribute="bottom" constant="10" id="cLc-0L-K1R"/>
                 <constraint firstItem="fL9-u9-goE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gm5-hg-Suv"/>
                 <constraint firstItem="A3r-Cs-FKV" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="3" id="pQs-af-eVn"/>
                 <constraint firstItem="fL9-u9-goE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qhr-hP-UoN"/>
-                <constraint firstAttribute="bottom" secondItem="fL9-u9-goE" secondAttribute="bottom" id="ti1-uG-Qlt"/>
+                <constraint firstItem="A4g-vs-qnf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wFU-Dp-eWL"/>
             </constraints>
             <point key="canvasLocation" x="131" y="-11"/>
         </view>

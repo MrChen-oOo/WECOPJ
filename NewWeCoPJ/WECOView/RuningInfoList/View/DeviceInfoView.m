@@ -8,14 +8,18 @@
 #import "DeviceInfoView.h"
 #import "InfoTableViewCell.h"
 #import "BaseSegmentView.h"
+#import "SegmentThreeView.h"
+#import "SegmentDoubleView.h"
+
 #define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 
-@interface DeviceInfoView()<UITableViewDelegate,UITableViewDataSource,SegmentSettingDelegate>
+@interface DeviceInfoView()<UITableViewDelegate,UITableViewDataSource,SegmentSettingDelegate,SegmentThreeDelegate,SegmentDoubleDelegate>
 
 @property (nonatomic, strong)UITableView * cabinetTableView;
 @property (nonatomic, strong)CabinetViewModel *cabinetVM;
 @property (nonatomic, strong)BaseSegmentView *segmentView;
-@property (nonatomic, strong) UIPageControl *basicPageC;
+@property (nonatomic, strong)SegmentThreeView *segmentThreeView;
+@property (nonatomic, strong)SegmentDoubleView *segmentTwoView;
 
 
 @end
@@ -34,16 +38,11 @@
 
 - (void)creatUI {
     [self addSubview:self.cabinetTableView];
-    
-    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
-    [footView addSubview:self.basicPageC];
-    self.cabinetTableView.tableFooterView  = footView;
-    
     // 下拉刷新
     @WeakObj(self)
     MJRefreshNormalHeader *reloadHeader  = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
         selfWeak.headerRealoadBlock ? selfWeak.headerRealoadBlock() : nil;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [selfWeak.cabinetTableView.mj_header endRefreshing];
         });
     }];
@@ -100,7 +99,19 @@
     [view addSubview:sectionName];
     
     if (section == 1) {
-        [view addSubview:self.segmentView];
+        switch (self.cabinetVM.infoModel.cabinetModel.acModelList.count) {
+            case 2:
+                [view addSubview:self.segmentTwoView];
+                break;
+            case 3:
+                [view addSubview:self.segmentThreeView];
+                break;
+            case 4:
+                [view addSubview:self.segmentView];
+                break;
+            default:
+                break;
+        }
     }
     
     return view;
@@ -127,12 +138,20 @@
     [self.cabinetTableView reloadData];
 }
 
+-(void)segmentThreeSelectWith:(NSInteger)index {
+    [self.cabinetVM.infoModel addICabinetSectionOneArrayWithIndex:index];
+    [self.cabinetTableView reloadData];
+}
 
+-(void)segmentDoubleSelectWith:(NSInteger)index {
+    [self.cabinetVM.infoModel addICabinetSectionOneArrayWithIndex:index];
+    [self.cabinetTableView reloadData];
+}
 #pragma mark - 懒加载
 
 - (UITableView *) cabinetTableView {
     if (!_cabinetTableView) {
-        _cabinetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight) style:UITableViewStyleGrouped];
+        _cabinetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight - 30) style:UITableViewStyleGrouped];
         _cabinetTableView.showsVerticalScrollIndicator = NO;
         _cabinetTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _cabinetTableView.delegate = self;
@@ -161,17 +180,24 @@
     return _segmentView;
 }
 
--(UIPageControl *)basicPageC {
-    if(!_basicPageC) {
-        _basicPageC = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
-        _basicPageC.numberOfPages = 3;
-        _basicPageC.backgroundColor = [UIColor whiteColor];
-        _basicPageC.pageIndicatorTintColor = HexRGB(0xd8d8d8);
-        _basicPageC.currentPageIndicatorTintColor = HexRGB(0x4776FF);
-        _basicPageC.currentPage = 0;
-        _basicPageC.userInteractionEnabled = NO;
+-(SegmentThreeView *)segmentThreeView {
+    if(!_segmentThreeView) {
+        NSArray *array = @[@"PCS-1",@"PCS-2",@"PCS-3"];
+        _segmentThreeView = [[SegmentThreeView alloc]initWithSegmentViewWithTitleArray:array];
+        _segmentThreeView.frame = CGRectMake(0, 40, kScreenWidth, 30);
+        _segmentThreeView.delegate = self;
     }
-    return _basicPageC;
+    return _segmentThreeView;
+}
+
+-(SegmentDoubleView *)segmentTwoView {
+    if(!_segmentTwoView) {
+        NSArray *array = @[@"PCS-1",@"PCS-2"];
+        _segmentTwoView = [[SegmentDoubleView alloc]initWithSegmentViewWithDoubleArray:array];
+        _segmentTwoView.frame = CGRectMake(0, 40, kScreenWidth, 30);
+        _segmentTwoView.delegate = self;
+    }
+    return _segmentTwoView;
 }
 
 @end

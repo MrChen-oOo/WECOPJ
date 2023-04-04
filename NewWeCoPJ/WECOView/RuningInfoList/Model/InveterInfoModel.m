@@ -20,7 +20,7 @@
 
 -(NSMutableArray<NSArray *> *)inveterKeyOneArray {
     if (!_inveterKeyOneArray) {
-        NSArray *deviceInfo = @[@"Device SN",@"Work Mode",@"DSP Inner Version",@"ARM Inner Version",@"Data Update Time"];
+        NSArray *deviceInfo = @[@"Device SN",@"Work Mode",@"ARM Software Version",@"DSP Software Version",@"Data Update Time"];
         NSArray *inverterInfo = @[@"A-Phase Inv Voltage",@"B-Phase Inv Voltage",@"C-Phase Inv Voltage",@"A-Phase Inv Current",@"B-Phase Inv Current",@"C-Phase Inv Current",@"A-Phase Inv Power",@"B-Phase Inv Power",@"C-Phase Inv Power",@"A-Phase Inv Frequency",@"B-Phase Inv Frequency",@"C-Phase Inv Frequency"];
         _inveterKeyOneArray = [NSMutableArray arrayWithObjects:deviceInfo,inverterInfo, nil];
     }
@@ -30,7 +30,7 @@
 -(NSMutableArray<NSArray *> *)inveterUnitOneArray {
     // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 HZ 5:% 6:摄氏度 C° 7:版本号 前面加V
     if (!_inveterUnitOneArray) {
-        NSArray *deviceInfo = @[@"0",@"0",@"7",@"7",@"0"];
+        NSArray *deviceInfo = @[@"0",@"0",@"0",@"0",@"0"];
         NSArray *inverterInfo = @[@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"3",@"3",@"4",@"4",@"4"];
         _inveterUnitOneArray = [NSMutableArray arrayWithObjects:deviceInfo,inverterInfo, nil];
     }
@@ -110,8 +110,8 @@
 
 -(NSMutableArray<NSArray *> *)inveterKeyThreeArray {
     if (!_inveterKeyThreeArray) {
-        NSArray *loadInfo = @[@"A-Phase Load Voltage",@"B-Phase Load Voltage",@"C-Phase Load Voltage",@"A-Phase Load Current",@"B-Phase Load Current",@"C-Phase Load Current",@"A-Phase Load Power",@"B-Phase Load Power",@"C-Phase Load Power",@"A-Phase Load Frequency",@"B-Phase Load Frequency",@"C-Phase Load Frequency"];
-        NSArray *batteryInfo = @[@"SOC",@"Voltage",@"Current",@"Max Charge Current",@"Max DisCharge Current",@"Min Cell Voltage",@"Max Cell Voltage",@"Min Cell Temp",@"MAX Cell Temp"];
+        NSArray *loadInfo = @[@"A-Phase Load Voltage",@"B-Phase Load Voltage",@"C-Phase Load Voltage",@"A-Phase Load Current",@"B-Phase Load Current",@"C-Phase Load Current",@"A-Phase Load Power",@"B-Phase Load Power",@"C-Phase Load Power",@"A-Phase Load Rate",@"B-Phase Load Rate",@"C-Phase Load Rate"];
+        NSArray *batteryInfo = @[@"SOC",@"Voltage",@"Current",@"Max Charge Current",@"Max DisCharge Current",@"Min Cell Voltage",@"Max Cell Voltage",@"Min Cell Temp",@"Max Cell Temp"];
      
         _inveterKeyThreeArray = [NSMutableArray arrayWithObjects:loadInfo,batteryInfo, nil];
     }
@@ -121,7 +121,7 @@
 -(NSMutableArray<NSArray *> *)inveterUnitThreeArray {
     // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 HZ 5:% 6:摄氏度 C° 7:版本号 前面加V
     if (!_inveterUnitThreeArray) {
-        NSArray *loadInfo = @[@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"3",@"3",@"4",@"4",@"4"];
+        NSArray *loadInfo = @[@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"3",@"3",@"5",@"5",@"5"];
         NSArray *batteryInfo = @[@"5",@"1",@"2",@"2",@"2",@"1",@"1",@"6",@"6"];
         _inveterUnitThreeArray = [NSMutableArray arrayWithObjects:loadInfo,batteryInfo, nil];
     }

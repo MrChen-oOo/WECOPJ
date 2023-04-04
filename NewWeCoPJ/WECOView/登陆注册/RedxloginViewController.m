@@ -10,6 +10,7 @@
 #import "WeNewOverView.h"
 #import "WeRegisterVC.h"
 #import "langShowView.h"
+#import "HomePageViewConViewController.h"
 
 #define oldNameAndPassword @"oldNameAndPassword"
 @interface RedxloginViewController ()<UINavigationControllerDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UITabBarDelegate,UIGestureRecognizerDelegate>//,ASAuthorizationControllerDelegate,ASAuthorizationControllerPresentationContextProviding
@@ -892,7 +893,7 @@
 
     
     
-    
+ /*
     WeNewOverView *newovervc = [[WeNewOverView alloc]init];
     UINavigationController *overvc = [[UINavigationController alloc]initWithRootViewController:newovervc];
     overvc.modalPresentationStyle=UIModalPresentationFullScreen;
@@ -901,6 +902,14 @@
 //    RedxAppDelegate *appdele = (RedxAppDelegate *)[UIApplication sharedApplication].delegate;
 //    appdele.window.rootViewController = over
     [self presentViewController:overvc animated:YES completion:nil];
+ */
+    
+    
+    HomePageViewConViewController *homeVC = [[HomePageViewConViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:homeVC];
+    nav.modalPresentationStyle=UIModalPresentationFullScreen;
+
+    [self presentViewController:nav animated:YES completion:nil];
 
 }
 

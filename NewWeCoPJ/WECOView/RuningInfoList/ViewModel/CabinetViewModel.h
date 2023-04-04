@@ -14,7 +14,7 @@
 @property (nonatomic, strong)CabinetInfoModel *infoModel;
 @property (nonatomic, strong)NSString *deviceStr;
 
-- (void)getHmiRunInfoMessageCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+- (void)getHmiRunInfoMessageCompleteBlock:(void(^)(NSString *resultStr,NSString *codeStr))completeBlock;
 
 
 @end

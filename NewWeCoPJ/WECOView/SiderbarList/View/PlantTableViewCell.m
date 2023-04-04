@@ -41,11 +41,6 @@
     
 
 }
-- (IBAction)startTextFieldAction:(UIButton *)sender {
-    [self.powerTF becomeFirstResponder];
-    self.textfieldBtn.hidden = YES;
-}
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -82,6 +77,11 @@
             self.unitLabel.hidden = indexPath.row == 0 ? NO : YES;
         }
         self.unitLabel.text = viewModel.isTimeSet == 1 ? @"kW" : @"$";
+        
+//        //键盘将要显示时候的通知
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardUP:) name:UIKeyboardWillShowNotification object:nil];
+//        //键盘将要结束时候的通知
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDOWN:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -154,10 +154,22 @@
         [self.planVM.priceArray replaceObjectAtIndex:self.indexPath.section withObject:textField.text];
     }
     self.textfieldBtn.hidden = NO;
+//    if ([self.delegate respondsToSelector:@selector(didClickHiddenKeyboard)]) {
+//        [self.delegate didClickHiddenKeyboard];
+//    }
 }
 
 
 #pragma mark 按钮点击方法
+
+// 输入功率/电价
+- (IBAction)startTextFieldAction:(UIButton *)sender {
+    [self.powerTF becomeFirstResponder];
+    self.textfieldBtn.hidden = YES;
+//    if ([self.delegate respondsToSelector:@selector(didClickShowKeyboard)]) {
+//        [self.delegate didClickShowKeyboard];
+//    }
+}
 
 // 删除当前cell
 - (IBAction)reductionAction:(UIButton *)sender {
@@ -180,7 +192,40 @@
     }
 }
 
+/*
+//键盘高度
+//键盘自适应方法
+- (void)keyboardUP:(NSNotification *)sender{
+    NSDictionary *info = sender.userInfo;
+    //取出动画时长
+    CGFloat animationDuration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    //取出键盘位置大小信息
+    CGRect keyboardBounds = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    //记录Y轴变化
+    CGFloat keyboardHeight = keyboardBounds.size.height;
+    //上移动画options
+    UIViewKeyframeAnimationOptions options = (UIViewKeyframeAnimationOptions)[[info valueForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
+    [UIView animateKeyframesWithDuration:animationDuration delay:0 options:options animations:^{
+        self.transform = CGAffineTransformMakeTranslation(0, -keyboardHeight);
+    } completion:nil];
+}
+-(void)keyboardDOWN:(NSNotification *)sender{
+    NSDictionary *info = sender.userInfo;
+    //取出动画时长
+    CGFloat animationDuration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    //下移动画options
+    UIViewKeyframeAnimationOptions options = (UIViewAnimationOptions)[[info valueForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
+    //回复动画
+    [UIView animateKeyframesWithDuration:animationDuration delay:0 options:options animations:^{
+        self.transform = CGAffineTransformIdentity;
+    } completion:nil];
+}
+//最后释放通知
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
+*/
 -(PlantSettingViewModel *)planVM {
     if (!_planVM) {
         _planVM = [[PlantSettingViewModel alloc]initViewModel];

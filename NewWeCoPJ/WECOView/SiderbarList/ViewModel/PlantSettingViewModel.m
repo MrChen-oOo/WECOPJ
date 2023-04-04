@@ -12,9 +12,9 @@
 
 
 // 获取计划时间数据
--(void)getInverterTimeSoltMsgWithCompleteBlock:(void(^)(NSString *resultStr))completeBlock {
+-(void)getInverterTimeSoltMsgWithCompleteBlock:(void(^)(NSString *, NSString *))completeBlock {
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/terminal/setting/getInverterTimeSolt",HEAD_URL];
-
+//    NSString *urlStr = @"http://172.16.75.171:8080/api/terminal/setting/getInverterTimeSolt";
     NSDictionary *dic = @{@"deviceSn":self.deviceStr};
     [PlantSettingViewModel requestGetForURL:urlStr withParam:dic withSuccess:^(id  _Nonnull resultData) {
         if ([self judgeSuccess:resultData] == YES) {
@@ -31,17 +31,17 @@
                     [self.batteryChargArray addObject:model];
                 }
             }
-            completeBlock ? completeBlock(@"") : nil;
+            completeBlock ? completeBlock(@"",@"") : nil;
         } else {
-            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"]) : nil;
+            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"],[resultData objectForKey:@"errCode"]) : nil;
         }
-    } orFail:^(NSError * _Nonnull errorMsg) {
-        completeBlock ? completeBlock(@"Network request failure") : nil;
+    } orFail:^(NSString * _Nonnull errorMsg) {
+        completeBlock ? completeBlock(errorMsg,@"") : nil;
     }];
 }
 
 // 设置计划时间数据
--(void)setUpPlantModelParamCompleteBlock:(void(^)(NSString *resultStr))completeBlock {
+-(void)setUpPlantModelParamCompleteBlock:(void(^)(NSString *, NSString *))completeBlock {
     
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/terminal/setting/setUpPlantModel",HEAD_URL];
 
@@ -73,18 +73,18 @@
     NSDictionary *param = @{@"charge":chargeArray,@"disCharge":disChargArray,@"deviceSn":self.deviceStr};
     [PlantSettingViewModel requestPostForURL:urlStr withParam:[self gs_jsonStringCompactFormatForDictionary:param] withSuccess:^(id  _Nonnull resultData) {
         if ([self judgeSuccess:resultData] == YES) {
-            completeBlock ? completeBlock(@"") : nil;
+            completeBlock ? completeBlock(@"",@"") : nil;
         } else {
-            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"]) : nil;
+            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"],[resultData objectForKey:@"errCode"]) : nil;
         }
-    } orFail:^(NSError * _Nonnull errorMsg) {
-        completeBlock ? completeBlock(@"Network request failur") : nil;
+    } orFail:^(NSString * _Nonnull errorMsg) {
+        completeBlock ? completeBlock(errorMsg,@"") : nil;
     }];
 }
 
 
 // HMI充放电计划时间获取
-- (void)getHmiTimeSoltMsgWithCompleteBlock:(void(^)(NSString *resultStr))completeBlock {
+- (void)getHmiTimeSoltMsgWithCompleteBlock:(void(^)(NSString *, NSString *))completeBlock {
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/terminal/setting/getHmiTimeSolt",HEAD_URL];
     NSDictionary *dic = @{@"deviceSn":self.deviceStr};
     [PlantSettingViewModel requestGetForURL:urlStr withParam:dic withSuccess:^(id  _Nonnull resultData) {
@@ -102,17 +102,17 @@
                     [self.batteryChargArray addObject:model];
                 }
             }
-            completeBlock ? completeBlock(@"") : nil;
+            completeBlock ? completeBlock(@"",@"") : nil;
         } else {
-            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"]) : nil;
+            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"],[resultData objectForKey:@"errCode"]) : nil;
         }
-    } orFail:^(NSError * _Nonnull errorMsg) {
-        completeBlock ? completeBlock(@"Network request failure") : nil;
+    } orFail:^(NSString * _Nonnull errorMsg) {
+        completeBlock ? completeBlock(errorMsg,@"") : nil;
     }];
 }
 
 // HMI电价与时间段获取
-- (void)getHmiElectricityPriceCompleteBlock:(void(^)(NSString *resultStr))completeBlock {
+- (void)getHmiElectricityPriceCompleteBlock:(void(^)(NSString *, NSString *))completeBlock {
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/terminal/setting/getElectricityPrice",HEAD_URL];
     NSDictionary *dic = @{@"deviceSn":self.deviceStr};
     [PlantSettingViewModel requestGetForURL:urlStr withParam:dic withSuccess:^(id  _Nonnull resultData) {
@@ -128,17 +128,17 @@
             [self.electricityPriceArray addObject: [self getShowPriceArray:self.priceModel.peakList]];
             [self.electricityPriceArray addObject: [self getShowPriceArray:self.priceModel.ordinaryList]];
             [self.electricityPriceArray addObject: [self getShowPriceArray:self.priceModel.valleyList]];
-            completeBlock ? completeBlock(@"") : nil;
+            completeBlock ? completeBlock(@"",@"") : nil;
         } else {
-            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"]) : nil;
+            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"],[resultData objectForKey:@"errCode"]) : nil;
         }
-    } orFail:^(NSError * _Nonnull errorMsg) {
-        completeBlock ? completeBlock(@"Network request failure") : nil;
+    } orFail:^(NSString * _Nonnull errorMsg) {
+        completeBlock ? completeBlock(errorMsg,@"") : nil;
     }];
 }
 
 // HMI电价与时间段设置
-- (void)setHmiElectricityPriceCompleteBlock:(void(^)(NSString *resultStr))completeBlock {
+- (void)setHmiElectricityPriceCompleteBlock:(void(^)(NSString *, NSString *))completeBlock {
     
     NSMutableDictionary *allDic = [NSMutableDictionary dictionary];
 
@@ -184,19 +184,16 @@
         }
     }
     
-    
-    
-    
     [allDic setValue:self.deviceStr forKey:@"deviceSn"];
     NSString *urlStr = [NSString stringWithFormat:@"%@/api/terminal/setting/setElectricityPrice",HEAD_URL];
     [PlantSettingViewModel requestPostForURL:urlStr withParam:[self gs_jsonStringCompactFormatForDictionary:allDic] withSuccess:^(id  _Nonnull resultData) {
         if ([self judgeSuccess:resultData] == YES) {
-            completeBlock ? completeBlock(@"") : nil;
+            completeBlock ? completeBlock(@"",@"") : nil;
         } else {
-            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"]) : nil;
+            completeBlock ? completeBlock([resultData objectForKey:@"errMessage"],[resultData objectForKey:@"errCode"]) : nil;
         }
-    } orFail:^(NSError * _Nonnull errorMsg) {
-        completeBlock ? completeBlock(@"Network request failure") : nil;
+    } orFail:^(NSString * _Nonnull errorMsg) {
+        completeBlock ? completeBlock(errorMsg,@"") : nil;
     }];
 }
 
@@ -266,7 +263,7 @@
 
 -(NSMutableArray *)electricityTitleArray {
     if (!_electricityTitleArray) {
-        _electricityTitleArray = [NSMutableArray arrayWithObjects:@"TOP",@"PEAK",@"OFF PEAK",@"PLAT", nil];
+        _electricityTitleArray = [NSMutableArray arrayWithObjects:@"Top",@"Peak",@"Flat",@"Valley", nil];
 
     }
     return _electricityTitleArray;

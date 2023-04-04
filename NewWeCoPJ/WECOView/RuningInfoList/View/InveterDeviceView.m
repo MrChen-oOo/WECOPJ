@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong)UITableView * inveterTableView;
 @property (nonatomic, strong)InveterViewModel *inveterVM;
-@property (nonatomic, strong) UIPageControl *basicPageC;
 
 @end
 
@@ -32,16 +31,13 @@
 
 - (void)creatUI {
     [self addSubview:self.inveterTableView];
-    
-    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
-    [footView addSubview:self.basicPageC];
-    self.inveterTableView.tableFooterView  = footView;
+
     
     // 下拉刷新
     @WeakObj(self)
     MJRefreshNormalHeader *reloadHeader  = [MJRefreshNormalHeader  headerWithRefreshingBlock:^{
         selfWeak.headerRealoadBlock ? selfWeak.headerRealoadBlock() : nil;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [selfWeak.inveterTableView.mj_header endRefreshing];
         });
     }];
@@ -119,7 +115,7 @@
 
 - (UITableView *) inveterTableView {
     if (!_inveterTableView) {
-        _inveterTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight) style:UITableViewStyleGrouped];
+        _inveterTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavBarHeight - 30) style:UITableViewStyleGrouped];
         _inveterTableView.showsVerticalScrollIndicator = NO;
         _inveterTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _inveterTableView.delegate = self;
@@ -136,20 +132,6 @@
         _inveterVM = [[InveterViewModel alloc]initViewModel];
     }
     return _inveterVM;
-}
-
-
--(UIPageControl *)basicPageC {
-    if(!_basicPageC) {
-        _basicPageC = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
-        _basicPageC.numberOfPages = 3;
-        _basicPageC.backgroundColor = [UIColor whiteColor];
-        _basicPageC.pageIndicatorTintColor = HexRGB(0xd8d8d8);
-        _basicPageC.currentPageIndicatorTintColor = HexRGB(0x4776FF);
-        _basicPageC.currentPage = 0;
-        _basicPageC.userInteractionEnabled = NO;
-    }
-    return _basicPageC;
 }
 
 @end

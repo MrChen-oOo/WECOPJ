@@ -263,8 +263,8 @@
 }
 - (void)GoUsert{
     
-    WeProtocolVC *provc = [[WeProtocolVC alloc]init];
-    [self.navigationController pushViewController:provc animated:YES];
+//    WeProtocolVC *provc = [[WeProtocolVC alloc]init];
+//    [self.navigationController pushViewController:provc animated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

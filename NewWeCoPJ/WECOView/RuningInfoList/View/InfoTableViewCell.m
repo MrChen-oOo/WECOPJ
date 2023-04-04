@@ -55,44 +55,48 @@
         value = @"0";
     }
     
+    CGFloat valueFloat = [value floatValue];
     NSString *unitStr = @"";
-    // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 HZ 5:% 6:摄氏度 C° 7:版本号 前面加V
+    // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 Hz 5:% 6:摄氏度 C° 7:版本号 前面加V 8:kVar
     switch (unit) {
         case 0:
             unitStr = [NSString stringWithFormat:@"%@",value];
             break;
         case 1:
-            unitStr = [NSString stringWithFormat:@"%@V",value];
+            unitStr = [NSString stringWithFormat:@"%.fV",valueFloat];
             break;
         case 2:
-            unitStr = [NSString stringWithFormat:@"%@A",value];
+            unitStr = [NSString stringWithFormat:@"%.fA",valueFloat];
             break;
         case 3:
-            unitStr = [NSString stringWithFormat:@"%@kW",value];
+            unitStr = [NSString stringWithFormat:@"%.fkW",valueFloat];
             break;
         case 4:
-            unitStr = [NSString stringWithFormat:@"%@HZ",value];
+            unitStr = [NSString stringWithFormat:@"%.fHz",valueFloat];
             break;
         case 5:
             unitStr = [NSString stringWithFormat:@"%@%%",value];
             break;
         case 6:
-            unitStr = [NSString stringWithFormat:@"%@C°",value];
+            unitStr = [NSString stringWithFormat:@"%.fC°",valueFloat];
             break;
         case 7:
             unitStr = [NSString stringWithFormat:@"V%@",value];
+            break;
+        case 8:
+            unitStr = [NSString stringWithFormat:@"%@kVar",value];
             break;
         default:
             break;
     }
     
     NSArray *basicWorkMode = @[@"Load Prioritized",@"Plan Mode"];
-    NSArray *pcsModelArray = @[@"Invalid",@"DC Constant Voltage",@"DC constant current",@"DC constant power",@"AC Constant Voltage",@"AC constant current",@"AC constant power"];
-    NSArray *pcsInfoStatusArray = @[@"Invalid",@"Shutdown",@"Self-check",@"On-Grid running",@"Off-Grid running"];
+    NSArray *pcsModelArray = @[@"No Avail",@"DC Constant Voltage",@"DC Constant Current",@"DC Constant Power",@"AC Constant Voltage",@"AC Constant Current",@"AC Constant Power"];
+    NSArray *pcsInfoStatusArray = @[@"No Avail",@"Standby",@"Self-Check",@"On-Grid",@"Off-Grid"];
     
-    NSArray *pvInfoStausArray = @[@"Invalid",@"Shutdown",@"Self-check",@"Runing"];
+    NSArray *pvInfoStausArray = @[@"No Avail",@"Standby",@"Self-Check",@"Runing"];
     
-    NSArray *batteryStatusArray = @[@"Sleep",@"Charge",@"Discharge",@"Stand-by"];
+    NSArray *batteryStatusArray = @[@"Sleep",@"Charge",@"Discharge",@"Standby"];
     
     NSArray *invBasicInfoArray = @[@"Load Prioritized",@"Plan Mode",@"Bat Prioritized"];
     

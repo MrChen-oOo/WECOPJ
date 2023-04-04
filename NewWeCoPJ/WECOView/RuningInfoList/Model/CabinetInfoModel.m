@@ -20,7 +20,7 @@
 -(NSMutableArray<NSArray *> *)cabinetKeyOneArray {
     if (!_cabinetKeyOneArray) {
         NSArray *deviceInfo = @[@"Device SN",@"Work mode",@"Software Version",@"Firmware Version",@"Data Update Time"];
-        NSArray *pcsInfo = @[@"Mode",@"Status",@"AC A-Phase Voltage",@"AC B-Phase Voltage",@"AC C-Phase Voltage",@"AC A-Phase Current",@"AC B-Phase Current",@"AC C-Phase Current",@"AC Active Power",@"AC Reactive Power",@"AC Frequency",@"DC Port Voltage",@"DC Port Current",@"DC Port Power"];
+        NSArray *pcsInfo = @[@"Model",@"Status",@"AC A-Phase Voltage",@"AC B-Phase Voltage",@"AC C-Phase Voltage",@"AC A-Phase Current",@"AC B-Phase Current",@"AC C-Phase Current",@"AC Active Power",@"AC Reactive Power",@"AC Frequency",@"DC Port Voltage",@"DC Port Current",@"DC Port Power"];
         _cabinetKeyOneArray = [NSMutableArray arrayWithObjects:deviceInfo,pcsInfo, nil];
     }
     return _cabinetKeyOneArray;
@@ -42,11 +42,11 @@
 }
 
 -(NSMutableArray<NSArray *> *)cabinetUnitOneArray {
-    // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 HZ 5:% 6:摄氏度 C° 7:版本号 前面加V
+    // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 HZ 5:% 6:摄氏度 C° 7:版本号 前面加V 8:kVar
 
     if(!_cabinetUnitOneArray) {
         NSArray *deviceInfoArray = @[@"0",@"0",@"7",@"7",@"0"];
-        NSArray *pcsInfoArray = @[@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"3",@"5",@"1",@"1",@"3"];
+        NSArray *pcsInfoArray = @[@"0",@"0",@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"8",@"4",@"1",@"2",@"3"];
         _cabinetUnitOneArray = [NSMutableArray arrayWithObjects:deviceInfoArray,pcsInfoArray,nil];
     }
     return _cabinetUnitOneArray;
@@ -90,7 +90,7 @@
     if (!_cabinetUnitTwoArray) {
         
         NSArray *pvInfo = @[@"0",@"1",@"2",@"3",@"1",@"2",@"3"];
-        NSArray *gridInfo = @[@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"3",@"1",@"4"];
+        NSArray *gridInfo = @[@"1",@"1",@"1",@"2",@"2",@"2",@"3",@"3",@"4"];
         
         _cabinetUnitTwoArray = [NSMutableArray arrayWithObjects:pvInfo,gridInfo, nil];
     }
@@ -123,12 +123,12 @@
 
 -(void)addICabinetSectionThreeArray {
     [self.cabinetValueThreeArray removeAllObjects];
-    NSArray *batteryInfo = @[self.cabinetModel.batteryInfo.batteryRunStatus,self.cabinetModel.batteryInfo.batterySOC,self.cabinetModel.batteryInfo.batterySOH,self.cabinetModel.batteryInfo.batteryV,self.cabinetModel.batteryInfo.batteryCurrent,self.cabinetModel.batteryInfo.batteryMaxRechargeCurrent,self.cabinetModel.batteryInfo.batteryMaxDischargeCurrent,self.cabinetModel.batteryInfo.batteryAHighV,self.cabinetModel.batteryInfo.batteryALowV,self.cabinetModel.batteryInfo.batteryMinTemperature,self.cabinetModel.batteryInfo.batteryMaxTemperature];
+    NSArray *batteryInfo = @[self.cabinetModel.batteryInfo.batteryRunStatus,self.cabinetModel.batteryInfo.batterySOC,self.cabinetModel.batteryInfo.batterySOH,self.cabinetModel.batteryInfo.batteryV,self.cabinetModel.batteryInfo.batteryCurrent,self.cabinetModel.batteryInfo.batteryMaxRechargeCurrent,self.cabinetModel.batteryInfo.batteryMaxDischargeCurrent,self.cabinetModel.batteryInfo.batteryALowV,self.cabinetModel.batteryInfo.batteryAHighV,self.cabinetModel.batteryInfo.batteryMinTemperature,self.cabinetModel.batteryInfo.batteryMaxTemperature];
     [self.cabinetValueThreeArray addObject:batteryInfo];
 }
 
 -(NSMutableArray<NSArray *> *)cabinetUnitThreeArray {
-    // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 HZ 5:% 6:摄氏度 C° 7:版本号 前面加V
+    // 0:无单位 1:伏特 V  2:安 A 3:千瓦 kW 4:赫兹 Hz 5:% 6:摄氏度 C° 7:版本号 前面加V
 
     if (!_cabinetUnitThreeArray) {
         NSArray *batteryInfo = @[@"0",@"5",@"5",@"1",@"2",@"2",@"2",@"1",@"1",@"6",@"6"];

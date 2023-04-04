@@ -29,20 +29,20 @@
 @property (nonatomic, assign) BOOL isTimeSet;
 
 // 逆变器充放电计划时间获取
--(void)getInverterTimeSoltMsgWithCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+-(void)getInverterTimeSoltMsgWithCompleteBlock:(void(^)(NSString *resultStr, NSString *codeStr))completeBlock;
 
 // 逆变器/HMI充放电计划时间设置
--(void)setUpPlantModelParamCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+-(void)setUpPlantModelParamCompleteBlock:(void(^)(NSString *resultStr, NSString *codeStr))completeBlock;
 
 
 // HMI充放电计划时间获取
-- (void)getHmiTimeSoltMsgWithCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+- (void)getHmiTimeSoltMsgWithCompleteBlock:(void(^)(NSString *resultStr, NSString *codeStr))completeBlock;
 
 // HMI电价与时间段获取
-- (void)getHmiElectricityPriceCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+- (void)getHmiElectricityPriceCompleteBlock:(void(^)(NSString *resultStr, NSString *codeStr))completeBlock;
 
 // HMI电价与时间段设置
-- (void)setHmiElectricityPriceCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+- (void)setHmiElectricityPriceCompleteBlock:(void(^)(NSString *resultStr, NSString *codeStr))completeBlock;
 
 @end
 

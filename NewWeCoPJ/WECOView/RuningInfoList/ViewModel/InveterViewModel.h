@@ -14,7 +14,7 @@
 @property (nonatomic, strong)InveterInfoModel *infoModel;
 @property (nonatomic, strong)NSString *deviceStr;
 
-- (void)getMgrnRunInfoMessageCompleteBlock:(void(^)(NSString *resultStr))completeBlock;
+- (void)getMgrnRunInfoMessageCompleteBlock:(void(^)(NSString *resultStr,NSString *codeStr))completeBlock;
 
 @end
 

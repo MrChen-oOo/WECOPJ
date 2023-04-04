@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *mpptThreeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *mpptFourBtn;
 
-
 @end
 
 @implementation BaseSegmentView
@@ -37,24 +36,18 @@
     self = [[NSBundle mainBundle] loadNibNamed:@"BaseSegmentView" owner:self options:nil].lastObject;;
     if (self) {
         [self setButtonSelectStatus];
+        
+        [self.mpptOneBtn setTitle:titleArray[0] forState:(UIControlStateNormal)];
+        [self.mpptTwoBtn setTitle:titleArray[1] forState:(UIControlStateNormal)];
+        [self.mpptThreeBtn setTitle:titleArray[2] forState:(UIControlStateNormal)];
+        [self.mpptFourBtn setTitle:titleArray[3] forState:(UIControlStateNormal)];
     }
     return self;
 }
 
 
 -(void)setButtonSelectStatus {
-//    self.mpptOneLabel.layer.masksToBounds = YES;
-//    self.mpptOneLabel.clipsToBounds = YES;
-    self.mpptOneLabel.layer.cornerRadius = 8;
-    
-    [self.mpptOneBtn setTitleColor:HexRGB(0x4776ff) forState:(UIControlStateSelected)];
-    [self.mpptOneBtn setTitleColor:HexRGB(0x333333) forState:(UIControlStateNormal)];
-    [self.mpptTwoBtn setTitleColor:HexRGB(0x4776ff) forState:(UIControlStateSelected)];
-    [self.mpptTwoBtn setTitleColor:HexRGB(0x333333) forState:(UIControlStateNormal)];
-    [self.mpptThreeBtn setTitleColor:HexRGB(0x4776ff) forState:(UIControlStateSelected)];
-    [self.mpptThreeBtn setTitleColor:HexRGB(0x333333) forState:(UIControlStateNormal)];
-    [self.mpptFourBtn setTitleColor:HexRGB(0x4776ff) forState:(UIControlStateSelected)];
-    [self.mpptFourBtn setTitleColor:HexRGB(0x333333) forState:(UIControlStateNormal)];
+
     [self changeBtnStatusAndLableStatusWithSelectBtn:self.mpptOneBtn oneBtn:self.mpptTwoBtn twoBtn:self.mpptThreeBtn threeBtn:self.mpptFourBtn
                                          SelectLabel:self.mpptOneLabel oneLabel:self.mpptTwoLabel twoLabel:self.mpptThreeLabel threeLabel:self.mpptFourLabel
                                          hiddenLabel:self.oneHiddenLabel oneLabel:self.twoHiddenLabel twoLabel:self.threeHiddenLabel threeLabel:self.fourHiddenLabel];
