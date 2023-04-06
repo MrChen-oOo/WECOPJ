@@ -55,7 +55,7 @@
                 [self showToastViewWithTitle:resultStr];
             });
         }
-        if ([codeStr isEqualToString:@""]) {
+        if ([codeStr isEqualToString:@"-1"]) {
             [selfWeak pushLogin];
         }
     }];

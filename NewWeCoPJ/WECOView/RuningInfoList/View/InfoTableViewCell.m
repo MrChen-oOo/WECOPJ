@@ -90,7 +90,7 @@
             break;
     }
     
-    NSArray *basicWorkMode = @[@"Load Prioritized",@"Plan Mode"];
+    NSArray *basicWorkMode = @[@"Auto Mode",@"Peak Shaving"];
     NSArray *pcsModelArray = @[@"No Avail",@"DC Constant Voltage",@"DC Constant Current",@"DC Constant Power",@"AC Constant Voltage",@"AC Constant Current",@"AC Constant Power"];
     NSArray *pcsInfoStatusArray = @[@"No Avail",@"Standby",@"Self-Check",@"On-Grid",@"Off-Grid"];
     
@@ -98,7 +98,7 @@
     
     NSArray *batteryStatusArray = @[@"Sleep",@"Charge",@"Discharge",@"Standby"];
     
-    NSArray *invBasicInfoArray = @[@"Load Prioritized",@"Plan Mode",@"Bat Prioritized"];
+    NSArray *invBasicInfoArray = @[@"Auto Mode",@"Peak Shaving",@"BBattery Priority"];
     
     switch (typeNum) {
         case 1:{

@@ -8,8 +8,8 @@
 #import "ChartsViewController.h"
 
 @interface ChartsViewController ()
-@property (weak, nonatomic) IBOutlet UIView *classificationView;     // 选项
-@property (weak, nonatomic) IBOutlet UIView *chartsView;             // 曲线图
+@property (weak, nonatomic) IBOutlet UIView *classificationView;     // 选项展示
+@property (weak, nonatomic) IBOutlet UIView *chartsView;             // 曲线图展示
 
 // 时间选择
 @property (weak, nonatomic) IBOutlet UIButton *todaybtn;
@@ -47,13 +47,18 @@
 - (IBAction)chooseTimeAction:(UIButton *)sender {
     
     // 0日  1周  2月   3年
-//    switch(sender.tag){
-//        case 100:
-//            break;
-//        case <#expression#>:
-//        default:
-//            break;
-//    }
+    switch(sender.tag){
+        case 100:
+            break;
+        case 101:
+            break;
+        case 102:
+            break;
+        case 103:
+            break;
+        default:
+            break;
+    }
 }
 
 

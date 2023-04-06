@@ -68,7 +68,7 @@
         return;
     }
     
-    self.avoidedLabel.text = [NSString stringWithFormat:@"%@t",self.homePageVM.homeModel.todayInfo.co2Awolided];
+    self.avoidedLabel.text = [NSString stringWithFormat:@"%@kg",self.homePageVM.homeModel.todayInfo.co2Awolided];
     self.pvEnergyLabel.text = [NSString stringWithFormat:@"%@kWh",self.homePageVM.homeModel.todayInfo.pvElectrical];
     self.gridExportedEnergyLabel.text = [NSString stringWithFormat:@"%@kWh",self.homePageVM.homeModel.todayInfo.gridTotalEnergy];
     self.gridImportedEnergyLabel.text = [NSString stringWithFormat:@"%@kWh",self.homePageVM.homeModel.todayInfo.purchasingTotalEnergy];

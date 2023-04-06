@@ -98,7 +98,7 @@
     if (self.homePageVM.deviceType == 1) {
         // 逆变器的工作模式
         NSArray *inverterSystemArray = @[@"Standby",@"Off Grid",@"On Grid",@"Off Grid PL",@"Service Mode",@"Open Test",@"Close Test",@"Inv To PFC"];
-        NSArray *inverterWorkModeArray = @[@"Load Prioritized",@"Plan Mode",@"Bat Prioritized"];
+        NSArray *inverterWorkModeArray = @[@"Auto Mode",@"Peak Shaving",@"Battery Priority"];
         systemStateStr = self.homePageVM.homeModel.systemState >= inverterSystemArray.count ? @"No Avail" : inverterSystemArray[self.homePageVM.homeModel.systemState];
         workModeStr = self.homePageVM.homeModel.workModel >= inverterWorkModeArray.count ? @"No Avail" : inverterWorkModeArray[self.homePageVM.homeModel.workModel];
         if (self.homePageVM.homeModel.online == 0) {
@@ -108,7 +108,7 @@
     } else {
         // HMI工作模式
         NSArray *inverterSystemArray = @[@"No Avail",@"Standby",@"Self Check",@"On Grid",@"Off Grid"];
-        NSArray *inverterWorkModeArray = @[@"No Avail",@"Bat Prioritized",@"Remote Mode",@"Plan Mode",@"No Avail",@"Local Mode",@"Load Prioritized"];
+        NSArray *inverterWorkModeArray = @[@"No Avail",@"Battery Priority",@"Remote Mode",@"Peak Shaving",@"No Avail",@"Local Mode",@"Auto Mode"];
         systemStateStr = self.homePageVM.homeModel.systemState >= inverterSystemArray.count ? @"No Avail" : inverterSystemArray[self.homePageVM.homeModel.systemState];
         workModeStr = self.homePageVM.homeModel.workModel >= inverterWorkModeArray.count ? @"No Avail" : inverterWorkModeArray[self.homePageVM.homeModel.workModel];
         if (self.homePageVM.homeModel.online == 0) {
@@ -165,9 +165,9 @@
     
     // 赋值操作
     [self.pvPowerImage setImage:[UIImage imageNamed: (self.homePageVM.homeModel.online == 1 && [self.homePageVM.homeModel.pvPower floatValue] > 0)? @"pvPowerOnline" : @"pvOffline"]];
-    [self.gridPowerImage setImage:[UIImage imageNamed:self.homePageVM.homeModel.online == 1 ? @"gridPowerOnline" : @"gridOffline"]];
+    [self.gridPowerImage setImage:[UIImage imageNamed:self.homePageVM.homeModel.online == 1 && [self.homePageVM.homeModel.gridPower floatValue] == 0 ? @"gridOffline" : @"gridPowerOnline"]];
     [self.gridLoadImage setImage:[UIImage imageNamed:(self.homePageVM.homeModel.online == 1 && [self.homePageVM.homeModel.loadPower floatValue] > 0)? @"gridLoadOnline" : @"gridLoadOffline"]];
-    [self.batteryImage setImage:[UIImage imageNamed:batteryImageString]];
+    [self.batteryImage setImage:[UIImage imageNamed: [self.homePageVM.homeModel.batPower floatValue] == 0 ? @"offline0" : batteryImageString]];
 
     self.pvPowerLabel.text = [NSString stringWithFormat:@"%@kW",self.homePageVM.homeModel.pvPower];
     self.gridLoadPowerLabel.text = [NSString stringWithFormat:@"%@kW",self.homePageVM.homeModel.loadPower];

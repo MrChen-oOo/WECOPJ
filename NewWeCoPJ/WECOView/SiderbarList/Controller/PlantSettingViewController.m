@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = self.isTimePlan == NO ? @"Electricity Price" : @"Plant Setting";
+    self.title = self.isTimePlan == NO ? @"Electricity Price" : @"Peak Shaving Setting";
     [self.plantTableView registerNib:[UINib nibWithNibName:@"PlantTableViewCell" bundle:nil] forCellReuseIdentifier:@"plantCell"];
     [self.view addSubview:self.plantTableView];
     [self addNavgationBarButton];

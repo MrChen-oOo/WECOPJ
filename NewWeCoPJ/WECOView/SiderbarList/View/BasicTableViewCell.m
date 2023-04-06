@@ -50,9 +50,8 @@
         self.indexPath = indexPath;
         self.deviceType = deviceType;
         [self.reloadBtn setTitle:@"" forState:(UIControlStateNormal)];
-        [self setBtnBackgroundColor];
         [self endEditing:YES];
-        
+        [self setBtnBackgroundColor];
         // SE
         if (kScreenWidth == 320) {
             [self changeSeUi];
@@ -76,9 +75,20 @@
 
 // 刷新按钮颜色
 - (void)setBtnBackgroundColor{
+    self.startBtn.layer.masksToBounds = YES;
+    self.startBtn.layer.borderWidth = 1;
+    self.startBtn.layer.borderColor = HexRGB(0x4776ff).CGColor;
     self.shutDownBtn.layer.masksToBounds = YES;
     self.shutDownBtn.layer.borderWidth = 1;
     self.shutDownBtn.layer.borderColor = HexRGB(0x4776ff).CGColor;
+}
+
+// 刷新按钮颜色
+- (void)setBtnBackgroundColorWith:(UIButton *)selectBtn noSelectBtn:(UIButton *)noSelectBtn {
+    [noSelectBtn setBackgroundColor:[UIColor whiteColor]];
+    [selectBtn setBackgroundColor:HexRGB(0x4776FF)];
+    selectBtn.selected = YES;
+    noSelectBtn.selected = NO;
 }
 
 
@@ -163,6 +173,17 @@
     }
     self.dataMsgLabel.text = labelText;
   
+    
+    if (valueArray.count == 8 && self.indexPath.section == 0 && self.indexPath.row == 7) {
+        if (girdInt == 1 || girdInt == 2) {
+            [self setBtnBackgroundColorWith:girdInt == 1 ? self.shutDownBtn : self.startBtn noSelectBtn:girdInt == 2 ? self.startBtn : self.shutDownBtn];
+        } else {
+            self.startBtn.selected = NO;
+            self.shutDownBtn.selected = NO;
+            [self.startBtn setBackgroundColor:[UIColor whiteColor]];
+            [self.shutDownBtn setBackgroundColor:[UIColor whiteColor]];
+        }
+    }
     
 }
 

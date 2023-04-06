@@ -31,7 +31,7 @@
 -(NSMutableArray<NSArray *> *)basicSettingOptionKeyArray {
     if (!_basicSettingOptionKeyArray) {
         
-        NSArray *workingModeArray = @[@"Load Prioritized",@"Plan Mode",@"Bat Prioritized"];
+        NSArray *workingModeArray = @[@"Auto Mode",@"Peak Shaving",@"Battery Priority"];
        
         NSArray *sysSettingArray = @[@"Date",@"Time",@"EPS Enable",@"PV Input Type",@"ARC Enable",@"Anti Reflux",@"CT Ratio"];
         
@@ -243,7 +243,7 @@
 -(NSMutableArray<NSArray *> *)cabinetBasicSettingOptionKeyArray {
     if (!_cabinetBasicSettingOptionKeyArray) {
         
-        NSArray *workingModeArray = @[@"Load Prioritized",@"Plan Mode"];
+        NSArray *workingModeArray = @[@"Auto Mode",@"Peak Shaving"];
        
         NSArray *sysSettingArray = @[@"Date",@"Time",@"Generator Capacity",@"Max Load Power"];
         
@@ -337,7 +337,7 @@
     if (!_cabinetBasicSettingUnitArray) {
         // 0:无单位 1:百分比 2:安 A  3:小时 h  4:瓦 W 5:千兆 kM 6:千瓦kW
         NSArray *workingModeArray = @[@"0",@"0"];
-        NSArray *sysSettingArray = @[@"0",@"0",@"0",@"6"];
+        NSArray *sysSettingArray = @[@"0",@"0",@"6",@"6"];
         NSArray *batSettingArray = @[@"1",@"1",@"1",@"1",@"1"];
         NSArray *gridSettingArray = @[@"6",@"6"];
         NSArray *heSettingArray = @[@"0"];
