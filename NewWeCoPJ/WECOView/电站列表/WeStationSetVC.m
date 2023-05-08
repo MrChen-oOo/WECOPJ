@@ -451,6 +451,15 @@
 }
 
 - (void)pickUpImage{
+    
+    [self showProgressView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self hideProgressView];
+
+    });
+
     NSLog(@"取照片");
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil
                                                                               message: nil
@@ -489,6 +498,8 @@
 //    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
 //    [ud setObject:imageData forKey:@"userPic"];
     _planimgv.image = image;
+    [self hideProgressView];
+
 }
 
 
@@ -591,6 +602,9 @@
         
         
     } failure:^(NSError *error) {
+        
+        [self showToastViewWithTitle:root_MAX_368];
+        
         [self hideProgressView];
     }];
     

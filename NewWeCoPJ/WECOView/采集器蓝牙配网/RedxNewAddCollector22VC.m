@@ -51,6 +51,17 @@
     self.isSeachDevSuccess = NO;
     
 }
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+    if (_isSeachTimer) {
+        [_isSeachTimer invalidate];
+        _isSeachTimer = nil;
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _param1=@"";
@@ -740,6 +751,10 @@
     
     if (_isINDataVC) {
         return;
+    }
+    if (_isSeachTimer) {
+        [_isSeachTimer invalidate];
+        _isSeachTimer = nil;
     }
     _isINDataVC = YES;
     BluetoolsDataSetVC *connwifivc = [[BluetoolsDataSetVC alloc]init];

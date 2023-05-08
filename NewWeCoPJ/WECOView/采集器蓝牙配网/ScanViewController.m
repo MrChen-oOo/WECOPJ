@@ -340,6 +340,7 @@ UIGestureRecognizerDelegate>
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self detect:image];
+    [self hideProgressView];
 }
 
 #pragma mark - private
@@ -434,6 +435,14 @@ UIGestureRecognizerDelegate>
 }
 
 - (void)enterPhotos{
+    
+    [self showProgressView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self hideProgressView];
+
+    });
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.delegate = self;

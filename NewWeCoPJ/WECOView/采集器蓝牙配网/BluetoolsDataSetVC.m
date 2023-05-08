@@ -14,6 +14,7 @@
 #import "RedxcollectorDownLoad.h"
 //#import "NormalQuestionVC.h"
 #import "WeNewOverView.h"
+#import "HomePageViewConViewController.h"
 
 @interface BluetoolsDataSetVC ()<BluetoolsManageVCDelegate>
 @property (nonatomic, strong)UITextField *wifiNameTF;
@@ -162,7 +163,7 @@
         BOOL isback = NO;
         for (UIViewController *homevc in self.navigationController.viewControllers) {
 
-            if([homevc isKindOfClass:[WeNewOverView class]]){
+            if([homevc isKindOfClass:[HomePageViewConViewController class]]){
 
                 isback = YES;
                 [self.navigationController popToViewController:homevc animated:YES];
@@ -354,9 +355,7 @@
             if (kStringIsEmpty(wifiStatus) || wifiStatus.length == 0) {
                 return;
             }
-            if (![wifiStatus isEqualToString:@"4"] && ![wifiStatus isEqualToString:@"16"]) {//采集器在配置，继续查询
-                
-                
+            if ([wifiStatus intValue] != 4 && [wifiStatus intValue] != 16 && [wifiStatus intValue] != 3 && ![wifiStatus isEqualToString:@"4"] && ![wifiStatus isEqualToString:@"16"] && ![wifiStatus isEqualToString:@"3"]) {//采集器在配置，继续查询
                 return;
             }
             _failste2 = YES;
@@ -773,14 +772,14 @@
         [self showToastViewWithTitle:root_peizhi_shinewifi_shuru_wifi_mima];
         return;
     }
-//    if ([self isHaveIllegalChar:_wifiNameTF.text]) {
-//        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
-//        return;
-//    }
-//    if ([self isHaveIllegalChar:_wifiPswTF.text]) {
-//        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
-//        return;
-//    }
+    if ([self isHaveIllegalChar:_wifiNameTF.text]) {
+        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
+        return;
+    }
+    if ([self isHaveIllegalChar:_wifiPswTF.text]) {
+        [self showAlertViewWithTitle:root_tlx_set_654 message:@"" cancelButtonTitle:root_OK];
+        return;
+    }
     if (_settingView) {
         
      [_settingView removeFromSuperview];
@@ -1007,7 +1006,7 @@
         
         for (UIViewController *homevc in self.navigationController.viewControllers) {
 
-            if([homevc isKindOfClass:[WeNewOverView class]]){
+            if([homevc isKindOfClass:[HomePageViewConViewController class]]){
 
                 [self.navigationController popToViewController:homevc animated:YES];
             }
@@ -1190,7 +1189,7 @@
     BOOL isback = NO;
     for (UIViewController *homevc in self.navigationController.viewControllers) {
 
-        if([homevc isKindOfClass:[WeNewOverView class]]){
+        if([homevc isKindOfClass:[HomePageViewConViewController class]]){
 
             isback = YES;
             [self.navigationController popToViewController:homevc animated:YES];

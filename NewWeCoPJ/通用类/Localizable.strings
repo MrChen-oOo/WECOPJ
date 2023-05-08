@@ -488,7 +488,7 @@
 "228预设"="Preset";
 "229当前"="At present";
 "229电池充电功率"="Charging";
-"22验证码错误"="Verification code wrong";
+"22验证码错误"="Please enter the verfication code";
 "230PV总电量"="EpvTotal";
 "230预设充电方案"="Preset charge";
 "231(达到预设金额、电量、时长后停止充电)"="(Stop charging after reaching the preset amount, power, and duration)";

@@ -656,7 +656,7 @@
             //
         }
         RedxloginViewController *login =[[RedxloginViewController alloc]init];
-        [RedxUserInfo defaultUserInfo].userPassword = @"";
+//        [RedxUserInfo defaultUserInfo].userPassword = @"";
         [RedxUserInfo defaultUserInfo].isAutoLogin = NO;
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -669,7 +669,7 @@
         [self hideProgressView];
         
         RedxloginViewController *login =[[RedxloginViewController alloc]init];
-        [RedxUserInfo defaultUserInfo].userPassword = @"";
+//        [RedxUserInfo defaultUserInfo].userPassword = @"";
         [RedxUserInfo defaultUserInfo].isAutoLogin = NO;
         [[NSUserDefaults standardUserDefaults] synchronize];
         

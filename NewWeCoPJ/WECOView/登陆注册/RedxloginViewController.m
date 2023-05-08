@@ -50,19 +50,46 @@
 
 @property (nonatomic, assign) CGFloat langY;
 
+@property (nonatomic, strong) UIImageView *shadowImage;
+
 @end
 @implementation RedxloginViewController
 
+
+NSArray *allSubviews(UIView *aView) {
+ NSArray *results = [aView subviews];
+ for (UIView *eachView in aView.subviews)
+ {
+   NSArray *subviews = allSubviews(eachView);
+   if (subviews)
+     results = [results arrayByAddingObjectsFromArray:subviews];
+ }
+ return results;
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     
-    [self.navigationController setNavigationBarHidden:YES];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     [super viewWillAppear:animated];
-    
+    NSArray *subViews = allSubviews(self.navigationController.navigationBar);
+      for (UIView *view in subViews) {
+        if ([view isKindOfClass:[UIImageView class]] && view.bounds.size.height<1){
+         //实践后发现系统的横线高度为0.333
+          self.shadowImage = (UIImageView *)view;
+        }
+      }
+      self.shadowImage.hidden = YES;
 }
+
 
 -(void)viewDidAppear:(BOOL)animated{
     animated=NO;
+    
+
+//    [self.navigationController setNavigationBarHidden:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.shadowImage.hidden = NO;
+
+    
 //    if (_LogTypeForOSS!=1) {
 //        [self.navigationController setNavigationBarHidden:YES];
 //    }else{
@@ -75,7 +102,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _devicCount = @"0";
-    [self.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController setNavigationBarHidden:YES];
     [self addSubViews];
 //    [self getLoginType];
 
@@ -169,7 +196,7 @@
     
     CGSize namsize = IMAGE(@"loginUI2").size;
     CGFloat imgwide = (namsize.width* 50*HEIGHT_SIZE)/namsize.height;
-    UIImageView *namelogoView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2 - imgwide/2, kNavBarHeight, imgwide, 50*HEIGHT_SIZE)];
+    UIImageView *namelogoView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2 - imgwide/2, 0, imgwide, 50*HEIGHT_SIZE)];
     namelogoView.image = IMAGE(@"loginUI2");
     [_scrollView addSubview:namelogoView];
     
@@ -761,16 +788,30 @@
             [self showToastViewWithTitle:msg];
             NSLog(@"/v1/user/login=%@",datadic);
             if ([result isEqualToString:@"0"]) {
-                
-                [RedxUserInfo defaultUserInfo].isAutoLogin = _remebBtn.selected;
                 [RedxUserInfo defaultUserInfo].isRemeMe = _remebBtn.selected;
 
-                NSDictionary *oldDic=[[NSUserDefaults standardUserDefaults] objectForKey:oldNameAndPassword];
-                NSMutableDictionary *newNewDic=[NSMutableDictionary dictionaryWithDictionary:oldDic];
-                [newNewDic setObject:_loginUserPassword forKey:_loginUserName];
-                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                [defaults setObject:newNewDic forKey:oldNameAndPassword];
-                [defaults synchronize];
+                if (_remebBtn.selected) {
+                    [RedxUserInfo defaultUserInfo].isAutoLogin = YES;
+                    NSDictionary *oldDic=[[NSUserDefaults standardUserDefaults] objectForKey:oldNameAndPassword];
+                    NSMutableDictionary *newNewDic=[NSMutableDictionary dictionaryWithDictionary:oldDic];
+                    [newNewDic setObject:_loginUserPassword forKey:_loginUserName];
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    [defaults setObject:newNewDic forKey:oldNameAndPassword];
+                    [defaults synchronize];
+
+                }else{
+                    _loginUserPassword = @"";
+                    [RedxUserInfo defaultUserInfo].isAutoLogin = NO;
+                    NSDictionary *oldDic=[[NSUserDefaults standardUserDefaults] objectForKey:oldNameAndPassword];
+                    NSMutableDictionary *newNewDic=[NSMutableDictionary dictionaryWithDictionary:oldDic];
+                    [newNewDic setObject:@"" forKey:_loginUserName];
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    [defaults setObject:newNewDic forKey:oldNameAndPassword];
+                    [defaults synchronize];
+                    
+                }
+
+                
                 
                 id objdic = datadic[@"obj"];
                 if([objdic isKindOfClass:[NSDictionary class]]){

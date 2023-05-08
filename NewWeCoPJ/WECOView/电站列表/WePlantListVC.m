@@ -472,8 +472,37 @@
                         self.nodataImgv.hidden = NO;
 
                     }
+                }else{
+                    
+                    _datasource = [NSMutableArray arrayWithArray:@[@[],@[],@[],@[]]];
+                    for (int i = 1; i < _Namearr.count; i++) {
+                        NSArray *oneArr = _datasource[i];
+                        UIButton *onebtn = [self.view viewWithTag:8800+i];
+                        
+                        [onebtn setTitle:[NSString stringWithFormat:@"%@(%d)",_Namearr[i],oneArr.count] forState:UIControlStateNormal];
+
+                    }
+                    self.PlanTablev.hidden = NO;
+                    [self.PlanTablev reloadData];
+                    self.PlanTablev.hidden = YES;
+                    self.nodataImgv.hidden = NO;
                 }
 
+            }else{
+                _datasource = [NSMutableArray arrayWithArray:@[@[],@[],@[],@[]]];
+                for (int i = 1; i < _Namearr.count; i++) {
+                    NSArray *oneArr = _datasource[i];
+                    UIButton *onebtn = [self.view viewWithTag:8800+i];
+                    
+                    [onebtn setTitle:[NSString stringWithFormat:@"%@(%d)",_Namearr[i],oneArr.count] forState:UIControlStateNormal];
+
+                }
+                self.PlanTablev.hidden = NO;
+                [self.PlanTablev reloadData];
+                self.PlanTablev.hidden = YES;
+                self.nodataImgv.hidden = NO;
+
+                
             }
 //
         }

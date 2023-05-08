@@ -121,6 +121,14 @@
 
 
 - (void)pickUpImage{
+    
+    [self showProgressView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self hideProgressView];
+
+    });
     NSLog(@"取照片");
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil
                                                                               message: nil
@@ -159,6 +167,8 @@
 //    [ud setObject:imageData forKey:@"userPic"];
     _headimgv.image = image;
     [self saveHeaderIMG:imageData];
+    [self hideProgressView];
+
 }
 
 - (void)saveHeaderIMG:(NSData *)imgdata{
